@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://images/ChrisSheet.png" type="Texture" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -6,7 +6,7 @@
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -17,13 +17,61 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("ChrisHolder/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -16, -198 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ChrisHolder:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ShadowHolder:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ShadowHolder:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.3, 0.3 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
 length = 3.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -35,12 +83,142 @@ tracks/0/keys = {
 "values": [ 0, 1, 0, 1, 0, 1 ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "jump_high"
+length = 1.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15, 0.35, 0.7, 0.8, 0.9, 0.95, 1.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 0, 4, 0, 3, 0, 4, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ChrisHolder/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.3, 0.35, 0.5, 0.65, 0.7, 0.95 ),
+"transitions": PoolRealArray( 1, 0.466516, 0.406126, 0.535887, 2.2974, 1176.27, 0.926824, 4.92458 ),
+"update": 0,
+"values": [ Vector2( -16, -198 ), Vector2( -16, -220 ), Vector2( -16, -310 ), Vector2( -16, -330 ), Vector2( -16, -370 ), Vector2( -16, -330 ), Vector2( -16, -310 ), Vector2( -16, -198 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ChrisHolder:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.05, 0.5, 0.95 ),
+"transitions": PoolRealArray( 0.5, 2.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1.36422e-12, -200 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ShadowHolder:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ShadowHolder:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 0.5, 2.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0.3, 0.3 ), Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.3 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "jump_low"
+length = 0.9
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.25, 0.5, 0.55, 0.6, 0.65, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 0, 4, 0, 3, 0, 4, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ChrisHolder/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2, 0.25, 0.35, 0.45, 0.5, 0.65 ),
+"transitions": PoolRealArray( 1, 0.466516, 0.406126, 0.535887, 2.2974, 1176.27, 0.926824, 4.92458 ),
+"update": 0,
+"values": [ Vector2( -16, -198 ), Vector2( -16, -220 ), Vector2( -16, -310 ), Vector2( -16, -330 ), Vector2( -16, -370 ), Vector2( -16, -330 ), Vector2( -16, -310 ), Vector2( -16, -198 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ChrisHolder:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( -0.05 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ShadowHolder:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.35, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.196078 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ShadowHolder:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.35, 0.7 ),
+"transitions": PoolRealArray( 0.5, 2.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0.3, 0.3 ), Vector2( 0.4, 0.4 ), Vector2( 0.3, 0.3 ) ]
+}
+
 [sub_resource type="Animation" id=5]
 resource_name = "shift_back"
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -57,7 +235,7 @@ resource_name = "shift_crouch"
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -73,7 +251,7 @@ tracks/0/keys = {
 resource_name = "shift_forward"
 length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -89,9 +267,24 @@ tracks/0/keys = {
 
 [node name="Player" type="Node2D" parent="."]
 position = Vector2( 487, 462 )
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="Player"]
+[node name="ShadowHolder" type="Node2D" parent="Player"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, -16 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Sprite" type="Sprite" parent="Player/ShadowHolder"]
+position = Vector2( -16, -134 )
+texture = ExtResource( 1 )
+hframes = 2
+vframes = 3
+frame = 5
+
+[node name="ChrisHolder" type="Node2D" parent="Player"]
+
+[node name="Sprite" type="Sprite" parent="Player/ChrisHolder"]
 position = Vector2( -16, -198 )
 texture = ExtResource( 1 )
 hframes = 2
@@ -101,6 +294,8 @@ vframes = 3
 autoplay = "idle"
 anims/RESET = SubResource( 2 )
 anims/idle = SubResource( 1 )
+anims/jump_high = SubResource( 6 )
+anims/jump_low = SubResource( 7 )
 anims/shift_back = SubResource( 5 )
 anims/shift_crouch = SubResource( 3 )
 anims/shift_forward = SubResource( 4 )

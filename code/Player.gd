@@ -1,21 +1,35 @@
 extends Node2D
 
-const SPEED := 500.0
+const CROUNCH_WINDOW_TIME := 0.3
+const SPEED               := 500.0
 
 onready var anim = $AnimationPlayer
 
 # var shift_action_string_arr = ['shift_crouch', 'shift_forward', 'shift_back']
 
+var crounchWindowTimer := CROUNCH_WINDOW_TIME
+
 func _process(delta: float) -> void:
-	# shifting weight
-	if _check_release_shift():
-		anim.play('idle')
-	if Input.is_action_pressed('shift_crouch'):
-		anim.play('shift_crouch')
-	elif Input.is_action_pressed('shift_forward'):
-		anim.play('shift_forward')
-	elif Input.is_action_pressed('shift_back'):
-		anim.play('shift_back')
+	# shifting weight and jumping
+	if not anim.current_animation.begins_with('jump'):
+		if _check_release_shift():
+			anim.play('idle')
+		if Input.is_action_pressed('shift_jump'):
+			if 0.0 < crounchWindowTimer:
+				anim.play('jump_high')
+			else:
+				anim.play('jump_low')
+			anim.queue('idle')
+		elif Input.is_action_pressed('shift_crouch'):
+			crounchWindowTimer = CROUNCH_WINDOW_TIME
+			anim.play('shift_crouch')
+		elif Input.is_action_pressed('shift_forward'):
+			anim.play('shift_forward')
+		elif Input.is_action_pressed('shift_back'):
+			anim.play('shift_back')
+	if 0.0 < crounchWindowTimer:
+		crounchWindowTimer -= delta
+	crounchWindowTimer = max(0.0, crounchWindowTimer)
 
 	# movement
 	var movementDirection = Vector2(
