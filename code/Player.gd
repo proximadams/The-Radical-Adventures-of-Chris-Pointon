@@ -1,13 +1,25 @@
 extends Node2D
 
 const CROUNCH_WINDOW_TIME := 0.3
-const SPEED               := 500.0
+const SPEED               := 300.0
 
-onready var anim = $AnimationPlayer
+onready var anim     : AnimationPlayer = $VisualAnimationPlayer
+onready var animHurt : AnimationPlayer = $HurtAnimationPlayer
 
 # var shift_action_string_arr = ['shift_crouch', 'shift_forward', 'shift_back']
 
 var crounchWindowTimer := CROUNCH_WINDOW_TIME
+
+enum {
+	NORMAL,
+	GRINDING,
+	HURT
+}
+
+var state := NORMAL
+
+func _ready() -> void:
+	var _res = $PlayerHurtableArea.connect('player_is_hurt', self, 'hurt_me')
 
 func _process(delta: float) -> void:
 	# shifting weight and jumping
@@ -48,3 +60,7 @@ func _check_release_shift() -> bool:
 	var hasReleased     : bool = (Input.is_action_just_released('shift_forward') or Input.is_action_just_released('shift_back') or Input.is_action_just_released('shift_crouch'))
 	var pressingNothing : bool = (not Input.is_action_pressed('shift_forward') and not Input.is_action_pressed('shift_back') and not Input.is_action_pressed('shift_crouch'))
 	return hasReleased and pressingNothing
+
+func hurt_me() -> void:
+	animHurt.play('hurt')
+	animHurt.queue('normal')

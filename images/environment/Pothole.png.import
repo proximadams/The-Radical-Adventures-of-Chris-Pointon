@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Background_Mock.png-4b8ca46ba6fde7d1aebd3a7c60831269.stex"
+path="res://.import/Pothole.png-8f92c4328fbe12a40ffdfd9078eb4646.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Background_Mock.png"
-dest_files=[ "res://.import/Background_Mock.png-4b8ca46ba6fde7d1aebd3a7c60831269.stex" ]
+source_file="res://images/environment/Pothole.png"
+dest_files=[ "res://.import/Pothole.png-8f92c4328fbe12a40ffdfd9078eb4646.stex" ]
 
 [params]
 
