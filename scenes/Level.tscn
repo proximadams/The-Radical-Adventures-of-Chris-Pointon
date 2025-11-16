@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://images/ChrisSheet.png" type="Texture" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
+[ext_resource path="res://images/shadow.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -232,8 +233,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "shift_crouch"
-length = 0.1
-loop = true
+length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
 tracks/0/interp = 1
@@ -241,10 +241,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 4 ]
+"values": [ 4, 5 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -276,10 +276,7 @@ position = Vector2( 0, -16 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="Sprite" type="Sprite" parent="Player/ShadowHolder"]
-position = Vector2( -16, -134 )
-texture = ExtResource( 1 )
-hframes = 2
-vframes = 3
+texture = ExtResource( 3 )
 frame = 5
 
 [node name="ChrisHolder" type="Node2D" parent="Player"]

@@ -21,8 +21,9 @@ func _process(delta: float) -> void:
 				anim.play('jump_low')
 			anim.queue('idle')
 		elif Input.is_action_pressed('shift_crouch'):
+			if crounchWindowTimer < CROUNCH_WINDOW_TIME* 0.9:
+				anim.play('shift_crouch')
 			crounchWindowTimer = CROUNCH_WINDOW_TIME
-			anim.play('shift_crouch')
 		elif Input.is_action_pressed('shift_forward'):
 			anim.play('shift_forward')
 		elif Input.is_action_pressed('shift_back'):
