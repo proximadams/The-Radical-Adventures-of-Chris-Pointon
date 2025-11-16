@@ -6,17 +6,18 @@ const SPEED               := 300.0
 onready var anim     : AnimationPlayer = $VisualAnimationPlayer
 onready var animHurt : AnimationPlayer = $HurtAnimationPlayer
 
-# var shift_action_string_arr = ['shift_crouch', 'shift_forward', 'shift_back']
-
-var crounchWindowTimer := CROUNCH_WINDOW_TIME
-
 enum {
-	NORMAL,
-	GRINDING,
-	HURT
+	NONE,
+	KICKFLIP,
+	SPIN
 }
 
-var state := NORMAL
+var crounchWindowTimer := CROUNCH_WINDOW_TIME
+var trickInputState := NONE
+var timeSinceInputShiftBack := 1000.0
+var timeSinceInputShiftCrouch := 1000.0
+var timeSinceInputShiftForward := 1000.0
+var timeSinceInputShiftJump := 1000.0
 
 func _ready() -> void:
 	var _res = $PlayerHurtableArea.connect('player_is_hurt', self, 'hurt_me')
@@ -59,6 +60,32 @@ func _process(delta: float) -> void:
 	)
 	movementDirection = movementDirection.normalized()
 	position += movementDirection * delta * SPEED
+	
+	# tricks
+	_listen_for_trick_inputs(delta)
+
+func _listen_for_trick_inputs(delta: float) -> void:
+	timeSinceInputShiftBack += delta
+	timeSinceInputShiftCrouch += delta
+	timeSinceInputShiftForward += delta
+	timeSinceInputShiftJump += delta
+	if Input.is_action_just_pressed('shift_back'):
+		timeSinceInputShiftBack = 0.0
+	if Input.is_action_just_pressed('shift_crouch'):
+		timeSinceInputShiftCrouch = 0.0
+	if Input.is_action_just_pressed('shift_forward'):
+		timeSinceInputShiftForward = 0.0
+	if Input.is_action_just_pressed('shift_jump'):
+		timeSinceInputShiftJump = 0.0
+
+func try_to_trick_jump() -> void:
+	var timeSpentJumping: float = anim.current_animation_position
+	if timeSinceInputShiftCrouch < timeSpentJumping and timeSinceInputShiftJump < timeSpentJumping:
+		anim.play('jump_high_kickflip')
+		anim.seek(timeSpentJumping)
+	if timeSinceInputShiftBack < timeSpentJumping and timeSinceInputShiftForward < timeSpentJumping:
+		anim.play('jump_high_360')
+		anim.seek(timeSpentJumping)
 
 func _check_release_shift() -> bool:
 	var hasReleased     : bool = (Input.is_action_just_released('shift_forward') or Input.is_action_just_released('shift_back') or Input.is_action_just_released('shift_crouch'))
