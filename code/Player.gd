@@ -3,7 +3,7 @@ extends Node2D
 const CROUNCH_WINDOW_TIME := 0.3
 const SPEED               := 300.0
 
-onready var anim     : AnimationPlayer = $VisualAnimationPlayer
+onready var anim     : AnimationPlayer = $NewVisualAnimationPlayer
 onready var animHurt : AnimationPlayer = $HurtAnimationPlayer
 
 # var shift_action_string_arr = ['shift_crouch', 'shift_forward', 'shift_back']
@@ -41,9 +41,13 @@ func _process(delta: float) -> void:
 				anim.play('shift_crouch')
 			crounchWindowTimer = CROUNCH_WINDOW_TIME
 		elif Input.is_action_pressed('shift_forward'):
-			anim.play('shift_forward')
+			if anim.current_animation != 'shift_forward' and anim.current_animation != 'hold_forward':
+				anim.play('shift_forward')
+				anim.queue('hold_forward')
 		elif Input.is_action_pressed('shift_back'):
-			anim.play('shift_back')
+			if anim.current_animation != 'shift_back' and anim.current_animation != 'hold_back':
+				anim.play('shift_back')
+				anim.queue('hold_back')
 	if 0.0 < crounchWindowTimer:
 		crounchWindowTimer -= delta
 	crounchWindowTimer = max(0.0, crounchWindowTimer)
