@@ -1,8 +1,114 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://images/ChrisSheet.png" type="Texture" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
 [ext_resource path="res://images/shadow.png" type="Texture" id=3]
+[ext_resource path="res://images/Background_Mock.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Group1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Group2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2048, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Group1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Group2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "move"
+length = 20.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Group1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10, 11 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -2048, 1.36422e-12 ), Vector2( 1843.2, 1.36422e-12 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Group2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 10, 20 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2048, 0 ), Vector2( 0, 0 ), Vector2( -2048, 1.36422e-12 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Group1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 10, 11 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Group2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -86,7 +192,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "jump_high"
-length = 1.25
+length = 1.35
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
@@ -95,7 +201,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.15, 0.35, 0.7, 0.8, 0.9, 0.95, 1.15 ),
+"times": PoolRealArray( 0, 0.05, 0.15, 0.35, 0.8, 0.9, 1, 1.05, 1.25 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 2, 3, 0, 4, 0, 3, 0, 4, 0 ]
@@ -107,10 +213,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05, 0.3, 0.35, 0.5, 0.65, 0.7, 0.95 ),
-"transitions": PoolRealArray( 1, 0.466516, 0.406126, 0.535887, 2.2974, 1176.27, 0.926824, 4.92458 ),
+"times": PoolRealArray( 0, 0.05, 0.3, 0.35, 0.5, 0.6, 0.75, 0.8, 1.05 ),
+"transitions": PoolRealArray( 1, 0.466516, 0.406126, 0.535887, 2.2974, 1, 1176.27, 0.926824, 4.92458 ),
 "update": 0,
-"values": [ Vector2( -16, -198 ), Vector2( -16, -220 ), Vector2( -16, -310 ), Vector2( -16, -330 ), Vector2( -16, -370 ), Vector2( -16, -330 ), Vector2( -16, -310 ), Vector2( -16, -198 ) ]
+"values": [ Vector2( -16, -198 ), Vector2( -16, -220 ), Vector2( -16, -310 ), Vector2( -16, -330 ), Vector2( -16, -370 ), Vector2( -16, -370 ), Vector2( -16, -330 ), Vector2( -16, -310 ), Vector2( -16, -198 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("ChrisHolder:position")
@@ -119,10 +225,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.05, 0.5, 0.95 ),
-"transitions": PoolRealArray( 0.5, 2.5, 1 ),
+"times": PoolRealArray( 0.05, 0.5, 0.6, 1.05 ),
+"transitions": PoolRealArray( 0.5, 2.5, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1.36422e-12, -200 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 1.36422e-12, -200 ), Vector2( 1.36422e-12, -200 ), Vector2( 0, 0 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("ShadowHolder:modulate")
@@ -131,7 +237,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
+"times": PoolRealArray( 0, 0.5, 1.1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 0 ) ]
@@ -143,7 +249,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
+"times": PoolRealArray( 0, 0.5, 1.1 ),
 "transitions": PoolRealArray( 0.5, 2.5, 1 ),
 "update": 0,
 "values": [ Vector2( 0.3, 0.3 ), Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.3 ) ]
@@ -263,7 +369,62 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
+[sub_resource type="Animation" id=8]
+resource_name = "shift_uncrouch"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
 [node name="Level" type="Node2D"]
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2( 12, 0 )
+
+[node name="Group1" type="Node2D" parent="Background"]
+
+[node name="SpriteLeft" type="Sprite" parent="Background/Group1"]
+position = Vector2( 500, 308 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="SpriteRight" type="Sprite" parent="Background/Group1"]
+position = Vector2( 1524, 308 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="Group2" type="Node2D" parent="Background"]
+position = Vector2( 2048, 0 )
+
+[node name="SpriteLeft" type="Sprite" parent="Background/Group2"]
+position = Vector2( 500, 308 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="SpriteRight" type="Sprite" parent="Background/Group2"]
+position = Vector2( 1524, 308 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
+autoplay = "move"
+playback_speed = 2.0
+anims/RESET = SubResource( 10 )
+anims/move = SubResource( 9 )
 
 [node name="Player" type="Node2D" parent="."]
 position = Vector2( 487, 462 )
@@ -296,3 +457,4 @@ anims/jump_low = SubResource( 7 )
 anims/shift_back = SubResource( 5 )
 anims/shift_crouch = SubResource( 3 )
 anims/shift_forward = SubResource( 4 )
+anims/shift_uncrouch = SubResource( 8 )

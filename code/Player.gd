@@ -13,7 +13,11 @@ func _process(delta: float) -> void:
 	# shifting weight and jumping
 	if not anim.current_animation.begins_with('jump'):
 		if _check_release_shift():
-			anim.play('idle')
+			if Input.is_action_just_released('shift_crouch'):
+				anim.play('shift_uncrouch')
+				anim.queue('idle')
+			else:
+				anim.play('idle')
 		if Input.is_action_pressed('shift_jump'):
 			if 0.0 < crounchWindowTimer:
 				anim.play('jump_high')
