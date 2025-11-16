@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ChrisSheet.png-e8af967b31eec412e4cf11ed8c5c3bb4.stex"
+path="res://.import/ChrisSheet.png-06b37a4e75da26b029f28f35602946cc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/ChrisSheet.png"
-dest_files=[ "res://.import/ChrisSheet.png-e8af967b31eec412e4cf11ed8c5c3bb4.stex" ]
+source_file="res://images/chris/ChrisSheet.png"
+dest_files=[ "res://.import/ChrisSheet.png-06b37a4e75da26b029f28f35602946cc.stex" ]
 
 [params]
 
