@@ -1,19 +1,13 @@
 extends Node2D
 
-const CROUNCH_WINDOW_TIME := 0.3
-const SPEED               := 300.0
+const CROUNCH_WINDOW_TIME    := 0.3
+const GROUND_180_WINDOW_TIME := 0.3
+const SPEED                  := 300.0
 
 onready var anim     : AnimationPlayer = $VisualAnimationPlayer
 onready var animHurt : AnimationPlayer = $HurtAnimationPlayer
 
-enum {
-	NONE,
-	KICKFLIP,
-	SPIN
-}
-
 var crounchWindowTimer := CROUNCH_WINDOW_TIME
-var trickInputState := NONE
 var timeSinceInputShiftBack := 1000.0
 var timeSinceInputShiftCrouch := 1000.0
 var timeSinceInputShiftForward := 1000.0
@@ -42,11 +36,11 @@ func _process(delta: float) -> void:
 				anim.play('shift_crouch')
 			crounchWindowTimer = CROUNCH_WINDOW_TIME
 		elif Input.is_action_pressed('shift_forward'):
-			if anim.current_animation != 'shift_forward' and anim.current_animation != 'hold_forward':
+			if anim.current_animation != 'shift_forward' and anim.current_animation != 'hold_forward' and not anim.current_animation.begins_with('turn'):
 				anim.play('shift_forward')
 				anim.queue('hold_forward')
 		elif Input.is_action_pressed('shift_back'):
-			if anim.current_animation != 'shift_back' and anim.current_animation != 'hold_back':
+			if anim.current_animation != 'shift_back' and anim.current_animation != 'hold_back' and not anim.current_animation.begins_with('turn'):
 				anim.play('shift_back')
 				anim.queue('hold_back')
 	if 0.0 < crounchWindowTimer:
@@ -63,6 +57,10 @@ func _process(delta: float) -> void:
 	
 	# tricks
 	_listen_for_trick_inputs(delta)
+	if (anim.current_animation == 'shift_back' or anim.current_animation == 'shift_forward' or anim.current_animation == 'hold_back' or anim.current_animation == 'hold_forward') and not anim.current_animation.begins_with('turn') and timeSinceInputShiftBack < GROUND_180_WINDOW_TIME and timeSinceInputShiftForward < GROUND_180_WINDOW_TIME:
+		anim.play('turn_180_ftb')
+		anim.queue('idle')
+
 
 func _listen_for_trick_inputs(delta: float) -> void:
 	timeSinceInputShiftBack += delta
@@ -90,7 +88,7 @@ func try_to_trick_jump() -> void:
 func _check_release_shift() -> bool:
 	var hasReleased     : bool = (Input.is_action_just_released('shift_forward') or Input.is_action_just_released('shift_back') or Input.is_action_just_released('shift_crouch'))
 	var pressingNothing : bool = (not Input.is_action_pressed('shift_forward') and not Input.is_action_pressed('shift_back') and not Input.is_action_pressed('shift_crouch'))
-	return hasReleased and pressingNothing
+	return hasReleased and pressingNothing and not anim.current_animation.begins_with('turn')
 
 func hurt_me() -> void:
 	animHurt.play('hurt')
