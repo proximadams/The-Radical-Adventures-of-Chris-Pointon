@@ -1,5 +1,6 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
+[ext_resource path="res://code/SpriteAdjustZ.gd" type="Script" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
 [ext_resource path="res://images/chris/Shadow.png" type="Texture" id=3]
 [ext_resource path="res://images/environment/Background_Mock.png" type="Texture" id=4]
@@ -621,6 +622,54 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 0, 1, 0, 1 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ChrisHolder:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ChrisHolder/Skateboard:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -16, -198 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ChrisHolder/Legs:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -16, -198 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ChrisHolder/Upper:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -16, -198 ) ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -1451,11 +1500,13 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 
 [node name="Barricade" type="Node2D" parent="Background/Group1"]
-position = Vector2( 239, 406 )
+position = Vector2( 1365, 471 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Sprite" type="Sprite" parent="Background/Group1/Barricade"]
 texture = ExtResource( 5 )
+script = ExtResource( 1 )
+offsetY = 80.0
 
 [node name="Area2D" type="Area2D" parent="Background/Group1/Barricade"]
 script = ExtResource( 13 )
@@ -1493,19 +1544,22 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 flip_h = true
 
-[node name="Ramp" type="Sprite" parent="Background/Group2"]
-position = Vector2( 1251, 174 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 10 )
-
 [node name="PipeBack" type="Sprite" parent="Background/Group2"]
-position = Vector2( 347, 377 )
+position = Vector2( 278, 412 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 6 )
 
 [node name="PipeFront" type="Sprite" parent="Background/Group2/PipeBack"]
+position = Vector2( -0.000244141, 0 )
 z_index = 3
 texture = ExtResource( 8 )
+script = ExtResource( 1 )
+offsetY = 70.0
+
+[node name="Ramp" type="Sprite" parent="Background/Group2"]
+position = Vector2( 1251, 174 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
 autoplay = "move"
@@ -1514,7 +1568,7 @@ anims/RESET = SubResource( 10 )
 anims/move = SubResource( 9 )
 
 [node name="Player" type="Node2D" parent="."]
-position = Vector2( 487, 486 )
+position = Vector2( 367, 486 )
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
 
