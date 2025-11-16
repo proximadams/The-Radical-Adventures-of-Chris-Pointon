@@ -3,7 +3,7 @@ extends Node2D
 const CROUNCH_WINDOW_TIME := 0.3
 const SPEED               := 300.0
 
-onready var anim     : AnimationPlayer = $NewVisualAnimationPlayer
+onready var anim     : AnimationPlayer = $VisualAnimationPlayer
 onready var animHurt : AnimationPlayer = $HurtAnimationPlayer
 
 # var shift_action_string_arr = ['shift_crouch', 'shift_forward', 'shift_back']

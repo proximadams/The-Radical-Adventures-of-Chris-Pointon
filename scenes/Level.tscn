@@ -1,6 +1,5 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=37 format=2]
 
-[ext_resource path="res://images/chris/ChrisSheet.png" type="Texture" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
 [ext_resource path="res://images/chris/Shadow.png" type="Texture" id=3]
 [ext_resource path="res://images/environment/Background_Mock.png" type="Texture" id=4]
@@ -128,333 +127,10 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=2]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("ChrisHolder/Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -16, -198 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("ChrisHolder:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("ShadowHolder:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("ShadowHolder:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0.3, 0.3 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("PlayerHurtableArea/CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=1]
-resource_name = "idle"
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 1.1, 2.7, 2.8, 2.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 0, 1, 0, 1 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("PlayerHurtableArea/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "jump_high"
-length = 1.35
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.15, 0.35, 0.8, 0.9, 1, 1.05, 1.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 2, 3, 0, 4, 0, 3, 0, 4, 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("ChrisHolder/Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05, 0.3, 0.35, 0.5, 0.6, 0.75, 0.8, 1.05 ),
-"transitions": PoolRealArray( 1, 0.466516, 0.406126, 0.535887, 2.2974, 1, 1176.27, 0.926824, 4.92458 ),
-"update": 0,
-"values": [ Vector2( -16, -198 ), Vector2( -16, -220 ), Vector2( -16, -310 ), Vector2( -16, -330 ), Vector2( -16, -370 ), Vector2( -16, -370 ), Vector2( -16, -330 ), Vector2( -16, -310 ), Vector2( -16, -198 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("ChrisHolder:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.05, 0.5, 0.6, 1.05 ),
-"transitions": PoolRealArray( 0.5, 2.5, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1.36422e-12, -200 ), Vector2( 1.36422e-12, -200 ), Vector2( 0, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("ShadowHolder:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.5, 1.1, 1.15 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.117647 ), Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 0.117647 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("ShadowHolder:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.5, 1.1 ),
-"transitions": PoolRealArray( 0.5, 2.5, 1 ),
-"update": 0,
-"values": [ Vector2( 0.3, 0.3 ), Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.3 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("PlayerHurtableArea/CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.05, 1, 1.05 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, true, false ]
-}
-
-[sub_resource type="Animation" id=7]
-resource_name = "jump_low"
-length = 0.9
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.25, 0.5, 0.55, 0.6, 0.65, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 2, 3, 0, 4, 0, 3, 0, 4, 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("ChrisHolder/Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05, 0.2, 0.25, 0.35, 0.45, 0.5, 0.65 ),
-"transitions": PoolRealArray( 1, 0.466516, 0.406126, 0.535887, 2.2974, 1176.27, 0.926824, 4.92458 ),
-"update": 0,
-"values": [ Vector2( -16, -198 ), Vector2( -16, -220 ), Vector2( -16, -310 ), Vector2( -16, -330 ), Vector2( -16, -370 ), Vector2( -16, -330 ), Vector2( -16, -310 ), Vector2( -16, -198 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("ChrisHolder:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( -0.05 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("ShadowHolder:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.35, 0.7, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.117647 ), Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 0.117647 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("ShadowHolder:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.35, 0.7 ),
-"transitions": PoolRealArray( 0.5, 2.5, 1 ),
-"update": 0,
-"values": [ Vector2( 0.3, 0.3 ), Vector2( 0.4, 0.4 ), Vector2( 0.3, 0.3 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("PlayerHurtableArea/CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.05, 0.6, 0.65 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, true, false ]
-}
-
-[sub_resource type="Animation" id=5]
-resource_name = "shift_back"
-length = 0.1
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 2 ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "shift_crouch"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 4, 5 ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "shift_forward"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 3 ]
-}
-
-[sub_resource type="Animation" id=8]
-resource_name = "shift_uncrouch"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("ChrisHolder/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 4 ]
-}
-
 [sub_resource type="Animation" id=17]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("NewChrisHolder/Upper:frame")
+tracks/0/path = NodePath("ChrisHolder/Upper:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -466,7 +142,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder/Upper:position")
+tracks/1/path = NodePath("ChrisHolder/Upper:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -478,7 +154,7 @@ tracks/1/keys = {
 "values": [ Vector2( -16, -198 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("NewChrisHolder:position")
+tracks/2/path = NodePath("ChrisHolder:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -526,7 +202,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("NewChrisHolder/Legs:frame")
+tracks/6/path = NodePath("ChrisHolder/Legs:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -538,7 +214,7 @@ tracks/6/keys = {
 "values": [ 10 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("NewChrisHolder/Skateboard:frame")
+tracks/7/path = NodePath("ChrisHolder/Skateboard:frame")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -550,7 +226,7 @@ tracks/7/keys = {
 "values": [ 0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("NewChrisHolder/Upper:frame")
+tracks/8/path = NodePath("ChrisHolder/Upper:frame")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -562,7 +238,7 @@ tracks/8/keys = {
 "values": [ 0 ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("NewChrisHolder/Legs:position")
+tracks/9/path = NodePath("ChrisHolder/Legs:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -574,7 +250,7 @@ tracks/9/keys = {
 "values": [ Vector2( -16, -198 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("NewChrisHolder/Skateboard:position")
+tracks/10/path = NodePath("ChrisHolder/Skateboard:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -592,7 +268,7 @@ length = 0.2
 loop = true
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("NewChrisHolder/Upper:frame")
+tracks/0/path = NodePath("ChrisHolder/Upper:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -604,7 +280,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder/Legs:frame")
+tracks/1/path = NodePath("ChrisHolder/Legs:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -616,7 +292,7 @@ tracks/1/keys = {
 "values": [ 14 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("NewChrisHolder/Skateboard:frame")
+tracks/2/path = NodePath("ChrisHolder/Skateboard:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -634,7 +310,7 @@ length = 0.15
 loop = true
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("NewChrisHolder/Upper:frame")
+tracks/0/path = NodePath("ChrisHolder/Upper:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -646,7 +322,7 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder/Legs:frame")
+tracks/1/path = NodePath("ChrisHolder/Legs:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -658,7 +334,7 @@ tracks/1/keys = {
 "values": [ 12 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("NewChrisHolder/Skateboard:frame")
+tracks/2/path = NodePath("ChrisHolder/Skateboard:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -687,7 +363,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder/Legs:frame")
+tracks/1/path = NodePath("ChrisHolder/Legs:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -699,7 +375,7 @@ tracks/1/keys = {
 "values": [ 10 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("NewChrisHolder/Skateboard:frame")
+tracks/2/path = NodePath("ChrisHolder/Skateboard:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -711,7 +387,7 @@ tracks/2/keys = {
 "values": [ 0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("NewChrisHolder/Upper:frame")
+tracks/3/path = NodePath("ChrisHolder/Upper:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -728,7 +404,7 @@ resource_name = "jump_high"
 length = 1.45
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("NewChrisHolder/Upper:position")
+tracks/0/path = NodePath("ChrisHolder/Upper:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -740,7 +416,7 @@ tracks/0/keys = {
 "values": [ Vector2( -16, -198 ), Vector2( -16, -220 ), Vector2( -16, -310 ), Vector2( -16, -350 ), Vector2( -16, -370 ), Vector2( -16, -370 ), Vector2( -16, -350 ), Vector2( -16, -310 ), Vector2( -16, -198 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder:position")
+tracks/1/path = NodePath("ChrisHolder:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -788,7 +464,7 @@ tracks/4/keys = {
 "values": [ false, true, true, false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("NewChrisHolder/Upper:frame")
+tracks/5/path = NodePath("ChrisHolder/Upper:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -800,7 +476,7 @@ tracks/5/keys = {
 "values": [ 2, 3, 0, 4, 0, 3, 0, 4, 5, 4, 0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("NewChrisHolder/Legs:frame")
+tracks/6/path = NodePath("ChrisHolder/Legs:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -812,7 +488,7 @@ tracks/6/keys = {
 "values": [ 14, 12, 14, 8, 10, 12, 10, 8, 6, 8, 10 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("NewChrisHolder/Skateboard:frame")
+tracks/7/path = NodePath("ChrisHolder/Skateboard:frame")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -824,7 +500,7 @@ tracks/7/keys = {
 "values": [ 8, 9, 0, 8, 0, 9, 0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("NewChrisHolder/Skateboard:position")
+tracks/8/path = NodePath("ChrisHolder/Skateboard:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -836,7 +512,7 @@ tracks/8/keys = {
 "values": [ Vector2( -16, -198 ), Vector2( -16, -210 ), Vector2( -16, -380 ), Vector2( -16, -380 ), Vector2( -16, -198 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("NewChrisHolder/Legs:position")
+tracks/9/path = NodePath("ChrisHolder/Legs:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -853,7 +529,7 @@ resource_name = "jump_high_360"
 length = 1.45
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("NewChrisHolder/Upper:position")
+tracks/0/path = NodePath("ChrisHolder/Upper:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -865,7 +541,7 @@ tracks/0/keys = {
 "values": [ Vector2( -16, -198 ), Vector2( -16, -210 ), Vector2( -16, -310 ), Vector2( -16, -350 ), Vector2( -16, -370 ), Vector2( -16, -370 ), Vector2( -16, -350 ), Vector2( -16, -310 ), Vector2( -16, -198 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder:position")
+tracks/1/path = NodePath("ChrisHolder:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -913,7 +589,7 @@ tracks/4/keys = {
 "values": [ false, true, true, false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("NewChrisHolder/Upper:frame")
+tracks/5/path = NodePath("ChrisHolder/Upper:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -925,7 +601,7 @@ tracks/5/keys = {
 "values": [ 2, 3, 0, 6, 7, 8, 9, 10, 7, 6, 0, 3, 0, 4, 5, 4, 0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("NewChrisHolder/Legs:frame")
+tracks/6/path = NodePath("ChrisHolder/Legs:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -937,7 +613,7 @@ tracks/6/keys = {
 "values": [ 14, 12, 14, 1, 3, 5, 11, 0, 2, 4, 8, 10, 12, 8, 6, 8, 10 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("NewChrisHolder/Skateboard:frame")
+tracks/7/path = NodePath("ChrisHolder/Skateboard:frame")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -949,7 +625,7 @@ tracks/7/keys = {
 "values": [ 8, 9, 0, 8, 10, 0, 10, 0, 9, 0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("NewChrisHolder/Skateboard:position")
+tracks/8/path = NodePath("ChrisHolder/Skateboard:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -961,7 +637,7 @@ tracks/8/keys = {
 "values": [ Vector2( -16, -198 ), Vector2( -16, -210 ), Vector2( -16, -380 ), Vector2( -16, -380 ), Vector2( -16, -198 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("NewChrisHolder/Legs:position")
+tracks/9/path = NodePath("ChrisHolder/Legs:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -978,7 +654,7 @@ resource_name = "jump_high_kickflip"
 length = 1.45
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("NewChrisHolder/Upper:position")
+tracks/0/path = NodePath("ChrisHolder/Upper:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -990,7 +666,7 @@ tracks/0/keys = {
 "values": [ Vector2( -16, -198 ), Vector2( -16, -220 ), Vector2( -16, -330 ), Vector2( -16, -360 ), Vector2( -16, -380 ), Vector2( -16, -380 ), Vector2( -16, -360 ), Vector2( -16, -330 ), Vector2( -16, -198 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder:position")
+tracks/1/path = NodePath("ChrisHolder:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1038,7 +714,7 @@ tracks/4/keys = {
 "values": [ false, true, true, false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("NewChrisHolder/Upper:frame")
+tracks/5/path = NodePath("ChrisHolder/Upper:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1050,7 +726,7 @@ tracks/5/keys = {
 "values": [ 2, 3, 0, 4, 0, 3, 0, 4, 5, 4, 0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("NewChrisHolder/Legs:frame")
+tracks/6/path = NodePath("ChrisHolder/Legs:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1062,7 +738,7 @@ tracks/6/keys = {
 "values": [ 14, 12, 14, 12, 14, 8, 10, 12, 10, 8, 6, 8, 10 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("NewChrisHolder/Skateboard:frame")
+tracks/7/path = NodePath("ChrisHolder/Skateboard:frame")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1074,7 +750,7 @@ tracks/7/keys = {
 "values": [ 8, 9, 0, 8, 1, 2, 3, 4, 5, 6, 7, 0, 9, 0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("NewChrisHolder/Skateboard:position")
+tracks/8/path = NodePath("ChrisHolder/Skateboard:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1086,7 +762,7 @@ tracks/8/keys = {
 "values": [ Vector2( -16, -198 ), Vector2( -16, -210 ), Vector2( -16, -350 ), Vector2( -16, -350 ), Vector2( -16, -340 ), Vector2( -16, -198 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("NewChrisHolder/Legs:position")
+tracks/9/path = NodePath("ChrisHolder/Legs:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -1103,7 +779,7 @@ resource_name = "jump_low"
 length = 0.9
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("NewChrisHolder/Upper:frame")
+tracks/0/path = NodePath("ChrisHolder/Upper:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1115,7 +791,7 @@ tracks/0/keys = {
 "values": [ 2, 3, 0, 4, 0, 3, 0, 4, 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder/Upper:position")
+tracks/1/path = NodePath("ChrisHolder/Upper:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1127,7 +803,7 @@ tracks/1/keys = {
 "values": [ Vector2( -16, -198 ), Vector2( -16, -220 ), Vector2( -16, -310 ), Vector2( -16, -340 ), Vector2( -16, -360 ), Vector2( -16, -340 ), Vector2( -16, -310 ), Vector2( -16, -198 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("NewChrisHolder:position")
+tracks/2/path = NodePath("ChrisHolder:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1175,7 +851,7 @@ tracks/5/keys = {
 "values": [ false, true, true, false ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("NewChrisHolder/Legs:frame")
+tracks/6/path = NodePath("ChrisHolder/Legs:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1187,7 +863,7 @@ tracks/6/keys = {
 "values": [ 14, 12, 14, 8, 10, 12, 8, 10 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("NewChrisHolder/Skateboard:frame")
+tracks/7/path = NodePath("ChrisHolder/Skateboard:frame")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1199,7 +875,7 @@ tracks/7/keys = {
 "values": [ 8, 9, 0, 8, 0, 9, 0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("NewChrisHolder/Legs:position")
+tracks/8/path = NodePath("ChrisHolder/Legs:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1211,7 +887,7 @@ tracks/8/keys = {
 "values": [ Vector2( -16, -198 ), Vector2( -16, -310 ), Vector2( -16, -360 ), Vector2( -16, -198 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("NewChrisHolder/Skateboard:position")
+tracks/9/path = NodePath("ChrisHolder/Skateboard:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -1228,7 +904,7 @@ resource_name = "shift_back"
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("NewChrisHolder/Upper:frame")
+tracks/0/path = NodePath("ChrisHolder/Upper:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1240,7 +916,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder/Legs:frame")
+tracks/1/path = NodePath("ChrisHolder/Legs:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1252,7 +928,7 @@ tracks/1/keys = {
 "values": [ 10, 14 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("NewChrisHolder/Skateboard:frame")
+tracks/2/path = NodePath("ChrisHolder/Skateboard:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1268,7 +944,7 @@ tracks/2/keys = {
 resource_name = "shift_crouch"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("NewChrisHolder/Upper:frame")
+tracks/0/path = NodePath("ChrisHolder/Upper:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1280,7 +956,7 @@ tracks/0/keys = {
 "values": [ 4, 5 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder/Skateboard:frame")
+tracks/1/path = NodePath("ChrisHolder/Skateboard:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1292,7 +968,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("NewChrisHolder/Legs:frame")
+tracks/2/path = NodePath("ChrisHolder/Legs:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1309,7 +985,7 @@ resource_name = "shift_forward"
 length = 0.15
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("NewChrisHolder/Upper:frame")
+tracks/0/path = NodePath("ChrisHolder/Upper:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1321,7 +997,7 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder/Legs:frame")
+tracks/1/path = NodePath("ChrisHolder/Legs:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1333,7 +1009,7 @@ tracks/1/keys = {
 "values": [ 10, 12 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("NewChrisHolder/Skateboard:frame")
+tracks/2/path = NodePath("ChrisHolder/Skateboard:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1350,7 +1026,7 @@ resource_name = "shift_uncrouch"
 length = 0.1
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("NewChrisHolder/Legs:frame")
+tracks/0/path = NodePath("ChrisHolder/Legs:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1362,7 +1038,7 @@ tracks/0/keys = {
 "values": [ 8 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder/Skateboard:frame")
+tracks/1/path = NodePath("ChrisHolder/Skateboard:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1374,7 +1050,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("NewChrisHolder/Upper:frame")
+tracks/2/path = NodePath("ChrisHolder/Upper:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1391,7 +1067,7 @@ resource_name = "turn_180_btf"
 length = 0.55
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("NewChrisHolder/Upper:frame")
+tracks/0/path = NodePath("ChrisHolder/Upper:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1403,7 +1079,7 @@ tracks/0/keys = {
 "values": [ 6, 7, 3, 2, 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder/Legs:frame")
+tracks/1/path = NodePath("ChrisHolder/Legs:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1415,7 +1091,7 @@ tracks/1/keys = {
 "values": [ 11, 0, 2, 4, 10 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("NewChrisHolder/Skateboard:frame")
+tracks/2/path = NodePath("ChrisHolder/Skateboard:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1432,7 +1108,7 @@ resource_name = "turn_180_ftb"
 length = 0.55
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("NewChrisHolder/Upper:frame")
+tracks/0/path = NodePath("ChrisHolder/Upper:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1444,7 +1120,7 @@ tracks/0/keys = {
 "values": [ 6, 7, 8, 9, 10, 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder/Legs:frame")
+tracks/1/path = NodePath("ChrisHolder/Legs:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1456,7 +1132,7 @@ tracks/1/keys = {
 "values": [ 10, 1, 3, 5, 11 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("NewChrisHolder/Skateboard:frame")
+tracks/2/path = NodePath("ChrisHolder/Skateboard:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1482,18 +1158,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
 
 [sub_resource type="Animation" id=16]
 resource_name = "hurt"
@@ -1506,18 +1170,6 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.15, 0.25, 0.35, 0.45, 0.55, 0.75, 0.85, 1.1, 1.25, 1.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.0784314 ), Color( 1, 1, 1, 0.196078 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.27451 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("NewChrisHolder:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 0.15, 0.25, 0.35, 0.45, 0.55, 0.7, 0.85, 1, 1.2, 1.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
@@ -1528,18 +1180,6 @@ tracks/1/keys = {
 resource_name = "normal"
 length = 0.1
 step = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("ChrisHolder:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
 
 [sub_resource type="CapsuleShape2D" id=11]
 radius = 58.0
@@ -1649,45 +1289,25 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 3 )
 
 [node name="ChrisHolder" type="Node2D" parent="Player"]
-visible = false
 
-[node name="Sprite" type="Sprite" parent="Player/ChrisHolder"]
-position = Vector2( -16, -198 )
-texture = ExtResource( 1 )
-hframes = 2
-vframes = 3
-
-[node name="NewChrisHolder" type="Node2D" parent="Player"]
-
-[node name="Skateboard" type="Sprite" parent="Player/NewChrisHolder"]
+[node name="Skateboard" type="Sprite" parent="Player/ChrisHolder"]
 position = Vector2( -16, -198 )
 texture = ExtResource( 11 )
 hframes = 11
 
-[node name="Legs" type="Sprite" parent="Player/NewChrisHolder"]
+[node name="Legs" type="Sprite" parent="Player/ChrisHolder"]
 position = Vector2( -16, -198 )
 texture = ExtResource( 14 )
 hframes = 2
 vframes = 8
 frame = 10
 
-[node name="Upper" type="Sprite" parent="Player/NewChrisHolder"]
+[node name="Upper" type="Sprite" parent="Player/ChrisHolder"]
 position = Vector2( -16, -198 )
 texture = ExtResource( 15 )
 hframes = 11
 
 [node name="VisualAnimationPlayer" type="AnimationPlayer" parent="Player"]
-autoplay = "idle"
-anims/RESET = SubResource( 2 )
-anims/idle = SubResource( 1 )
-anims/jump_high = SubResource( 6 )
-anims/jump_low = SubResource( 7 )
-anims/shift_back = SubResource( 5 )
-anims/shift_crouch = SubResource( 3 )
-anims/shift_forward = SubResource( 4 )
-anims/shift_uncrouch = SubResource( 8 )
-
-[node name="NewVisualAnimationPlayer" type="AnimationPlayer" parent="Player"]
 autoplay = "idle"
 anims/RESET = SubResource( 17 )
 anims/hold_back = SubResource( 30 )
