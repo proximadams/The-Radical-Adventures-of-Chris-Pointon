@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://code/SpriteAdjustZ.gd" type="Script" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://images/chris/UpperSheet.png" type="Texture" id=15]
 [ext_resource path="res://code/GrindableArea.gd" type="Script" id=16]
 [ext_resource path="res://code/PlayerGrindArea.gd" type="Script" id=17]
+[ext_resource path="res://fonts/CooperBlack-Std.ttf" type="DynamicFontData" id=18]
+[ext_resource path="res://code/TrickAnimationPlayer.gd" type="Script" id=19]
 
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 293, 48 )
@@ -438,6 +440,20 @@ tracks/11/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "grind"
+} ]
 }
 
 [sub_resource type="Animation" id=36]
@@ -916,6 +932,20 @@ tracks/12/keys = {
 "method": "try_to_trick_jump"
 } ]
 }
+tracks/13/type = "method"
+tracks/13/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "ollie"
+} ]
+}
 
 [sub_resource type="Animation" id=42]
 resource_name = "grind_end_jump_high_360"
@@ -1079,6 +1109,20 @@ tracks/12/keys = {
 "method": "try_to_trick_jump"
 } ]
 }
+tracks/13/type = "method"
+tracks/13/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spin_360"
+} ]
+}
 
 [sub_resource type="Animation" id=44]
 resource_name = "grind_end_jump_high_360_kickflip"
@@ -1227,6 +1271,20 @@ tracks/11/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "kickflip"
+} ]
 }
 
 [sub_resource type="Animation" id=45]
@@ -1388,6 +1446,20 @@ tracks/12/keys = {
 "transitions": PoolRealArray(  ),
 "values": [  ]
 }
+tracks/13/type = "method"
+tracks/13/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spin_360"
+} ]
+}
 
 [sub_resource type="Animation" id=39]
 resource_name = "grind_end_jump_high_720"
@@ -1536,6 +1608,20 @@ tracks/11/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spin_720"
+} ]
 }
 
 [sub_resource type="Animation" id=41]
@@ -1700,6 +1786,20 @@ tracks/12/keys = {
 "method": "try_to_trick_jump"
 } ]
 }
+tracks/13/type = "method"
+tracks/13/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0.699791 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "kickflip"
+} ]
+}
 
 [sub_resource type="Animation" id=43]
 resource_name = "grind_end_jump_high_kickflip_360"
@@ -1849,6 +1949,20 @@ tracks/11/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/12/type = "method"
+tracks/12/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spin_360"
+} ]
+}
 
 [sub_resource type="Animation" id=40]
 resource_name = "grind_end_jump_high_kickflip_kickflip"
@@ -1997,6 +2111,20 @@ tracks/11/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "kickflip_x2"
+} ]
 }
 
 [sub_resource type="Animation" id=46]
@@ -2157,6 +2285,20 @@ tracks/12/keys = {
 "times": PoolRealArray(  ),
 "transitions": PoolRealArray(  ),
 "values": [  ]
+}
+tracks/13/type = "method"
+tracks/13/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "kickflip"
+} ]
 }
 
 [sub_resource type="Animation" id=37]
@@ -2321,6 +2463,20 @@ tracks/12/keys = {
 "method": "try_to_trick_jump"
 } ]
 }
+tracks/13/type = "method"
+tracks/13/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "ollie"
+} ]
+}
 
 [sub_resource type="Animation" id=47]
 resource_name = "grind_end_jump_low_360"
@@ -2445,6 +2601,20 @@ tracks/9/keys = {
 "update": 0,
 "values": [ Vector2( -16, -363.62 ), Vector2( -16, -380 ), Vector2( -16, -380 ), Vector2( -16, -198 ) ]
 }
+tracks/10/type = "method"
+tracks/10/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spin_360"
+} ]
+}
 
 [sub_resource type="Animation" id=48]
 resource_name = "grind_end_jump_low_kickflip"
@@ -2568,6 +2738,20 @@ tracks/9/keys = {
 "transitions": PoolRealArray( 1, 2048, 1, 3.5, 1 ),
 "update": 0,
 "values": [ Vector2( -16, -330 ), Vector2( -16, -340 ), Vector2( -16, -380 ), Vector2( -16, -380 ), Vector2( -16, -198 ) ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "kickflip"
+} ]
 }
 
 [sub_resource type="Animation" id=31]
@@ -2717,6 +2901,20 @@ tracks/11/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/12/type = "method"
+tracks/12/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "grind"
+} ]
+}
 
 [sub_resource type="Animation" id=50]
 resource_name = "grind_forward_hold"
@@ -2823,6 +3021,20 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.15 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spin_180"
+} ]
 }
 
 [sub_resource type="Animation" id=51]
@@ -3345,6 +3557,20 @@ tracks/12/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1.36422e-12, -380 ), Vector2( 0, 0 ) ]
 }
+tracks/13/type = "method"
+tracks/13/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "ollie"
+} ]
+}
 
 [sub_resource type="Animation" id=26]
 resource_name = "jump_high_360"
@@ -3470,6 +3696,20 @@ tracks/9/keys = {
 "update": 0,
 "values": [ Vector2( -16, -198 ), Vector2( -16, -380 ), Vector2( -16, -380 ), Vector2( -16, -198 ) ]
 }
+tracks/10/type = "method"
+tracks/10/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spin_360"
+} ]
+}
 
 [sub_resource type="Animation" id=25]
 resource_name = "jump_high_kickflip"
@@ -3594,6 +3834,20 @@ tracks/9/keys = {
 "transitions": PoolRealArray( 0.5, 1, 1, 2048, 1, 3.5, 1 ),
 "update": 0,
 "values": [ Vector2( -16, -198 ), Vector2( -16, -350.88 ), Vector2( -16, -330 ), Vector2( -16, -340 ), Vector2( -16, -380 ), Vector2( -16, -380 ), Vector2( -16, -198 ) ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "kickflip"
+} ]
 }
 
 [sub_resource type="Animation" id=20]
@@ -3744,6 +3998,20 @@ tracks/11/keys = {
 "update": 1,
 "values": [ true, false, true ]
 }
+tracks/12/type = "method"
+tracks/12/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "ollie"
+} ]
+}
 
 [sub_resource type="Animation" id=21]
 resource_name = "shift_back"
@@ -3784,6 +4052,20 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 0, 8 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.15 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "manual"
+} ]
 }
 
 [sub_resource type="Animation" id=22]
@@ -3828,7 +4110,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=23]
 resource_name = "shift_forward"
-length = 0.15
+length = 0.2
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("ChrisHolder/Upper:frame")
@@ -3865,6 +4147,20 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 0, 9 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.15 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "nose_manual"
+} ]
 }
 
 [sub_resource type="Animation" id=24]
@@ -3919,7 +4215,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.25 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 6, 7, 3, 2, 0 ]
@@ -3931,7 +4227,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.15, 0.25, 0.35, 0.5 ),
+"times": PoolRealArray( 0, 0.15, 0.25, 0.3, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 11, 0, 2, 4, 10 ]
@@ -3943,10 +4239,24 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.5 ),
+"times": PoolRealArray( 0, 0.15, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 10, 0 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.35 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spin_180"
+} ]
 }
 
 [sub_resource type="Animation" id=27]
@@ -3988,6 +4298,20 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 10, 0 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("TrickLabels/TrickAnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.35 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spin_180"
+} ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -4046,6 +4370,501 @@ height = 83.9999
 [sub_resource type="CapsuleShape2D" id=34]
 radius = 30.0
 height = 52.0
+
+[sub_resource type="DynamicFont" id=52]
+size = 64
+font_data = ExtResource( 18 )
+
+[sub_resource type="Theme" id=53]
+Label/fonts/font = SubResource( 52 )
+
+[sub_resource type="Animation" id=61]
+resource_name = "grind"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Grind:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=59]
+resource_name = "kickflip"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Kickflip:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=60]
+resource_name = "kickflipX2"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("KickflipX2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=62]
+resource_name = "manual"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Manual:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=55]
+resource_name = "none"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Kickflip:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("KickflipX2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Ollie:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Grind:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Manual:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("NoseManual:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Spin180:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Spin360:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Spin720:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath(".:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath(".:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=63]
+resource_name = "noseManual"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("NoseManual:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=58]
+resource_name = "ollie"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ollie:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=64]
+resource_name = "spin180"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Spin180:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=65]
+resource_name = "spin360"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.8, 0.9, 0.95 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9, 0.95 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.25, 1.25 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Spin360:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=66]
+resource_name = "spin720"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Spin720:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="Level" type="Node2D"]
 __meta__ = {
@@ -4239,5 +5058,304 @@ position = Vector2( 0, -32 )
 rotation = 1.5708
 shape = SubResource( 34 )
 disabled = true
+
+[node name="TrickLabels" type="Node2D" parent="Player"]
+modulate = Color( 0, 0, 0, 0 )
+z_index = 10
+
+[node name="Kickflip" type="Node2D" parent="Player/TrickLabels"]
+visible = false
+
+[node name="KickflipBackground" type="Label" parent="Player/TrickLabels/Kickflip"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 41.5
+margin_right = 148.0
+margin_bottom = 106.5
+theme = SubResource( 53 )
+text = "Kickflip"
+align = 1
+
+[node name="KickflipMain" type="Label" parent="Player/TrickLabels/Kickflip"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 31.5
+margin_right = 144.0
+margin_bottom = 96.5
+theme = SubResource( 53 )
+text = "Kickflip"
+align = 1
+
+[node name="KickflipX2" type="Node2D" parent="Player/TrickLabels"]
+visible = false
+
+[node name="TextBackground" type="Label" parent="Player/TrickLabels/KickflipX2"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 41.5
+margin_right = 148.0
+margin_bottom = 106.5
+grow_horizontal = 2
+theme = SubResource( 53 )
+text = "Double Kickflip"
+align = 1
+
+[node name="TextMain" type="Label" parent="Player/TrickLabels/KickflipX2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 31.5
+margin_right = 144.0
+margin_bottom = 96.5
+grow_horizontal = 2
+theme = SubResource( 53 )
+text = "Double Kickflip"
+align = 1
+
+[node name="Ollie" type="Node2D" parent="Player/TrickLabels"]
+visible = false
+
+[node name="OllieBackground" type="Label" parent="Player/TrickLabels/Ollie"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 41.5
+margin_right = 148.0
+margin_bottom = 106.5
+theme = SubResource( 53 )
+text = "Ollie"
+align = 1
+
+[node name="OllieMain" type="Label" parent="Player/TrickLabels/Ollie"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 31.5
+margin_right = 144.0
+margin_bottom = 96.5
+theme = SubResource( 53 )
+text = "Ollie"
+align = 1
+
+[node name="Grind" type="Node2D" parent="Player/TrickLabels"]
+
+[node name="TextBackground" type="Label" parent="Player/TrickLabels/Grind"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 41.5
+margin_right = 148.0
+margin_bottom = 106.5
+theme = SubResource( 53 )
+text = "Grind"
+align = 1
+
+[node name="TextMain" type="Label" parent="Player/TrickLabels/Grind"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 31.5
+margin_right = 144.0
+margin_bottom = 96.5
+theme = SubResource( 53 )
+text = "Grind"
+align = 1
+
+[node name="Manual" type="Node2D" parent="Player/TrickLabels"]
+visible = false
+
+[node name="TextBackground" type="Label" parent="Player/TrickLabels/Manual"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 41.5
+margin_right = 148.0
+margin_bottom = 106.5
+grow_horizontal = 2
+theme = SubResource( 53 )
+text = "Manual"
+align = 1
+
+[node name="TextMain" type="Label" parent="Player/TrickLabels/Manual"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 31.5
+margin_right = 144.0
+margin_bottom = 96.5
+grow_horizontal = 2
+theme = SubResource( 53 )
+text = "Manual"
+align = 1
+
+[node name="NoseManual" type="Node2D" parent="Player/TrickLabels"]
+visible = false
+
+[node name="TextBackground" type="Label" parent="Player/TrickLabels/NoseManual"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 41.5
+margin_right = 148.0
+margin_bottom = 106.5
+grow_horizontal = 2
+theme = SubResource( 53 )
+text = "Nose Manual"
+align = 1
+
+[node name="TextMain" type="Label" parent="Player/TrickLabels/NoseManual"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 31.5
+margin_right = 144.0
+margin_bottom = 96.5
+grow_horizontal = 2
+theme = SubResource( 53 )
+text = "Nose Manual"
+align = 1
+
+[node name="Spin180" type="Node2D" parent="Player/TrickLabels"]
+visible = false
+
+[node name="TextBackground" type="Label" parent="Player/TrickLabels/Spin180"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 41.5
+margin_right = 148.0
+margin_bottom = 106.5
+grow_horizontal = 2
+theme = SubResource( 53 )
+text = "Spin 180"
+align = 1
+
+[node name="TextMain" type="Label" parent="Player/TrickLabels/Spin180"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 31.5
+margin_right = 144.0
+margin_bottom = 96.5
+grow_horizontal = 2
+theme = SubResource( 53 )
+text = "Spin 180"
+align = 1
+
+[node name="Spin360" type="Node2D" parent="Player/TrickLabels"]
+visible = false
+
+[node name="TextBackground" type="Label" parent="Player/TrickLabels/Spin360"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 41.5
+margin_right = 148.0
+margin_bottom = 106.5
+grow_horizontal = 2
+theme = SubResource( 53 )
+text = "Spin 360"
+align = 1
+
+[node name="TextMain" type="Label" parent="Player/TrickLabels/Spin360"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 31.5
+margin_right = 144.0
+margin_bottom = 96.5
+grow_horizontal = 2
+theme = SubResource( 53 )
+text = "Spin 360"
+align = 1
+
+[node name="Spin720" type="Node2D" parent="Player/TrickLabels"]
+visible = false
+
+[node name="TextBackground" type="Label" parent="Player/TrickLabels/Spin720"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 41.5
+margin_right = 148.0
+margin_bottom = 106.5
+grow_horizontal = 2
+theme = SubResource( 53 )
+text = "Spin 720"
+align = 1
+
+[node name="TextMain" type="Label" parent="Player/TrickLabels/Spin720"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 31.5
+margin_right = 144.0
+margin_bottom = 96.5
+grow_horizontal = 2
+theme = SubResource( 53 )
+text = "Spin 720"
+align = 1
+
+[node name="TrickAnimationPlayer" type="AnimationPlayer" parent="Player/TrickLabels"]
+autoplay = "none"
+anims/grind = SubResource( 61 )
+anims/kickflip = SubResource( 59 )
+anims/kickflipX2 = SubResource( 60 )
+anims/manual = SubResource( 62 )
+anims/none = SubResource( 55 )
+anims/noseManual = SubResource( 63 )
+anims/ollie = SubResource( 58 )
+anims/spin180 = SubResource( 64 )
+anims/spin360 = SubResource( 65 )
+anims/spin720 = SubResource( 66 )
+script = ExtResource( 19 )
 
 [connection signal="animation_started" from="Player/VisualAnimationPlayer" to="Player" method="_on_VisualAnimationPlayer_animation_started"]
