@@ -30,35 +30,36 @@ func _process(delta: float) -> void:
 				anim.queue('idle')
 			else:
 				anim.play('idle')
-		if Input.is_action_pressed('shift_jump'):
-			if 0.0 < crounchWindowTimer:
-				if _check_is_grinding():
-					isTryingToEndGrind = false
-					anim.play('grind_end_jump_high')
-				elif not anim.current_animation.begins_with('grind_end'):
-					anim.play('jump_high')
-			else:
-				if _check_is_grinding():
-					isTryingToEndGrind = false
-					anim.play('grind_end_jump_low')
-				elif not anim.current_animation.begins_with('grind_end'):
-					anim.play('jump_low')
-			anim.queue('idle')
-		elif Input.is_action_pressed('shift_crouch'):
-			if crounchWindowTimer < CROUNCH_WINDOW_TIME * 0.9 and not anim.current_animation.begins_with('grind_end'):
-				if _check_is_grinding():
-					anim.play('grind_crouch')
+		if not anim.current_animation.begins_with('grind_end'):
+			if Input.is_action_pressed('shift_jump'):
+				if 0.0 < crounchWindowTimer:
+					if _check_is_grinding():
+						isTryingToEndGrind = false
+						anim.play('grind_end_jump_high')
+					elif not anim.current_animation.begins_with('grind_end'):
+						anim.play('jump_high')
 				else:
-					anim.play('shift_crouch')
-			crounchWindowTimer = CROUNCH_WINDOW_TIME
-		elif Input.is_action_pressed('shift_forward'):
-			if anim.current_animation != 'shift_forward' and anim.current_animation != 'hold_forward' and not anim.current_animation.begins_with('turn'):
-				anim.play('shift_forward')
-				anim.queue('hold_forward')
-		elif Input.is_action_pressed('shift_back'):
-			if anim.current_animation != 'shift_back' and anim.current_animation != 'hold_back' and not anim.current_animation.begins_with('turn'):
-				anim.play('shift_back')
-				anim.queue('hold_back')
+					if _check_is_grinding():
+						isTryingToEndGrind = false
+						anim.play('grind_end_jump_low')
+					elif not anim.current_animation.begins_with('grind_end'):
+						anim.play('jump_low')
+				anim.queue('idle')
+			elif Input.is_action_pressed('shift_crouch'):
+				if crounchWindowTimer < CROUNCH_WINDOW_TIME * 0.9:
+					if _check_is_grinding():
+						anim.play('grind_crouch')
+					else:
+						anim.play('shift_crouch')
+				crounchWindowTimer = CROUNCH_WINDOW_TIME
+			elif Input.is_action_pressed('shift_forward'):
+				if anim.current_animation != 'shift_forward' and anim.current_animation != 'hold_forward' and not anim.current_animation.begins_with('turn'):
+					anim.play('shift_forward')
+					anim.queue('hold_forward')
+			elif Input.is_action_pressed('shift_back'):
+				if anim.current_animation != 'shift_back' and anim.current_animation != 'hold_back' and not anim.current_animation.begins_with('turn'):
+					anim.play('shift_back')
+					anim.queue('hold_back')
 	if 0.0 < crounchWindowTimer:
 		crounchWindowTimer -= delta
 	crounchWindowTimer = max(0.0, crounchWindowTimer)
@@ -75,7 +76,7 @@ func _process(delta: float) -> void:
 	
 	# tricks
 	_listen_for_trick_inputs(delta)
-	if (anim.current_animation == 'shift_back' or anim.current_animation == 'shift_forward' or anim.current_animation == 'hold_back' or anim.current_animation == 'hold_forward') and not anim.current_animation.begins_with('turn') and timeSinceInputShiftBack < GROUND_180_WINDOW_TIME and timeSinceInputShiftForward < GROUND_180_WINDOW_TIME:
+	if (anim.current_animation == 'shift_back' or anim.current_animation == 'shift_forward' or anim.current_animation == 'hold_back' or anim.current_animation == 'hold_forward') and not anim.current_animation.begins_with('turn') and timeSinceInputShiftBack < GROUND_180_WINDOW_TIME and timeSinceInputShiftForward < GROUND_180_WINDOW_TIME and not anim.current_animation.begins_with('grind_end'):
 		anim.play('turn_180_ftb')
 		anim.queue('idle')
 	timeSinceStartedGrind += delta

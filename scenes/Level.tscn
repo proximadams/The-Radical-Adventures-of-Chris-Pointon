@@ -726,7 +726,7 @@ tracks/12/keys = {
 
 [sub_resource type="Animation" id=38]
 resource_name = "grind_end_jump_high"
-length = 1.8
+length = 1.6
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("ChrisHolder/Upper:frame")
@@ -875,7 +875,7 @@ tracks/11/keys = {
 
 [sub_resource type="Animation" id=37]
 resource_name = "grind_end_jump_low"
-length = 1.4
+length = 1.25
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("ChrisHolder/Upper:frame")
