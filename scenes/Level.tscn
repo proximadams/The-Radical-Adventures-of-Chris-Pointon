@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://code/SpriteAdjustZ.gd" type="Script" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -427,6 +427,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [ Vector2( 1.36422e-12, -280 ) ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("PlayerHurtableArea/CollisionShape2D:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=36]
 resource_name = "grind_crouch"
@@ -450,10 +462,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.35, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1 ]
+"values": [ 0, 1, 0, 1 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("ChrisHolder/Legs:frame")
@@ -462,10 +474,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.05, 0.35, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 10, 8 ]
+"values": [ 10, 8, 6, 8 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("ChrisHolder/Upper:frame")
@@ -562,6 +574,18 @@ tracks/10/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1.36422e-12, -280 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("PlayerHurtableArea/CollisionShape2D:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=35]
@@ -695,9 +719,12 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"values": [  ]
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ false ],
+"method": "try_to_trick_jump"
+} ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("PlayerGrindArea/CollisionShape2D:disabled")
@@ -1685,10 +1712,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.15, 0.25, 0.4, 0.45, 0.5, 0.7, 0.75, 0.8, 0.9, 0.95, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.55 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.05, 0.15, 0.25, 0.4, 0.45, 0.5, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 2, 3, 0, 6, 2, 4, 5, 4, 3, 8, 9, 10, 6, 7, 3, 0, 4, 5, 0 ]
+"values": [ 2, 3, 0, 6, 2, 4, 5, 4, 3, 8, 8, 9, 10, 6, 7, 3, 0, 4, 5, 0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("ChrisHolder/Upper:position")
@@ -1769,10 +1796,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.9, 0.95, 1.1, 1.2, 1.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.1, 1.2, 1.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 8, 9, 0, 8, 1, 2, 3, 4, 5, 6, 7, 0, 10, 0, 10, 0, 9, 0 ]
+"values": [ 8, 9, 0, 8, 1, 2, 3, 4, 5, 6, 7, 0, 10, 10, 10, 0, 10, 0, 9, 0 ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("ChrisHolder/Legs:position")
@@ -2215,7 +2242,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.25, 0.5, 0.55, 0.9, 0.95, 1.15 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.25, 0.45, 0.55, 0.9, 0.95, 1.15 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 14, 12, 14, 8, 10, 12, 8, 6, 10 ]
@@ -2279,6 +2306,268 @@ tracks/11/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ false ],
+"method": "try_to_trick_jump"
+} ]
+}
+
+[sub_resource type="Animation" id=47]
+resource_name = "grind_end_jump_low_360"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("ChrisHolder/Upper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25, 0.4, 0.45, 0.7 ),
+"transitions": PoolRealArray( 0.535887, 2.2974, 1, 1176.27, 0.926824, 4.92458 ),
+"update": 0,
+"values": [ Vector2( -16, -350 ), Vector2( -16, -370 ), Vector2( -16, -370 ), Vector2( -16, -350 ), Vector2( -16, -310 ), Vector2( -16, -198 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ChrisHolder:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.65 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.36422e-12, -200 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ShadowHolder:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 0.117647 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ShadowHolder:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 2.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.3 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PlayerHurtableArea/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.6, 0.65 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ChrisHolder/Upper:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15, 0.2, 0.3, 0.4, 0.45, 0.55, 0.6, 0.65, 0.75, 0.85, 0.95 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 7, 8, 9, 10, 7, 6, 0, 3, 0, 4, 5, 4, 0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ChrisHolder/Legs:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.05, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.5, 0.55, 0.6, 0.7, 0.75, 0.85, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 3, 5, 11, 0, 2, 4, 8, 10, 12, 8, 6, 8, 10 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ChrisHolder/Skateboard:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.05, 0.25, 0.3, 0.5, 0.6, 0.65 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 0, 10, 0, 9, 0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ChrisHolder/Skateboard:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25, 0.65 ),
+"transitions": PoolRealArray( 1, 1, 3.5, 1 ),
+"update": 0,
+"values": [ Vector2( -16, -323.333 ), Vector2( -16, -380 ), Vector2( -16, -380 ), Vector2( -16, -198 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ChrisHolder/Legs:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25, 0.65 ),
+"transitions": PoolRealArray( 1, 1, 3.5, 1 ),
+"update": 0,
+"values": [ Vector2( -16, -363.62 ), Vector2( -16, -380 ), Vector2( -16, -380 ), Vector2( -16, -198 ) ]
+}
+
+[sub_resource type="Animation" id=48]
+resource_name = "grind_end_jump_low_kickflip"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("ChrisHolder/Upper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25, 0.4, 0.45, 0.65 ),
+"transitions": PoolRealArray( 0.535887, 2.2974, 1, 1176.27, 0.926824, 4.92458 ),
+"update": 0,
+"values": [ Vector2( -16, -360 ), Vector2( -16, -380 ), Vector2( -16, -380 ), Vector2( -16, -360 ), Vector2( -16, -330 ), Vector2( -16, -198 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ChrisHolder:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.65 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.36422e-12, -200 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ShadowHolder:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 0.117647 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ShadowHolder:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 2.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.3 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PlayerHurtableArea/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.6, 0.65 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ChrisHolder/Upper:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.45, 0.5, 0.6, 0.65, 0.75, 0.85, 0.95 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 0, 3, 0, 4, 5, 4, 0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ChrisHolder/Legs:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.45, 0.5, 0.6, 0.65, 0.75, 0.85, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 14, 8, 10, 12, 10, 8, 6, 8, 10 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ChrisHolder/Skateboard:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 0, 9, 0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ChrisHolder/Skateboard:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.2, 0.25, 0.5, 0.65 ),
+"transitions": PoolRealArray( 1, 1, 3.5, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -16, -294 ), Vector2( -16, -350 ), Vector2( -16, -350 ), Vector2( -16, -340 ), Vector2( -16, -198 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ChrisHolder/Legs:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.25, 0.65 ),
+"transitions": PoolRealArray( 1, 2048, 1, 3.5, 1 ),
+"update": 0,
+"values": [ Vector2( -16, -330 ), Vector2( -16, -340 ), Vector2( -16, -380 ), Vector2( -16, -380 ), Vector2( -16, -198 ) ]
 }
 
 [sub_resource type="Animation" id=31]
@@ -2415,6 +2704,274 @@ tracks/10/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1.36422e-12, -280 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("PlayerHurtableArea/CollisionShape2D:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=50]
+resource_name = "grind_forward_hold"
+length = 0.3
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("ChrisHolder/Upper:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ChrisHolder/Legs:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 12 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ChrisHolder/Skateboard:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+
+[sub_resource type="Animation" id=49]
+resource_name = "grind_turn_180_ftb"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("ChrisHolder/Upper:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ChrisHolder/Legs:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 3, 5, 11, 12 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ChrisHolder/Skateboard:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 0, 9 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PlayerGrindArea/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PlayerHurtableArea/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=51]
+resource_name = "grind_uncrouch"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("ChrisHolder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.36422e-12, -100 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ChrisHolder/Skateboard:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ChrisHolder/Legs:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ChrisHolder/Upper:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 5, 4 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ShadowHolder:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.470588 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ShadowHolder:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.45, 0.45 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ChrisHolder/Skateboard:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -16, -380 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ChrisHolder/Legs:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -16, -380 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ChrisHolder/Upper:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -16, -380 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("PlayerGrindArea/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("PlayerGrindArea:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.36422e-12, -280 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("PlayerHurtableArea/CollisionShape2D:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=30]
@@ -3640,7 +4197,12 @@ anims/grind_end_jump_high_kickflip_360 = SubResource( 43 )
 anims/grind_end_jump_high_kickflip_kickflip = SubResource( 40 )
 anims/grind_end_jump_high_kickflip_late = SubResource( 46 )
 anims/grind_end_jump_low = SubResource( 37 )
+anims/grind_end_jump_low_360 = SubResource( 47 )
+anims/grind_end_jump_low_kickflip = SubResource( 48 )
 anims/grind_forward = SubResource( 31 )
+anims/grind_forward_hold = SubResource( 50 )
+anims/grind_turn_180_ftb = SubResource( 49 )
+anims/grind_uncrouch = SubResource( 51 )
 anims/hold_back = SubResource( 30 )
 anims/hold_forward = SubResource( 29 )
 anims/idle = SubResource( 18 )
@@ -3677,3 +4239,6 @@ position = Vector2( 0, -32 )
 rotation = 1.5708
 shape = SubResource( 34 )
 disabled = true
+
+[connection signal="animation_changed" from="Player/VisualAnimationPlayer" to="Player" method="_on_VisualAnimationPlayer_animation_changed"]
+[connection signal="animation_started" from="Player/VisualAnimationPlayer" to="Player" method="_on_VisualAnimationPlayer_animation_started"]

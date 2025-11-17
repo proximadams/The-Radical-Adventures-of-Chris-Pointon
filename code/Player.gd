@@ -24,11 +24,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# shifting weight and jumping
 	if not anim.current_animation.begins_with('jump'):
-		if _check_release_shift() and not _check_is_grinding() and not anim.current_animation.begins_with('grind_end'):
+		if _check_release_shift() and not anim.current_animation.begins_with('grind_end'):
 			if Input.is_action_just_released('shift_crouch'):
-				anim.play('shift_uncrouch')
-				anim.queue('idle')
-			else:
+				if _check_is_grinding():
+					anim.play('grind_uncrouch')
+					anim.queue('grind_forward_hold')
+				else:
+					anim.play('shift_uncrouch')
+					anim.queue('idle')
+			elif not _check_is_grinding():
 				anim.play('idle')
 		if not anim.current_animation.begins_with('grind_end'):
 			if Input.is_action_pressed('shift_jump'):
@@ -53,13 +57,20 @@ func _process(delta: float) -> void:
 						anim.play('shift_crouch')
 				crounchWindowTimer = CROUNCH_WINDOW_TIME
 			elif Input.is_action_pressed('shift_forward'):
-				if anim.current_animation != 'shift_forward' and anim.current_animation != 'hold_forward' and not anim.current_animation.begins_with('turn'):
-					anim.play('shift_forward')
-					anim.queue('hold_forward')
+				if anim.current_animation != 'shift_forward' and anim.current_animation != 'grind_forward' and anim.current_animation != 'hold_forward' and anim.current_animation != 'grind_forward_hold' and not anim.current_animation.begins_with('turn') and anim.current_animation != 'grind_turn_180_ftb':
+					if _check_is_grinding():
+						anim.play('grind_forward')
+						anim.queue('grind_forward_hold')
+					else:
+						anim.play('shift_forward')
+						anim.queue('hold_forward')
 			elif Input.is_action_pressed('shift_back'):
-				if anim.current_animation != 'shift_back' and anim.current_animation != 'hold_back' and not anim.current_animation.begins_with('turn'):
-					anim.play('shift_back')
-					anim.queue('hold_back')
+				if anim.current_animation != 'shift_back' and anim.current_animation != 'grind_back' and anim.current_animation != 'hold_back' and anim.current_animation != 'grind_back_hold' and not anim.current_animation.begins_with('turn') and anim.current_animation != 'grind_turn_180_ftb':
+					if _check_is_grinding():
+						anim.play('grind_back')
+					else:
+						anim.play('shift_back')
+						anim.queue('hold_back')
 	if 0.0 < crounchWindowTimer:
 		crounchWindowTimer -= delta
 	crounchWindowTimer = max(0.0, crounchWindowTimer)
@@ -76,9 +87,13 @@ func _process(delta: float) -> void:
 	
 	# tricks
 	_listen_for_trick_inputs(delta)
-	if (anim.current_animation == 'shift_back' or anim.current_animation == 'shift_forward' or anim.current_animation == 'hold_back' or anim.current_animation == 'hold_forward') and not anim.current_animation.begins_with('turn') and timeSinceInputShiftBack < GROUND_180_WINDOW_TIME and timeSinceInputShiftForward < GROUND_180_WINDOW_TIME and not anim.current_animation.begins_with('grind_end'):
-		anim.play('turn_180_ftb')
-		anim.queue('idle')
+	if (anim.current_animation == 'shift_back' or anim.current_animation == 'shift_forward' or anim.current_animation == 'hold_back' or anim.current_animation == 'hold_forward' or anim.current_animation == 'grind_back' or anim.current_animation == 'grind_forward') and not anim.current_animation.begins_with('turn') and timeSinceInputShiftBack < GROUND_180_WINDOW_TIME and timeSinceInputShiftForward < GROUND_180_WINDOW_TIME and not anim.current_animation.begins_with('grind_end') and anim.current_animation != 'grind_turn_180_ftb':
+		if _check_is_grinding():
+			anim.play('grind_turn_180_ftb')
+			anim.queue('grind_forward_hold')
+		else:
+			anim.play('turn_180_ftb')
+			anim.queue('idle')
 	timeSinceStartedGrind += delta
 	if isTryingToEndGrind and MIN_GRIND_TIME < timeSinceStartedGrind:
 		isTryingToEndGrind = false
@@ -114,7 +129,11 @@ func try_to_trick_jump(isLate := false) -> void:
 			anim.play('grind_end_jump_high_720')
 		elif anim.current_animation == 'grind_end_jump_high_kickflip':
 			anim.play('grind_end_jump_high_kickflip_360')
+
 		anim.seek(timeSpentJumping)
+
+		if anim.current_animation == 'grind_end' or anim.current_animation == 'grind_end_jump_low':
+			anim.play('grind_end_jump_low_360')
 	elif timeSinceInputShiftCrouch < timeSpentJumping and timeSinceInputShiftJump < timeSpentJumping:
 		if anim.current_animation == 'jump_high':
 			anim.play('jump_high_kickflip')
@@ -127,7 +146,11 @@ func try_to_trick_jump(isLate := false) -> void:
 			anim.play('grind_end_jump_high_kickflip_kickflip')
 		elif anim.current_animation == 'grind_end_jump_high_360':
 			anim.play('grind_end_jump_high_360_kickflip')
+
 		anim.seek(timeSpentJumping)
+
+		if anim.current_animation == 'grind_end' or anim.current_animation == 'grind_end_jump_low':
+			anim.play('grind_end_jump_low_kickflip')
 
 func _check_release_shift() -> bool:
 	var hasReleased     : bool = (Input.is_action_just_released('shift_forward') or Input.is_action_just_released('shift_back') or Input.is_action_just_released('shift_crouch'))
@@ -154,4 +177,8 @@ func try_end_grind() -> void:
 		isTryingToEndGrind = true
 
 func _check_is_grinding() -> bool:
-	return (anim.current_animation == 'grind_back' or anim.current_animation == 'grind_forward' or anim.current_animation == 'grind_crouch')
+	return (anim.current_animation == 'grind_back' or anim.current_animation == 'grind_forward' or anim.current_animation == 'grind_crouch' or anim.current_animation == 'grind_uncrouch' or anim.current_animation == 'grind_turn_180_ftb' or anim.current_animation == 'grind_forward_hold')
+
+func _on_VisualAnimationPlayer_animation_started(_anim_name:String):
+	# print('anim_name = ' + anim_name)
+	pass
