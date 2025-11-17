@@ -4240,5 +4240,4 @@ rotation = 1.5708
 shape = SubResource( 34 )
 disabled = true
 
-[connection signal="animation_changed" from="Player/VisualAnimationPlayer" to="Player" method="_on_VisualAnimationPlayer_animation_changed"]
 [connection signal="animation_started" from="Player/VisualAnimationPlayer" to="Player" method="_on_VisualAnimationPlayer_animation_started"]
