@@ -100,13 +100,33 @@ func _listen_for_trick_inputs(delta: float) -> void:
 	if Input.is_action_just_pressed('shift_jump'):
 		timeSinceInputShiftJump = 0.0
 
-func try_to_trick_jump() -> void:
+func try_to_trick_jump(isLate := false) -> void:
 	var timeSpentJumping: float = anim.current_animation_position
-	if timeSinceInputShiftCrouch < timeSpentJumping and timeSinceInputShiftJump < timeSpentJumping:
-		anim.play('jump_high_kickflip')
-		anim.seek(timeSpentJumping)
 	if timeSinceInputShiftBack < timeSpentJumping and timeSinceInputShiftForward < timeSpentJumping:
-		anim.play('jump_high_360')
+		if anim.current_animation == 'jump_high':
+			anim.play('jump_high_360')
+		elif anim.current_animation == 'grind_end_jump_high':
+			if isLate:
+				anim.play('grind_end_jump_high_360_late')
+			else:
+				anim.play('grind_end_jump_high_360')
+		elif anim.current_animation == 'grind_end_jump_high_360':
+			anim.play('grind_end_jump_high_720')
+		elif anim.current_animation == 'grind_end_jump_high_kickflip':
+			anim.play('grind_end_jump_high_kickflip_360')
+		anim.seek(timeSpentJumping)
+	elif timeSinceInputShiftCrouch < timeSpentJumping and timeSinceInputShiftJump < timeSpentJumping:
+		if anim.current_animation == 'jump_high':
+			anim.play('jump_high_kickflip')
+		elif anim.current_animation == 'grind_end_jump_high':
+			if isLate:
+				anim.play('grind_end_jump_high_kickflip_late')
+			else:
+				anim.play('grind_end_jump_high_kickflip')
+		elif anim.current_animation == 'grind_end_jump_high_kickflip':
+			anim.play('grind_end_jump_high_kickflip_kickflip')
+		elif anim.current_animation == 'grind_end_jump_high_360':
+			anim.play('grind_end_jump_high_360_kickflip')
 		anim.seek(timeSpentJumping)
 
 func _check_release_shift() -> bool:
