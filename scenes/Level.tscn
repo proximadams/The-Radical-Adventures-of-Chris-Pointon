@@ -5225,12 +5225,12 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="CopCar" type="Sprite" parent="Background/Group1"]
-position = Vector2( 280, 133 )
+position = Vector2( 440, 133 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 
 [node name="Pothole" type="Node2D" parent="Background/Group1"]
-position = Vector2( 698, 312 )
+position = Vector2( 930, 312 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Sprite" type="Sprite" parent="Background/Group1/Pothole"]
@@ -5513,7 +5513,6 @@ shape = SubResource( 34 )
 disabled = true
 
 [node name="TrickLabels" type="Node2D" parent="Player"]
-modulate = Color( 1, 1, 0, 0 )
 scale = Vector2( 1.5, 1.5 )
 z_index = 10
 
@@ -5530,6 +5529,7 @@ margin_left = -140.0
 margin_top = 41.5
 margin_right = 148.0
 margin_bottom = 106.5
+grow_horizontal = 2
 theme = SubResource( 53 )
 text = "Kickflip"
 align = 1
@@ -5543,6 +5543,7 @@ margin_left = -144.0
 margin_top = 31.5
 margin_right = 144.0
 margin_bottom = 96.5
+grow_horizontal = 2
 theme = SubResource( 53 )
 text = "Kickflip"
 align = 1
@@ -5610,6 +5611,7 @@ text = "Ollie"
 align = 1
 
 [node name="Grind" type="Node2D" parent="Player/TrickLabels"]
+visible = false
 
 [node name="TextBackground" type="Label" parent="Player/TrickLabels/Grind"]
 modulate = Color( 0, 0, 0, 1 )

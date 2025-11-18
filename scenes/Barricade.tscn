@@ -6,7 +6,7 @@
 [ext_resource path="res://code/SpriteAdjustZ.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 293, 48 )
+extents = Vector2( 293, 40 )
 
 [sub_resource type="RectangleShape2D" id=33]
 extents = Vector2( 275, 10 )
@@ -23,7 +23,7 @@ offsetY = 80.0
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardousArea"]
-position = Vector2( -7, 114 )
+position = Vector2( -7, 106 )
 shape = SubResource( 13 )
 
 [node name="GrindableArea" type="Area2D" parent="."]
