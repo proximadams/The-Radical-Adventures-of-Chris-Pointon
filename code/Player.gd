@@ -16,8 +16,19 @@ var timeSinceInputShiftForward := 1000.0
 var timeSinceInputShiftJump    := 1000.0
 var timeSinceStartedGrind      := 1000.0
 
+# rampState
+enum {
+	NOT_ON,
+	ON,
+	WAIT_JUMP_LOW,
+	WAIT_JUMP_HIGH
+}
+
+var rampState = NOT_ON
+
 func _ready() -> void:
 	var _res = $PlayerHurtableArea.connect('player_is_hurt', self, 'hurt_me')
+	_res = $PlayerHurtableArea.connect('player_go_on_ramp', self, 'go_on_ramp')
 	_res = $PlayerGrindArea.connect('player_try_start_grind', self, 'try_start_grind')
 	_res = $PlayerGrindArea.connect('player_try_end_grind', self, 'try_end_grind')
 
@@ -29,12 +40,29 @@ func _process(delta: float) -> void:
 				if _check_is_grinding():
 					anim.play('grind_uncrouch')
 					anim.queue('grind_forward_hold')
+				elif _check_is_on_ramp():
+					var currentTime = anim.current_animation_position
+					anim.play('ramp_idle')
+					anim.seek(currentTime)
+					anim.queue('grind_end')
 				else:
 					anim.play('shift_uncrouch')
 					anim.queue('idle')
 			elif not _check_is_grinding():
 				anim.play('idle')
-		if not anim.current_animation.begins_with('grind_end'):
+		if _check_is_on_ramp():
+			if Input.is_action_just_pressed('shift_jump'):
+				if 0.0 < crounchWindowTimer:
+					rampState = WAIT_JUMP_HIGH
+				else:
+					rampState = WAIT_JUMP_LOW
+			elif Input.is_action_pressed('shift_crouch'):
+				crounchWindowTimer = CROUNCH_WINDOW_TIME
+				if anim.current_animation != 'ramp_crouch':
+					var currentTime = anim.current_animation_position
+					anim.play('ramp_crouch')
+					anim.seek(currentTime)
+		elif not anim.current_animation.begins_with('grind_end'):
 			if Input.is_action_just_pressed('shift_jump'):
 				if 0.0 < crounchWindowTimer:
 					if _check_is_grinding():
@@ -76,18 +104,19 @@ func _process(delta: float) -> void:
 	crounchWindowTimer = max(0.0, crounchWindowTimer)
 
 	# movement
-	var movementDirection = Vector2(
-		Input.get_action_strength('move_right') - Input.get_action_strength('move_left'),
-		Input.get_action_strength('move_down') - Input.get_action_strength('move_up')
-	)
-	if _check_is_grinding():
-		movementDirection.y = 0.0
-	movementDirection = movementDirection.normalized()
-	position += movementDirection * delta * SPEED
+	if not _check_is_on_ramp():
+		var movementDirection = Vector2(
+			Input.get_action_strength('move_right') - Input.get_action_strength('move_left'),
+			Input.get_action_strength('move_down') - Input.get_action_strength('move_up')
+		)
+		if _check_is_grinding():
+			movementDirection.y = 0.0
+		movementDirection = movementDirection.normalized()
+		position += movementDirection * delta * SPEED
 	
 	# tricks
 	_listen_for_trick_inputs(delta)
-	if (anim.current_animation == 'shift_back' or anim.current_animation == 'shift_forward' or anim.current_animation == 'hold_back' or anim.current_animation == 'hold_forward' or anim.current_animation == 'grind_back' or anim.current_animation == 'grind_forward') and not anim.current_animation.begins_with('turn') and timeSinceInputShiftBack < GROUND_180_WINDOW_TIME and timeSinceInputShiftForward < GROUND_180_WINDOW_TIME and not anim.current_animation.begins_with('grind_end') and anim.current_animation != 'grind_turn_180_ftb':
+	if (anim.current_animation == 'shift_back' or anim.current_animation == 'shift_forward' or anim.current_animation == 'hold_back' or anim.current_animation == 'hold_forward' or anim.current_animation == 'grind_back' or anim.current_animation == 'grind_forward') and not anim.current_animation.begins_with('turn') and timeSinceInputShiftBack < GROUND_180_WINDOW_TIME and timeSinceInputShiftForward < GROUND_180_WINDOW_TIME and not anim.current_animation.begins_with('grind_end') and anim.current_animation != 'grind_turn_180_ftb' and not _check_is_on_ramp():
 		if _check_is_grinding():
 			anim.play('grind_turn_180_ftb')
 			anim.queue('grind_forward_hold')
@@ -95,7 +124,7 @@ func _process(delta: float) -> void:
 			anim.play('turn_180_ftb')
 			anim.queue('idle')
 	timeSinceStartedGrind += delta
-	if isTryingToEndGrind and MIN_GRIND_TIME < timeSinceStartedGrind:
+	if isTryingToEndGrind and MIN_GRIND_TIME < timeSinceStartedGrind and not _check_is_on_ramp():
 		isTryingToEndGrind = false
 		anim.play('grind_end')
 		anim.queue('idle')
@@ -161,13 +190,30 @@ func hurt_me() -> void:
 	animHurt.play('hurt')
 	animHurt.queue('normal')
 
+func go_on_ramp() -> void:
+	if Input.is_action_pressed('shift_crouch'):
+		anim.play('ramp_crouch')
+	else:
+		anim.play('ramp_idle')
+	anim.queue('grind_end')
+	rampState = ON
+
+func go_off_ramp() -> void:
+	if rampState == WAIT_JUMP_HIGH:
+		anim.play('grind_end_jump_high')
+	elif rampState == WAIT_JUMP_LOW:
+		anim.play('grind_end_jump_low')
+	elif anim.current_animation == 'ramp_crouch':
+		anim.play('grind_end')
+	rampState = NOT_ON
+
 func try_start_grind(positionY: float) -> void:
 	isTryingToEndGrind = false
-	if anim.current_animation == 'jump_high':
+	if anim.current_animation == 'jump_high' or anim.current_animation == 'grind_end_jump_high':
 		timeSinceStartedGrind = 0.0
 		global_position.y = positionY
 		anim.play('grind_forward')
-	elif anim.current_animation == 'jump_low':
+	elif anim.current_animation == 'jump_low' or anim.current_animation == 'grind_end_jump_low':
 		timeSinceStartedGrind = 0.0
 		global_position.y = positionY
 		anim.play('grind_back')
@@ -178,6 +224,9 @@ func try_end_grind() -> void:
 
 func _check_is_grinding() -> bool:
 	return (anim.current_animation == 'grind_back' or anim.current_animation == 'grind_forward' or anim.current_animation == 'grind_crouch' or anim.current_animation == 'grind_uncrouch' or anim.current_animation == 'grind_turn_180_ftb' or anim.current_animation == 'grind_forward_hold')
+
+func _check_is_on_ramp() -> bool:
+	return rampState != NOT_ON
 
 func _on_VisualAnimationPlayer_animation_started(_anim_name:String):
 	# print('anim_name = ' + anim_name)
