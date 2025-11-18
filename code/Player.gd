@@ -117,7 +117,7 @@ func _process(delta: float) -> void:
 	
 	# tricks
 	_listen_for_trick_inputs(delta)
-	if (anim.current_animation == 'shift_back' or anim.current_animation == 'shift_forward' or anim.current_animation == 'hold_back' or anim.current_animation == 'hold_forward' or anim.current_animation == 'grind_back' or anim.current_animation == 'grind_forward') and not anim.current_animation.begins_with('turn') and timeSinceInputShiftBack < GROUND_180_WINDOW_TIME and timeSinceInputShiftForward < GROUND_180_WINDOW_TIME and not anim.current_animation.begins_with('grind_end') and anim.current_animation != 'grind_turn_180_ftb' and not _check_is_on_ramp() and not isInTube:
+	if (anim.current_animation == 'shift_back' or anim.current_animation == 'shift_forward' or anim.current_animation == 'hold_back' or anim.current_animation == 'hold_forward' or anim.current_animation == 'grind_back' or anim.current_animation == 'grind_forward') and not anim.current_animation.begins_with('turn') and timeSinceInputShiftBack < GROUND_180_WINDOW_TIME and timeSinceInputShiftForward < GROUND_180_WINDOW_TIME and not anim.current_animation.begins_with('grind_end') and anim.current_animation != 'grind_turn_180_ftb' and not _check_is_on_ramp() and not isInTube and rampState == NOT_ON:
 		if _check_is_grinding():
 			anim.play('grind_turn_180_ftb')
 			anim.queue('grind_forward_hold')
@@ -157,6 +157,7 @@ func try_to_trick_jump(isLate := false) -> void:
 				anim.play('grind_end_jump_high_360')
 				timeSinceInputShiftBack = 1000.0
 				timeSinceInputShiftForward = 1000.0
+				timeSinceInputShiftCrouch = 1000.0
 		elif anim.current_animation == 'grind_end_jump_high_360':
 			anim.play('grind_end_jump_high_720')
 		elif anim.current_animation == 'grind_end_jump_high_kickflip':
