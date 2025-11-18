@@ -99,7 +99,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=9]
 resource_name = "move"
-length = 20.0
+length = 30.0
 loop = true
 step = 1.0
 tracks/0/type = "value"
@@ -109,10 +109,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 10, 11, 12, 13 ),
+"times": PoolRealArray( 0, 15, 16, 17, 18 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -2048, 1.36422e-12 ), Vector2( -2048, 2000 ), Vector2( 1433.6, 2000 ), Vector2( 1433.6, 1.06106e-12 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -3072, 1.36422e-12 ), Vector2( -3072, 2000 ), Vector2( 2457.6, 2000 ), Vector2( 2457.6, 1.36422e-12 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Group2:position")
@@ -121,10 +121,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 10, 20 ),
+"times": PoolRealArray( 0, 15, 30 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 2048, 0 ), Vector2( 0, 0 ), Vector2( -2048, 1.36422e-12 ) ]
+"values": [ Vector2( 3072, 1.36422e-12 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( -3072, 1.36422e-12 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Group1:visible")
@@ -133,7 +133,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 10, 11 ),
+"times": PoolRealArray( 0, 15, 16 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
@@ -5203,24 +5203,29 @@ __meta__ = {
 }
 
 [node name="Background" type="Node2D" parent="."]
-position = Vector2( 12, 0 )
+position = Vector2( 12, 200 )
 z_index = -2
 
 [node name="Group1" type="Node2D" parent="Background"]
 
-[node name="SpriteLeft" type="Sprite" parent="Background/Group1"]
+[node name="BackgroundSprite1" type="Sprite" parent="Background/Group1"]
 position = Vector2( 500, 308 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
-[node name="SpriteRight" type="Sprite" parent="Background/Group1"]
+[node name="BackgroundSprite2" type="Sprite" parent="Background/Group1"]
 position = Vector2( 1524, 308 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 flip_h = true
 
+[node name="BackgroundSprite3" type="Sprite" parent="Background/Group1"]
+position = Vector2( 2548, 308 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
 [node name="CopCar" type="Sprite" parent="Background/Group1"]
-position = Vector2( 792, 133 )
+position = Vector2( 280, 133 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 
@@ -5240,64 +5245,145 @@ rotation = 1.5708
 shape = SubResource( 12 )
 
 [node name="Barricade" parent="Background/Group1" instance=ExtResource( 5 )]
-position = Vector2( 1260, 410 )
+position = Vector2( 1420, 522 )
 
-[node name="Group2" type="Node2D" parent="Background"]
-position = Vector2( 2048, 0 )
-
-[node name="SpriteLeft" type="Sprite" parent="Background/Group2"]
-position = Vector2( 500, 308 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
-
-[node name="SpriteRight" type="Sprite" parent="Background/Group2"]
-position = Vector2( 1524, 308 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
-flip_h = true
-
-[node name="Tube" type="Sprite" parent="Background/Group2"]
-position = Vector2( 278, 412 )
+[node name="Tube" type="Sprite" parent="Background/Group1"]
+position = Vector2( 2382, 412 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 6 )
 script = ExtResource( 21 )
 offsetY = 55.0
 
-[node name="TubeFront" type="Sprite" parent="Background/Group2/Tube"]
+[node name="TubeFront" type="Sprite" parent="Background/Group1/Tube"]
 position = Vector2( -0.000244141, 0 )
 z_index = 3
 texture = ExtResource( 8 )
 script = ExtResource( 1 )
 offsetY = 70.0
 
-[node name="GrindableArea" type="Area2D" parent="Background/Group2/Tube/TubeFront"]
+[node name="GrindableArea" type="Area2D" parent="Background/Group1/Tube/TubeFront"]
 script = ExtResource( 16 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Tube/TubeFront/GrindableArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group1/Tube/TubeFront/GrindableArea"]
 position = Vector2( 45.7144, -251.429 )
 shape = SubResource( 72 )
 
-[node name="EnterArea" type="Area2D" parent="Background/Group2/Tube/TubeFront"]
+[node name="EnterArea" type="Area2D" parent="Background/Group1/Tube/TubeFront"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Tube/TubeFront/EnterArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group1/Tube/TubeFront/EnterArea"]
 position = Vector2( -868.571, 45.714 )
 shape = SubResource( 75 )
 
-[node name="ExitArea" type="Area2D" parent="Background/Group2/Tube/TubeFront"]
+[node name="ExitArea" type="Area2D" parent="Background/Group1/Tube/TubeFront"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Tube/TubeFront/ExitArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group1/Tube/TubeFront/ExitArea"]
 position = Vector2( 937.144, 45.714 )
 shape = SubResource( 74 )
 
-[node name="HazardousArea" type="Area2D" parent="Background/Group2/Tube/TubeFront"]
+[node name="HazardousArea" type="Area2D" parent="Background/Group1/Tube/TubeFront"]
 script = ExtResource( 13 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Tube/TubeFront/HazardousArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group1/Tube/TubeFront/HazardousArea"]
 position = Vector2( 45.7144, 91.4282 )
 shape = SubResource( 76 )
 
+[node name="Group2" type="Node2D" parent="Background"]
+position = Vector2( 2048, 0 )
+
+[node name="BackgroundSprite1" type="Sprite" parent="Background/Group2"]
+position = Vector2( 500, 308 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="BackgroundSprite2" type="Sprite" parent="Background/Group2"]
+position = Vector2( 1524, 308 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="BackgroundSprite3" type="Sprite" parent="Background/Group2"]
+position = Vector2( 2548, 308 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="Pothole" type="Node2D" parent="Background/Group2"]
+position = Vector2( 231, 419 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Group2/Pothole"]
+texture = ExtResource( 9 )
+
+[node name="HazardousArea" type="Area2D" parent="Background/Group2/Pothole"]
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Pothole/HazardousArea"]
+position = Vector2( -16, 10 )
+rotation = 1.5708
+shape = SubResource( 12 )
+
+[node name="Pothole2" type="Node2D" parent="Background/Group2"]
+position = Vector2( 2565, 190 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Group2/Pothole2"]
+texture = ExtResource( 9 )
+
+[node name="HazardousArea" type="Area2D" parent="Background/Group2/Pothole2"]
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Pothole2/HazardousArea"]
+position = Vector2( -16, 10 )
+rotation = 1.5708
+shape = SubResource( 12 )
+
+[node name="Pothole3" type="Node2D" parent="Background/Group2"]
+position = Vector2( 2565, 290 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Group2/Pothole3"]
+texture = ExtResource( 9 )
+
+[node name="HazardousArea" type="Area2D" parent="Background/Group2/Pothole3"]
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Pothole3/HazardousArea"]
+position = Vector2( -16, 10 )
+rotation = 1.5708
+shape = SubResource( 12 )
+
+[node name="Pothole4" type="Node2D" parent="Background/Group2"]
+position = Vector2( 2565, 390 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Group2/Pothole4"]
+texture = ExtResource( 9 )
+
+[node name="HazardousArea" type="Area2D" parent="Background/Group2/Pothole4"]
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Pothole4/HazardousArea"]
+position = Vector2( -16, 10 )
+rotation = 1.5708
+shape = SubResource( 12 )
+
+[node name="Pothole5" type="Node2D" parent="Background/Group2"]
+position = Vector2( 2565, 490 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="Background/Group2/Pothole5"]
+texture = ExtResource( 9 )
+
+[node name="HazardousArea" type="Area2D" parent="Background/Group2/Pothole5"]
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Pothole5/HazardousArea"]
+position = Vector2( -16, 10 )
+rotation = 1.5708
+shape = SubResource( 12 )
+
 [node name="Ramp" type="Node2D" parent="Background/Group2"]
-position = Vector2( 939, 229 )
+position = Vector2( 539, 237 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Sprite" type="Sprite" parent="Background/Group2/Ramp"]
@@ -5321,7 +5407,10 @@ position = Vector2( 86, -32 )
 shape = SubResource( 71 )
 
 [node name="Barricade" parent="Background/Group2" instance=ExtResource( 5 )]
-position = Vector2( 1580, 333 )
+position = Vector2( 1180, 357 )
+
+[node name="Barricade2" parent="Background/Group2" instance=ExtResource( 5 )]
+position = Vector2( 2020, 357 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
 autoplay = "move"
@@ -5330,7 +5419,7 @@ anims/RESET = SubResource( 10 )
 anims/move = SubResource( 9 )
 
 [node name="Player" type="Node2D" parent="."]
-position = Vector2( 367, 486 )
+position = Vector2( 367, 686 )
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
 
@@ -5723,5 +5812,9 @@ anims/spin180 = SubResource( 64 )
 anims/spin360 = SubResource( 65 )
 anims/spin720 = SubResource( 66 )
 script = ExtResource( 19 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 960, 512 )
+current = true
 
 [connection signal="animation_started" from="Player/VisualAnimationPlayer" to="Player" method="_on_VisualAnimationPlayer_animation_started"]
