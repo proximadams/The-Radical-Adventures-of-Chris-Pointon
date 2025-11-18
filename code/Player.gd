@@ -234,10 +234,11 @@ func enter_tube() -> void:
 	anim.play('hold_crouch')
 
 func exit_tube() -> void:
-	isInTube = false
-	if not Input.is_action_pressed('shift_crouch'):
-		anim.play('shift_uncrouch')
-		anim.queue('idle')
+	if isInTube:
+		isInTube = false
+		if not Input.is_action_pressed('shift_crouch'):
+			anim.play('shift_uncrouch')
+			anim.queue('idle')
 
 func _check_is_grinding() -> bool:
 	return (anim.current_animation == 'grind_back' or anim.current_animation == 'grind_forward' or anim.current_animation == 'grind_crouch' or anim.current_animation == 'grind_uncrouch' or anim.current_animation == 'grind_turn_180_ftb' or anim.current_animation == 'grind_forward_hold')
