@@ -5,8 +5,7 @@ const GROUND_180_WINDOW_TIME := 0.3
 const MIN_GRIND_TIME         := 0.3
 const SPEED                  := 300.0
 
-onready var anim     : AnimationPlayer = $VisualAnimationPlayer
-onready var animHurt : AnimationPlayer = $HurtAnimationPlayer
+signal environment_slow_down
 
 var crounchWindowTimer         := CROUNCH_WINDOW_TIME
 var isInTube                   := false
@@ -26,6 +25,9 @@ enum {
 }
 
 var rampState = NOT_ON
+
+onready var anim     : AnimationPlayer = $VisualAnimationPlayer
+onready var animHurt : AnimationPlayer = $HurtAnimationPlayer
 
 func _ready() -> void:
 	var _res = $PlayerHurtableArea.connect('player_is_hurt', self, 'hurt_me')
@@ -196,6 +198,7 @@ func hurt_me() -> void:
 	if not isInTube:
 		animHurt.play('hurt')
 		animHurt.queue('normal')
+		emit_signal('environment_slow_down')
 
 func go_on_ramp() -> void:
 	if Input.is_action_pressed('shift_crouch'):

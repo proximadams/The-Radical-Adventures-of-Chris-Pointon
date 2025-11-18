@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://code/SpriteAdjustZ.gd" type="Script" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://code/TrickAnimationPlayer.gd" type="Script" id=19]
 [ext_resource path="res://code/OnboardRampArea.gd" type="Script" id=20]
 [ext_resource path="res://code/Tube.gd" type="Script" id=21]
+[ext_resource path="res://code/Environment.gd" type="Script" id=22]
+[ext_resource path="res://code/Level.gd" type="Script" id=23]
 
 [sub_resource type="CapsuleShape2D" id=12]
 radius = 60.0
@@ -5198,221 +5200,223 @@ tracks/2/keys = {
 }
 
 [node name="Level" type="Node2D"]
+script = ExtResource( 23 )
 __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
 
-[node name="Background" type="Node2D" parent="."]
+[node name="Environment" type="Node2D" parent="."]
 position = Vector2( 12, 200 )
 z_index = -2
+script = ExtResource( 22 )
 
-[node name="Group1" type="Node2D" parent="Background"]
+[node name="Group1" type="Node2D" parent="Environment"]
 
-[node name="BackgroundSprite1" type="Sprite" parent="Background/Group1"]
+[node name="BackgroundSprite1" type="Sprite" parent="Environment/Group1"]
 position = Vector2( 500, 308 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
-[node name="BackgroundSprite2" type="Sprite" parent="Background/Group1"]
+[node name="BackgroundSprite2" type="Sprite" parent="Environment/Group1"]
 position = Vector2( 1524, 308 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 flip_h = true
 
-[node name="BackgroundSprite3" type="Sprite" parent="Background/Group1"]
+[node name="BackgroundSprite3" type="Sprite" parent="Environment/Group1"]
 position = Vector2( 2548, 308 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
-[node name="CopCar" type="Sprite" parent="Background/Group1"]
+[node name="CopCar" type="Sprite" parent="Environment/Group1"]
 position = Vector2( 440, 133 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 
-[node name="Pothole" type="Node2D" parent="Background/Group1"]
+[node name="Pothole" type="Node2D" parent="Environment/Group1"]
 position = Vector2( 930, 312 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Sprite" type="Sprite" parent="Background/Group1/Pothole"]
+[node name="Sprite" type="Sprite" parent="Environment/Group1/Pothole"]
 texture = ExtResource( 9 )
 
-[node name="HazardousArea" type="Area2D" parent="Background/Group1/Pothole"]
+[node name="HazardousArea" type="Area2D" parent="Environment/Group1/Pothole"]
 script = ExtResource( 13 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group1/Pothole/HazardousArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Group1/Pothole/HazardousArea"]
 position = Vector2( -16, 10 )
 rotation = 1.5708
 shape = SubResource( 12 )
 
-[node name="Barricade" parent="Background/Group1" instance=ExtResource( 5 )]
+[node name="Barricade" parent="Environment/Group1" instance=ExtResource( 5 )]
 position = Vector2( 1420, 522 )
 
-[node name="Tube" type="Sprite" parent="Background/Group1"]
+[node name="Tube" type="Sprite" parent="Environment/Group1"]
 position = Vector2( 2382, 412 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 6 )
 script = ExtResource( 21 )
 offsetY = 55.0
 
-[node name="TubeFront" type="Sprite" parent="Background/Group1/Tube"]
+[node name="TubeFront" type="Sprite" parent="Environment/Group1/Tube"]
 position = Vector2( -0.000244141, 0 )
 z_index = 3
 texture = ExtResource( 8 )
 script = ExtResource( 1 )
 offsetY = 70.0
 
-[node name="GrindableArea" type="Area2D" parent="Background/Group1/Tube/TubeFront"]
+[node name="GrindableArea" type="Area2D" parent="Environment/Group1/Tube/TubeFront"]
 script = ExtResource( 16 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group1/Tube/TubeFront/GrindableArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Group1/Tube/TubeFront/GrindableArea"]
 position = Vector2( 45.7144, -251.429 )
 shape = SubResource( 72 )
 
-[node name="EnterArea" type="Area2D" parent="Background/Group1/Tube/TubeFront"]
+[node name="EnterArea" type="Area2D" parent="Environment/Group1/Tube/TubeFront"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group1/Tube/TubeFront/EnterArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Group1/Tube/TubeFront/EnterArea"]
 position = Vector2( -868.571, 45.714 )
 shape = SubResource( 75 )
 
-[node name="ExitArea" type="Area2D" parent="Background/Group1/Tube/TubeFront"]
+[node name="ExitArea" type="Area2D" parent="Environment/Group1/Tube/TubeFront"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group1/Tube/TubeFront/ExitArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Group1/Tube/TubeFront/ExitArea"]
 position = Vector2( 937.144, 45.714 )
 shape = SubResource( 74 )
 
-[node name="HazardousArea" type="Area2D" parent="Background/Group1/Tube/TubeFront"]
+[node name="HazardousArea" type="Area2D" parent="Environment/Group1/Tube/TubeFront"]
 script = ExtResource( 13 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group1/Tube/TubeFront/HazardousArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Group1/Tube/TubeFront/HazardousArea"]
 position = Vector2( 45.7144, 91.4282 )
 shape = SubResource( 76 )
 
-[node name="Group2" type="Node2D" parent="Background"]
+[node name="Group2" type="Node2D" parent="Environment"]
 position = Vector2( 2048, 0 )
 
-[node name="BackgroundSprite1" type="Sprite" parent="Background/Group2"]
+[node name="BackgroundSprite1" type="Sprite" parent="Environment/Group2"]
 position = Vector2( 500, 308 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 flip_h = true
 
-[node name="BackgroundSprite2" type="Sprite" parent="Background/Group2"]
+[node name="BackgroundSprite2" type="Sprite" parent="Environment/Group2"]
 position = Vector2( 1524, 308 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
-[node name="BackgroundSprite3" type="Sprite" parent="Background/Group2"]
+[node name="BackgroundSprite3" type="Sprite" parent="Environment/Group2"]
 position = Vector2( 2548, 308 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 flip_h = true
 
-[node name="Pothole" type="Node2D" parent="Background/Group2"]
+[node name="Pothole" type="Node2D" parent="Environment/Group2"]
 position = Vector2( 231, 419 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Sprite" type="Sprite" parent="Background/Group2/Pothole"]
+[node name="Sprite" type="Sprite" parent="Environment/Group2/Pothole"]
 texture = ExtResource( 9 )
 
-[node name="HazardousArea" type="Area2D" parent="Background/Group2/Pothole"]
+[node name="HazardousArea" type="Area2D" parent="Environment/Group2/Pothole"]
 script = ExtResource( 13 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Pothole/HazardousArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Group2/Pothole/HazardousArea"]
 position = Vector2( -16, 10 )
 rotation = 1.5708
 shape = SubResource( 12 )
 
-[node name="Pothole2" type="Node2D" parent="Background/Group2"]
+[node name="Pothole2" type="Node2D" parent="Environment/Group2"]
 position = Vector2( 2565, 190 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Sprite" type="Sprite" parent="Background/Group2/Pothole2"]
+[node name="Sprite" type="Sprite" parent="Environment/Group2/Pothole2"]
 texture = ExtResource( 9 )
 
-[node name="HazardousArea" type="Area2D" parent="Background/Group2/Pothole2"]
+[node name="HazardousArea" type="Area2D" parent="Environment/Group2/Pothole2"]
 script = ExtResource( 13 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Pothole2/HazardousArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Group2/Pothole2/HazardousArea"]
 position = Vector2( -16, 10 )
 rotation = 1.5708
 shape = SubResource( 12 )
 
-[node name="Pothole3" type="Node2D" parent="Background/Group2"]
+[node name="Pothole3" type="Node2D" parent="Environment/Group2"]
 position = Vector2( 2565, 290 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Sprite" type="Sprite" parent="Background/Group2/Pothole3"]
+[node name="Sprite" type="Sprite" parent="Environment/Group2/Pothole3"]
 texture = ExtResource( 9 )
 
-[node name="HazardousArea" type="Area2D" parent="Background/Group2/Pothole3"]
+[node name="HazardousArea" type="Area2D" parent="Environment/Group2/Pothole3"]
 script = ExtResource( 13 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Pothole3/HazardousArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Group2/Pothole3/HazardousArea"]
 position = Vector2( -16, 10 )
 rotation = 1.5708
 shape = SubResource( 12 )
 
-[node name="Pothole4" type="Node2D" parent="Background/Group2"]
+[node name="Pothole4" type="Node2D" parent="Environment/Group2"]
 position = Vector2( 2565, 390 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Sprite" type="Sprite" parent="Background/Group2/Pothole4"]
+[node name="Sprite" type="Sprite" parent="Environment/Group2/Pothole4"]
 texture = ExtResource( 9 )
 
-[node name="HazardousArea" type="Area2D" parent="Background/Group2/Pothole4"]
+[node name="HazardousArea" type="Area2D" parent="Environment/Group2/Pothole4"]
 script = ExtResource( 13 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Pothole4/HazardousArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Group2/Pothole4/HazardousArea"]
 position = Vector2( -16, 10 )
 rotation = 1.5708
 shape = SubResource( 12 )
 
-[node name="Pothole5" type="Node2D" parent="Background/Group2"]
+[node name="Pothole5" type="Node2D" parent="Environment/Group2"]
 position = Vector2( 2565, 490 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Sprite" type="Sprite" parent="Background/Group2/Pothole5"]
+[node name="Sprite" type="Sprite" parent="Environment/Group2/Pothole5"]
 texture = ExtResource( 9 )
 
-[node name="HazardousArea" type="Area2D" parent="Background/Group2/Pothole5"]
+[node name="HazardousArea" type="Area2D" parent="Environment/Group2/Pothole5"]
 script = ExtResource( 13 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Pothole5/HazardousArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Group2/Pothole5/HazardousArea"]
 position = Vector2( -16, 10 )
 rotation = 1.5708
 shape = SubResource( 12 )
 
-[node name="Ramp" type="Node2D" parent="Background/Group2"]
+[node name="Ramp" type="Node2D" parent="Environment/Group2"]
 position = Vector2( 539, 237 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Sprite" type="Sprite" parent="Background/Group2/Ramp"]
+[node name="Sprite" type="Sprite" parent="Environment/Group2/Ramp"]
 position = Vector2( 0, -144 )
 texture = ExtResource( 10 )
 script = ExtResource( 1 )
 offsetY = 10.0
 
-[node name="OnboardRampArea" type="Area2D" parent="Background/Group2/Ramp"]
+[node name="OnboardRampArea" type="Area2D" parent="Environment/Group2/Ramp"]
 script = ExtResource( 20 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Ramp/OnboardRampArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Group2/Ramp/OnboardRampArea"]
 position = Vector2( -224, -32 )
 shape = SubResource( 70 )
 
-[node name="HazardousArea" type="Area2D" parent="Background/Group2/Ramp"]
+[node name="HazardousArea" type="Area2D" parent="Environment/Group2/Ramp"]
 script = ExtResource( 13 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Ramp/HazardousArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Group2/Ramp/HazardousArea"]
 position = Vector2( 86, -32 )
 shape = SubResource( 71 )
 
-[node name="Barricade" parent="Background/Group2" instance=ExtResource( 5 )]
+[node name="Barricade" parent="Environment/Group2" instance=ExtResource( 5 )]
 position = Vector2( 1180, 357 )
 
-[node name="Barricade2" parent="Background/Group2" instance=ExtResource( 5 )]
+[node name="Barricade2" parent="Environment/Group2" instance=ExtResource( 5 )]
 position = Vector2( 2020, 357 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Environment"]
 autoplay = "move"
 playback_speed = 2.0
 anims/RESET = SubResource( 10 )
