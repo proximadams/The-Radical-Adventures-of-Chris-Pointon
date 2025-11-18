@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 			elif not _check_is_grinding():
 				anim.play('idle')
 		if not anim.current_animation.begins_with('grind_end'):
-			if Input.is_action_pressed('shift_jump'):
+			if Input.is_action_just_pressed('shift_jump'):
 				if 0.0 < crounchWindowTimer:
 					if _check_is_grinding():
 						isTryingToEndGrind = false
