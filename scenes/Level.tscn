@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://code/SpriteAdjustZ.gd" type="Script" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -15,14 +15,30 @@
 [ext_resource path="res://code/HazardousArea.gd" type="Script" id=13]
 [ext_resource path="res://images/chris/LegsSheet.png" type="Texture" id=14]
 [ext_resource path="res://images/chris/UpperSheet.png" type="Texture" id=15]
+[ext_resource path="res://code/GrindableArea.gd" type="Script" id=16]
 [ext_resource path="res://code/PlayerGrindArea.gd" type="Script" id=17]
 [ext_resource path="res://fonts/CooperBlack-Std.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://code/TrickAnimationPlayer.gd" type="Script" id=19]
 [ext_resource path="res://code/OnboardRampArea.gd" type="Script" id=20]
+[ext_resource path="res://code/Tube.gd" type="Script" id=21]
 
 [sub_resource type="CapsuleShape2D" id=12]
 radius = 60.0
 height = 164.0
+
+[sub_resource type="RectangleShape2D" id=72]
+extents = Vector2( 800, 10 )
+
+[sub_resource type="CapsuleShape2D" id=75]
+radius = 20.0
+height = 100.0
+
+[sub_resource type="CapsuleShape2D" id=74]
+radius = 20.0
+height = 100.0
+
+[sub_resource type="RectangleShape2D" id=76]
+extents = Vector2( 750, 50 )
 
 [sub_resource type="RectangleShape2D" id=70]
 extents = Vector2( 4, 70 )
@@ -1090,10 +1106,10 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1, 1.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, false, true ]
 }
 tracks/12/type = "method"
 tracks/12/path = NodePath(".")
@@ -1767,10 +1783,10 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1, 1.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, false, true ]
 }
 tracks/12/type = "method"
 tracks/12/path = NodePath(".")
@@ -3226,6 +3242,47 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 8 ]
+}
+
+[sub_resource type="Animation" id=77]
+resource_name = "hold_crouch"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Chris/Upper:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Chris/Skateboard:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Chris/Legs:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
 }
 
 [sub_resource type="Animation" id=29]
@@ -5199,17 +5256,44 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 flip_h = true
 
-[node name="PipeBack" type="Sprite" parent="Background/Group2"]
+[node name="Tube" type="Sprite" parent="Background/Group2"]
 position = Vector2( 278, 412 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 6 )
+script = ExtResource( 21 )
 
-[node name="PipeFront" type="Sprite" parent="Background/Group2/PipeBack"]
+[node name="TubeFront" type="Sprite" parent="Background/Group2/Tube"]
 position = Vector2( -0.000244141, 0 )
 z_index = 3
 texture = ExtResource( 8 )
 script = ExtResource( 1 )
 offsetY = 70.0
+
+[node name="GrindableArea" type="Area2D" parent="Background/Group2/Tube/TubeFront"]
+script = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Tube/TubeFront/GrindableArea"]
+position = Vector2( 45.7144, -251.429 )
+shape = SubResource( 72 )
+
+[node name="EnterArea" type="Area2D" parent="Background/Group2/Tube/TubeFront"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Tube/TubeFront/EnterArea"]
+position = Vector2( -868.571, 45.714 )
+shape = SubResource( 75 )
+
+[node name="ExitArea" type="Area2D" parent="Background/Group2/Tube/TubeFront"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Tube/TubeFront/ExitArea"]
+position = Vector2( 937.144, 45.714 )
+shape = SubResource( 74 )
+
+[node name="HazardousArea" type="Area2D" parent="Background/Group2/Tube/TubeFront"]
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Group2/Tube/TubeFront/HazardousArea"]
+position = Vector2( 45.7144, 91.4282 )
+shape = SubResource( 76 )
 
 [node name="Ramp" type="Node2D" parent="Background/Group2"]
 position = Vector2( 939, 229 )
@@ -5299,6 +5383,7 @@ anims/grind_forward_hold = SubResource( 50 )
 anims/grind_turn_180_ftb = SubResource( 49 )
 anims/grind_uncrouch = SubResource( 51 )
 anims/hold_back = SubResource( 30 )
+anims/hold_crouch = SubResource( 77 )
 anims/hold_forward = SubResource( 29 )
 anims/idle = SubResource( 18 )
 anims/jump_high = SubResource( 19 )
