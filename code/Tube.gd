@@ -1,8 +1,6 @@
-extends Sprite
+extends 'res://code/SpriteAdjustZ.gd'
 
 var isInTube := false
-
-onready var player = get_tree().get_root().find_node('Player', true, false)
 
 func _ready() -> void:
 	$TubeFront/EnterArea.connect('area_entered', self, '_try_enter_tube')

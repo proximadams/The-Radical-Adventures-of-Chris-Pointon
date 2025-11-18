@@ -5261,6 +5261,7 @@ position = Vector2( 278, 412 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 6 )
 script = ExtResource( 21 )
+offsetY = 55.0
 
 [node name="TubeFront" type="Sprite" parent="Background/Group2/Tube"]
 position = Vector2( -0.000244141, 0 )
