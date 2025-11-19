@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=2]
+[gd_scene load_steps=112 format=2]
 
 [ext_resource path="res://code/SpriteAdjustZ.gd" type="Script" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://images/other/heart_white.svg" type="Texture" id=25]
 [ext_resource path="res://styles/Header1.tres" type="Theme" id=26]
 [ext_resource path="res://styles/GeneralButton.tres" type="Theme" id=27]
+[ext_resource path="res://styles/Header2.tres" type="Theme" id=28]
 
 [sub_resource type="Animation" id=92]
 length = 0.001
@@ -6273,11 +6274,11 @@ modulate = Color( 0, 0, 0, 1 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 16.0
+margin_left = 8.0
 margin_top = -121.0
-margin_right = 16.0
+margin_right = 8.0
 margin_bottom = 8.0
-theme = ExtResource( 26 )
+theme = ExtResource( 28 )
 text = "Move with the left stick."
 autowrap = true
 
@@ -6286,7 +6287,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -129.0
-theme = ExtResource( 26 )
+theme = ExtResource( 28 )
 text = "Move with the left stick."
 autowrap = true
 
@@ -6300,11 +6301,11 @@ modulate = Color( 0, 0, 0, 1 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 16.0
+margin_left = 8.0
 margin_top = -385.0
-margin_right = 16.0
+margin_right = 8.0
 margin_bottom = 8.0
-theme = ExtResource( 26 )
+theme = ExtResource( 28 )
 text = "Kickflip by moving the right stick:
 Down, up, down."
 autowrap = true
@@ -6314,7 +6315,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -393.0
-theme = ExtResource( 26 )
+theme = ExtResource( 28 )
 text = "Kickflip by moving the right stick:
 Down, up, down."
 autowrap = true
@@ -6329,11 +6330,11 @@ modulate = Color( 0, 0, 0, 1 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 16.0
+margin_left = 8.0
 margin_top = -385.0
-margin_right = 16.0
+margin_right = 8.0
 margin_bottom = 8.0
-theme = ExtResource( 26 )
+theme = ExtResource( 28 )
 text = "Spin 360 by moving the right stick:
 Down, then in a circle."
 autowrap = true
@@ -6343,7 +6344,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -393.0
-theme = ExtResource( 26 )
+theme = ExtResource( 28 )
 text = "Spin 360 by moving the right stick:
 Down, then in a circle."
 autowrap = true
