@@ -148,7 +148,6 @@ func _process(delta: float) -> void:
 		anim.play('grind_end')
 		anim.queue('idle')
 
-
 func _listen_for_trick_inputs(delta: float) -> void:
 	timeSinceInputShiftBack += delta
 	timeSinceInputShiftCrouch += delta
