@@ -6129,6 +6129,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="Move" type="Control" parent="CanvasLayer/Tutorial"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -6199,7 +6200,7 @@ margin_right = 16.0
 margin_bottom = 8.0
 theme = ExtResource( 26 )
 text = "Spin 360 by moving the right stick:
-Down, up, then in a circle."
+Down, then in a circle."
 autowrap = true
 
 [node name="TextMain" type="Label" parent="CanvasLayer/Tutorial/Spin"]
@@ -6209,7 +6210,7 @@ anchor_bottom = 1.0
 margin_top = -393.0
 theme = ExtResource( 26 )
 text = "Spin 360 by moving the right stick:
-Down, up, then in a circle."
+Down, then in a circle."
 autowrap = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Tutorial"]
