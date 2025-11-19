@@ -21,6 +21,7 @@ signal environment_slow_down
 signal show_new_points(points)
 
 var crounchWindowTimer         := CROUNCH_WINDOW_TIME
+var health                     := 3
 var isInTube                   := false
 var isTryingToEndGrind         := false
 var timeSinceInputShiftBack    := 1000.0
@@ -39,8 +40,9 @@ enum {
 
 var rampState = NOT_ON
 
-onready var anim     : AnimationPlayer = $VisualAnimationPlayer
-onready var animHurt : AnimationPlayer = $HurtAnimationPlayer
+onready var anim       : AnimationPlayer = $VisualAnimationPlayer
+onready var animHealth : AnimationPlayer = $Health/AnimationPlayer
+onready var animHurt   : AnimationPlayer = $HurtAnimationPlayer
 
 func _ready() -> void:
 	var _res = $PlayerHurtableArea.connect('player_is_hurt', self, 'hurt_me')
@@ -210,6 +212,7 @@ func _check_release_shift() -> bool:
 
 func hurt_me() -> void:
 	if not isInTube and not animHurt.current_animation == 'hurt':
+		health -= 1
 		animHurt.play('hurt')
 		animHurt.queue('normal')
 		emit_signal('environment_slow_down')
@@ -269,6 +272,15 @@ func trick_complete(name: String) -> void:
 		emit_signal('show_new_points', points)
 	else:
 		print('error in trick_complete() no trick named "' + name + '"')
+
+func hide_heart() -> void:
+	match health:
+		2:
+			animHealth.play('3to2')
+		1:
+			animHealth.play('2to1')
+		0:
+			animHealth.play('1to0')
 
 func _on_VisualAnimationPlayer_animation_started(_anim_name:String):
 	# print('anim_name = ' + anim_name)
