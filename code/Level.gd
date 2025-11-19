@@ -1,10 +1,19 @@
 extends Node2D
 
-onready var environment  : Node2D          = $Environment
-onready var player       : Node2D          = $Player
-onready var score        : Control         = $CanvasLayer/Score
-onready var tree         : SceneTree       = get_tree()
-onready var animGameOver : AnimationPlayer = $CanvasLayer/GameOverScreen/AnimationPlayer
+onready var environment      : Node2D          = $Environment
+onready var player           : Node2D          = $Player
+onready var score            : Control         = $CanvasLayer/Score
+onready var tree             : SceneTree       = get_tree()
+onready var animGameOver     : AnimationPlayer = $CanvasLayer/GameOverScreen/AnimationPlayer
+onready var animInstructions : AnimationPlayer = $CanvasLayer/Tutorial/AnimationPlayer
+enum {
+	MOVE,
+	KICKFLIP,
+	SPIN,
+	FINISHED
+}
+
+var instructionsState := MOVE
 
 func _ready():
 	var _res = $Player.connect('environment_slow_down', $Environment, 'slow_down')
@@ -15,6 +24,19 @@ func _process(_delta):
 		player.anim.playback_speed = 1.0
 	else:
 		player.anim.playback_speed = 0.75 + environment.anim.playback_speed * 0.25
+	match instructionsState:
+		MOVE:
+			if Input.is_action_just_pressed('move_down') or Input.is_action_just_pressed('move_up') or Input.is_action_just_pressed('move_left') or Input.is_action_just_pressed('move_right'):
+				instructionsState = KICKFLIP
+				animInstructions.play('kickflip')
+		KICKFLIP:
+			if player.anim.current_animation == 'jump_high_kickflip':
+				instructionsState = SPIN
+				animInstructions.play('spin')
+		SPIN:
+			if player.anim.current_animation == 'jump_high_360':
+				instructionsState = FINISHED
+				animInstructions.play('begin')
 
 func _increase_points(points: int) -> void:
 	environment.increase_max_speed(points)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://code/SpriteAdjustZ.gd" type="Script" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -128,6 +128,20 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("FocusDefaultButton")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "grab_focus"
+} ]
 }
 
 [sub_resource type="Animation" id=93]
@@ -382,6 +396,162 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=95]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spin:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Kickflip:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Move:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=97]
+resource_name = "begin"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spin:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Kickflip:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Move:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=94]
+resource_name = "kickflip"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spin:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Kickflip:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Move:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=96]
+resource_name = "spin"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Move:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Kickflip:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Spin:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="CapsuleShape2D" id=12]
@@ -5839,11 +6009,13 @@ theme = ExtResource( 26 )
 text = "Game Over"
 
 [node name="FocusDefaultButton" type="Button" parent="CanvasLayer/GameOverScreen"]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 12.0
 margin_bottom = 20.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverScreen"]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
@@ -5950,6 +6122,101 @@ anims/RESET = SubResource( 84 )
 anims/delay_increase = SubResource( 86 )
 anims/increase = SubResource( 85 )
 anims/none = SubResource( 83 )
+
+[node name="Tutorial" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Move" type="Control" parent="CanvasLayer/Tutorial"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MoveBackground" type="Label" parent="CanvasLayer/Tutorial/Move"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -121.0
+margin_right = 16.0
+margin_bottom = 8.0
+theme = ExtResource( 26 )
+text = "Move with the left stick."
+autowrap = true
+
+[node name="MoveMain" type="Label" parent="CanvasLayer/Tutorial/Move"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -129.0
+theme = ExtResource( 26 )
+text = "Move with the left stick."
+autowrap = true
+
+[node name="Kickflip" type="Control" parent="CanvasLayer/Tutorial"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="KickglipBackground" type="Label" parent="CanvasLayer/Tutorial/Kickflip"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -385.0
+margin_right = 16.0
+margin_bottom = 8.0
+theme = ExtResource( 26 )
+text = "Kickflip by moving the right stick:
+Down, up, down."
+autowrap = true
+
+[node name="KickglipMain" type="Label" parent="CanvasLayer/Tutorial/Kickflip"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -393.0
+theme = ExtResource( 26 )
+text = "Kickflip by moving the right stick:
+Down, up, down."
+autowrap = true
+
+[node name="Spin" type="Control" parent="CanvasLayer/Tutorial"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextBackground" type="Label" parent="CanvasLayer/Tutorial/Spin"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -385.0
+margin_right = 16.0
+margin_bottom = 8.0
+theme = ExtResource( 26 )
+text = "Spin 360 by moving the right stick:
+Down, up, then in a circle."
+autowrap = true
+
+[node name="TextMain" type="Label" parent="CanvasLayer/Tutorial/Spin"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -393.0
+theme = ExtResource( 26 )
+text = "Spin 360 by moving the right stick:
+Down, up, then in a circle."
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Tutorial"]
+anims/RESET = SubResource( 95 )
+anims/begin = SubResource( 97 )
+anims/kickflip = SubResource( 94 )
+anims/spin = SubResource( 96 )
 
 [node name="Environment" type="Node2D" parent="."]
 position = Vector2( 12, 200 )
