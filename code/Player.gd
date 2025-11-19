@@ -5,7 +5,20 @@ const GROUND_180_WINDOW_TIME := 0.3
 const MIN_GRIND_TIME         := 0.3
 const SPEED                  := 300.0
 
+const SCORE_TABLE := {
+	'manual': 1,
+	'noseManual': 1,
+	'ollie': 2,
+	'spin180': 5,
+	'grind': 10,
+	'kickflip': 30,
+	'spin360': 30,
+	'kickflipX2': 100,
+	'spin720': 100,
+}
+
 signal environment_slow_down
+signal show_new_points(points)
 
 var crounchWindowTimer         := CROUNCH_WINDOW_TIME
 var isInTube                   := false
@@ -34,6 +47,7 @@ func _ready() -> void:
 	_res = $PlayerHurtableArea.connect('player_go_on_ramp', self, 'go_on_ramp')
 	_res = $PlayerGrindArea.connect('player_try_start_grind', self, 'try_start_grind')
 	_res = $PlayerGrindArea.connect('player_try_end_grind', self, 'try_end_grind')
+	_res = $TrickLabels/TrickAnimationPlayer.connect('trick_complete', self, 'trick_complete')
 
 func _process(delta: float) -> void:
 	# shifting weight and jumping
@@ -195,7 +209,7 @@ func _check_release_shift() -> bool:
 	return hasReleased and pressingNothing and not anim.current_animation.begins_with('turn')
 
 func hurt_me() -> void:
-	if not isInTube:
+	if not isInTube and not animHurt.current_animation == 'hurt':
 		animHurt.play('hurt')
 		animHurt.queue('normal')
 		emit_signal('environment_slow_down')
@@ -248,6 +262,13 @@ func _check_is_grinding() -> bool:
 
 func _check_is_on_ramp() -> bool:
 	return rampState != NOT_ON
+
+func trick_complete(name: String) -> void:
+	if name in SCORE_TABLE.keys():
+		var points = SCORE_TABLE[name]
+		emit_signal('show_new_points', points)
+	else:
+		print('error in trick_complete() no trick named "' + name + '"')
 
 func _on_VisualAnimationPlayer_animation_started(_anim_name:String):
 	# print('anim_name = ' + anim_name)

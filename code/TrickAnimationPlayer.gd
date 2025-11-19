@@ -1,5 +1,7 @@
 extends AnimationPlayer
 
+signal trick_complete(name)
+
 func grind() -> void:
 	_show_trick_text('grind')
 func kickflip() -> void:
@@ -22,3 +24,4 @@ func spin_720() -> void:
 func _show_trick_text(animName: String) -> void:
 	play('none')
 	queue(animName)
+	emit_signal('trick_complete', animName)

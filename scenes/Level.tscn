@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=2]
+[gd_scene load_steps=97 format=2]
 
 [ext_resource path="res://code/SpriteAdjustZ.gd" type="Script" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -23,6 +23,198 @@
 [ext_resource path="res://code/Tube.gd" type="Script" id=21]
 [ext_resource path="res://code/Environment.gd" type="Script" id=22]
 [ext_resource path="res://code/Level.gd" type="Script" id=23]
+[ext_resource path="res://code/Score.gd" type="Script" id=24]
+
+[sub_resource type="DynamicFont" id=78]
+size = 80
+font_data = ExtResource( 18 )
+
+[sub_resource type="Theme" id=79]
+Label/fonts/font = SubResource( 78 )
+
+[sub_resource type="Animation" id=82]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=81]
+resource_name = "increase"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=80]
+resource_name = "none"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=84]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=86]
+resource_name = "delay_increase"
+tracks/0/type = "method"
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "increase_total_score"
+} ]
+}
+
+[sub_resource type="Animation" id=85]
+resource_name = "increase"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=83]
+resource_name = "none"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="CapsuleShape2D" id=12]
 radius = 60.0
@@ -5204,6 +5396,84 @@ script = ExtResource( 23 )
 __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 79 )
+script = ExtResource( 24 )
+
+[node name="NewPoints" type="Control" parent="CanvasLayer/Score"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_top = 64.0
+margin_bottom = 104.0
+
+[node name="Background" type="Label" parent="CanvasLayer/Score/NewPoints"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -858.0
+margin_top = 88.0
+margin_right = -20.0
+margin_bottom = 153.0
+grow_horizontal = 0
+align = 2
+
+[node name="Main" type="Label" parent="CanvasLayer/Score/NewPoints"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -866.0
+margin_top = 80.0
+margin_right = -28.0
+margin_bottom = 145.0
+grow_horizontal = 0
+align = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Score/NewPoints"]
+autoplay = "none"
+anims/RESET = SubResource( 82 )
+anims/increase = SubResource( 81 )
+anims/none = SubResource( 80 )
+
+[node name="TotalPoints" type="Control" parent="CanvasLayer/Score"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+
+[node name="Background" type="Label" parent="CanvasLayer/Score/TotalPoints"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -240.0
+margin_top = 28.0
+margin_right = -20.0
+margin_bottom = 93.0
+grow_horizontal = 0
+text = "0"
+align = 2
+
+[node name="Main" type="Label" parent="CanvasLayer/Score/TotalPoints"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -248.0
+margin_top = 20.0
+margin_right = -28.0
+margin_bottom = 85.0
+grow_horizontal = 0
+text = "0"
+align = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Score/TotalPoints"]
+autoplay = "none"
+anims/RESET = SubResource( 84 )
+anims/delay_increase = SubResource( 86 )
+anims/increase = SubResource( 85 )
+anims/none = SubResource( 83 )
 
 [node name="Environment" type="Node2D" parent="."]
 position = Vector2( 12, 200 )
