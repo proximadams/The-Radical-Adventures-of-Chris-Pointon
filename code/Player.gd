@@ -134,6 +134,7 @@ func _process(delta: float) -> void:
 		movementDirection = movementDirection.normalized()
 		position += movementDirection * delta * SPEED
 	global_position.y = clamp(global_position.y, 180, 990)
+	global_position.x = clamp(global_position.x, 60, 1850)
 	
 	# tricks
 	_listen_for_trick_inputs(delta)
