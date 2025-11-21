@@ -11,6 +11,7 @@ enum {
 	MOVE,
 	KICKFLIP,
 	SPIN,
+	GRIND,
 	FINISHED
 }
 
@@ -36,9 +37,13 @@ func _process(_delta):
 				animInstructions.play('spin')
 		SPIN:
 			if player.anim.current_animation == 'jump_high_360':
+				instructionsState = GRIND
+				animInstructions.play('grind')
+				environment.begin_spawning()
+		GRIND:
+			if player.anim.current_animation.begins_with('grind'):
 				instructionsState = FINISHED
 				animInstructions.play('begin')
-				environment.begin_spawning()
 
 func _increase_points(points: int) -> void:
 	environment.increase_max_speed(points)

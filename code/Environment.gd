@@ -62,6 +62,9 @@ func _free_children() -> void:
 func _instantiate_res(offsetX: int) -> void:
 	if skipIncoming == 0:
 		var resIndex: int = rng.randi_range(0, resArr.size() -1)
+		if totalPoints < 150:
+			resIndex = 2
+			skipIncoming += 1
 		if (offsetX == 0 or resIndex != 0) and (500 <= totalPoints or resIndex != 1):
 			var inst = resArr[resIndex].instance()
 			subgroupArr[subgroupIndex].add_child(inst)
