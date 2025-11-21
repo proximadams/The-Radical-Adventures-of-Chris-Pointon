@@ -809,7 +809,7 @@ tracks/3/keys = {
 resource_name = "move"
 length = 30.0
 loop = true
-step = 5.0
+step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Group1:position")
 tracks/0/interp = 1
@@ -817,10 +817,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 15, 16, 17, 18 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 19, 19.4, 19.6, 19.8, 20 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -3072, 1.36422e-12 ), Vector2( -3072, 2000 ), Vector2( 2457.6, 2000 ), Vector2( 2457.6, 1.36422e-12 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -3891, 1.36422e-12 ), Vector2( -3891, 1.36422e-12 ), Vector2( -3891, 2000 ), Vector2( 2048, 2000 ), Vector2( 2048, 1.36422e-12 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Group2:position")
@@ -841,7 +841,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 15, 16 ),
+"times": PoolRealArray( 0, 19.4, 19.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]

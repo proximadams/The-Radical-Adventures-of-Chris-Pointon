@@ -6,19 +6,20 @@ const RATE_INCREASE_MAX_SPEED    := 0.003
 const MIN_SPEED                  := 0.9
 const REDUCE_SPEED_MULT          := 0.5
 
-var barricadeRes    : Resource = load('res://scenes/Barricade.tscn')
-var potholeRes      : Resource = load('res://scenes/Pothole.tscn')
-var potholeGroupRes : Resource = load('res://scenes/PotholeGroup.tscn')
-var rampRes         : Resource = load('res://scenes/Ramp.tscn')
-var tubeRes         : Resource = load('res://scenes/Tube.tscn')
+var barricadeRes       : Resource = load('res://scenes/Barricade.tscn')
+var concreteBarrierRes : Resource = load('res://scenes/ConcreteBarrier.tscn')
+var potholeRes         : Resource = load('res://scenes/Pothole.tscn')
+var potholeGroupRes    : Resource = load('res://scenes/PotholeGroup.tscn')
+var rampRes            : Resource = load('res://scenes/Ramp.tscn')
+var tubeRes            : Resource = load('res://scenes/Tube.tscn')
 
-var isSpawning      : bool  = false
-var maxSpeed        : float = 2.0
-var resArr          : Array = [tubeRes, potholeGroupRes, barricadeRes, barricadeRes, barricadeRes, potholeRes, potholeRes, rampRes]
+var isSpawning    : bool  = false
+var maxSpeed      : float = 2.0
+var resArr        : Array = [tubeRes, potholeGroupRes, barricadeRes, barricadeRes, barricadeRes, concreteBarrierRes, potholeRes, potholeRes, rampRes]
 var rng
-var skipIncoming    : int = 0
-var subgroupIndex   : int = 2
-var totalPoints     : int = 0
+var skipIncoming  : int = 0
+var subgroupIndex : int = 2
+var totalPoints   : int = 0
 
 onready var anim        : AnimationPlayer = $AnimationPlayer
 onready var subgroupArr : Array = [
@@ -65,6 +66,11 @@ func _instantiate_res(offsetX: int) -> void:
 		if totalPoints < 150:
 			resIndex = 2
 			skipIncoming += 1
+		if resIndex == 5:
+			if 1000 < totalPoints and offsetX == 0:
+				skipIncoming += 3
+			else:
+				resIndex = resArr.size() -1
 		if (offsetX == 0 or resIndex != 0) and (500 <= totalPoints or resIndex != 1):
 			var inst = resArr[resIndex].instance()
 			subgroupArr[subgroupIndex].add_child(inst)
