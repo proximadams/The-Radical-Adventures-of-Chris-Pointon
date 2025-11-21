@@ -3,7 +3,7 @@ extends Node2D
 const BASE_MAX_SPEED             := 2.0
 const RATE_INCREASE_PLAYER_SPEED := 0.1
 const RATE_INCREASE_MAX_SPEED    := 0.003
-const MIN_SPEED                  := 0.9
+const MIN_SPEED                  := 1.5
 const REDUCE_SPEED_MULT          := 0.5
 
 var barricadeRes       : Resource = load('res://scenes/Barricade.tscn')
@@ -11,11 +11,12 @@ var concreteBarrierRes : Resource = load('res://scenes/ConcreteBarrier.tscn')
 var potholeRes         : Resource = load('res://scenes/Pothole.tscn')
 var potholeGroupRes    : Resource = load('res://scenes/PotholeGroup.tscn')
 var rampRes            : Resource = load('res://scenes/Ramp.tscn')
+var speedDecreaseRes   : Resource = load('res://scenes/SpeedDecreaseStrip.tscn')
 var tubeRes            : Resource = load('res://scenes/Tube.tscn')
 
 var isSpawning    : bool  = false
 var maxSpeed      : float = 2.0
-var resArr        : Array = [tubeRes, potholeGroupRes, barricadeRes, barricadeRes, barricadeRes, concreteBarrierRes, potholeRes, potholeRes, rampRes]
+var resArr        : Array = [tubeRes, potholeGroupRes, barricadeRes, barricadeRes, barricadeRes, concreteBarrierRes, speedDecreaseRes, potholeRes, potholeRes, rampRes]
 var rng
 var skipIncoming  : int = 0
 var subgroupIndex : int = 2
@@ -66,6 +67,11 @@ func _instantiate_res(offsetX: int) -> void:
 		if totalPoints < 150:
 			resIndex = 2
 			skipIncoming += 1
+		if resIndex == 6:
+			if 1500 < totalPoints and rng.randf() < 0.2:
+				skipIncoming += 1
+			else:
+				resIndex = resArr.size() -1
 		if resIndex == 5:
 			if 1000 < totalPoints and offsetX == 0:
 				skipIncoming += 3

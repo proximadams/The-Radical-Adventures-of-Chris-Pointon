@@ -47,6 +47,7 @@ onready var animHurt   : AnimationPlayer = $HurtAnimationPlayer
 func _ready() -> void:
 	var _res = $PlayerHurtableArea.connect('player_is_hurt', self, 'hurt_me')
 	_res = $PlayerHurtableArea.connect('player_go_on_ramp', self, 'go_on_ramp')
+	_res = $PlayerHurtableArea.connect('player_slow_down', self, 'slow_down')
 	_res = $PlayerGrindArea.connect('player_try_start_grind', self, 'try_start_grind')
 	_res = $PlayerGrindArea.connect('player_try_end_grind', self, 'try_end_grind')
 	_res = $TrickLabels/TrickAnimationPlayer.connect('trick_complete', self, 'trick_complete')
@@ -216,6 +217,9 @@ func hurt_me() -> void:
 		animHurt.play('hurt')
 		animHurt.queue('normal')
 		emit_signal('environment_slow_down')
+
+func slow_down() -> void:
+	emit_signal('environment_slow_down')
 
 func go_on_ramp() -> void:
 	if Input.is_action_pressed('shift_crouch'):
