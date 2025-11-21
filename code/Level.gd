@@ -37,6 +37,7 @@ func _process(_delta):
 			if player.anim.current_animation == 'jump_high_360':
 				instructionsState = FINISHED
 				animInstructions.play('begin')
+				environment.begin_spawning()
 
 func _increase_points(points: int) -> void:
 	environment.increase_max_speed(points)

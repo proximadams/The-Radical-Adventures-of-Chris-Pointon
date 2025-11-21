@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/Pothole.tscn" type="PackedScene" id=1]
+
+[node name="PotholeGroup" type="Node2D"]
+
+[node name="Pothole1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 113, -150 )
+
+[node name="Pothole2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 113, -50 )
+
+[node name="Pothole3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 113, 50 )
+
+[node name="Pothole4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 113, 150 )

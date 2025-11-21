@@ -12,6 +12,7 @@ extents = Vector2( 293, 40 )
 extents = Vector2( 275, 10 )
 
 [node name="Barricade" type="Node2D"]
+position = Vector2( 176, 0 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -184,7 +184,7 @@ func try_to_trick_jump(isLate := false) -> void:
 
 		if anim.current_animation == 'grind_end' or anim.current_animation == 'grind_end_jump_low':
 			anim.play('grind_end_jump_low_360')
-	elif timeSinceInputShiftCrouch < timeSpentJumping and timeSinceInputShiftJump < timeSpentJumping:# TODO kickflip not working on first try
+	elif timeSinceInputShiftCrouch < timeSpentJumping and timeSinceInputShiftJump < timeSpentJumping:
 		if anim.current_animation == 'jump_high':
 			anim.play('jump_high_kickflip')
 		elif anim.current_animation == 'grind_end_jump_high':

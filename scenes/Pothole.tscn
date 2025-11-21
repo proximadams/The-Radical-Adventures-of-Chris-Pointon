@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://code/HazardousArea.gd" type="Script" id=1]
+[ext_resource path="res://images/environment/Pothole.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=12]
+radius = 60.0
+height = 164.0
+
+[node name="Pothole" type="Node2D"]
+position = Vector2( 112, 0 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="HazardousArea" type="Area2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardousArea"]
+position = Vector2( -16, 10 )
+rotation = 1.5708
+shape = SubResource( 12 )

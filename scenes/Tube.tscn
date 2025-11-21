@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://code/GrindableArea.gd" type="Script" id=1]
+[ext_resource path="res://code/HazardousArea.gd" type="Script" id=2]
+[ext_resource path="res://images/environment/PipeFront.png" type="Texture" id=3]
+[ext_resource path="res://images/environment/PipeBack.png" type="Texture" id=4]
+[ext_resource path="res://code/SpriteAdjustZ.gd" type="Script" id=5]
+[ext_resource path="res://code/Tube.gd" type="Script" id=6]
+
+[sub_resource type="RectangleShape2D" id=72]
+extents = Vector2( 800, 10 )
+
+[sub_resource type="CapsuleShape2D" id=75]
+radius = 20.0
+height = 100.0
+
+[sub_resource type="CapsuleShape2D" id=74]
+radius = 20.0
+height = 100.0
+
+[sub_resource type="RectangleShape2D" id=76]
+extents = Vector2( 750, 50 )
+
+[node name="Tube" type="Sprite"]
+position = Vector2( 312, 0 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 4 )
+script = ExtResource( 6 )
+offsetY = 55.0
+
+[node name="TubeFront" type="Sprite" parent="."]
+position = Vector2( -0.000244141, 0 )
+z_index = 3
+texture = ExtResource( 3 )
+script = ExtResource( 5 )
+offsetY = 70.0
+
+[node name="GrindableArea" type="Area2D" parent="TubeFront"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TubeFront/GrindableArea"]
+position = Vector2( 45.7144, -251.429 )
+shape = SubResource( 72 )
+
+[node name="EnterArea" type="Area2D" parent="TubeFront"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TubeFront/EnterArea"]
+position = Vector2( -868.571, 45.714 )
+shape = SubResource( 75 )
+
+[node name="ExitArea" type="Area2D" parent="TubeFront"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TubeFront/ExitArea"]
+position = Vector2( 937.144, 45.714 )
+shape = SubResource( 74 )
+
+[node name="HazardousArea" type="Area2D" parent="TubeFront"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TubeFront/HazardousArea"]
+position = Vector2( 45.7144, 91.4282 )
+shape = SubResource( 76 )
