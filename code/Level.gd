@@ -1,5 +1,6 @@
 extends Node2D
 
+onready var gameOverHeader   : Control = $CanvasLayer/GameOverScreen/Header
 onready var environment      : Node2D          = $Environment
 onready var player           : Node2D          = $Player
 onready var score            : Control         = $CanvasLayer/Score
@@ -44,8 +45,14 @@ func _increase_points(points: int) -> void:
 	score.show_new_points(points)
 
 func game_over() -> void:
+	var isNewRecord : bool = (Records.recordsArr.size() != 0 and Records.recordsArr.max() < score.totalPoints)
 	animGameOver.play('animate')
 	tree.paused = true
+	Records.recordsArr.append(score.totalPoints)
+	if isNewRecord:
+		gameOverHeader.text = 'New Record!'
+	else:
+		gameOverHeader.text = 'Try Again.'
 
 func play_again():
 	tree.paused = false
