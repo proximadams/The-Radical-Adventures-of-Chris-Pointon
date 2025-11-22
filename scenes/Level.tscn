@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://audio/SkateboardWheelsLoop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -30,6 +30,9 @@
 [ext_resource path="res://styles/Header2.tres" type="Theme" id=28]
 [ext_resource path="res://audio/ramp1.mp3" type="AudioStream" id=29]
 [ext_resource path="res://audio/ramp2.mp3" type="AudioStream" id=30]
+[ext_resource path="res://audio/Pain1.mp3" type="AudioStream" id=31]
+[ext_resource path="res://audio/Pain2.mp3" type="AudioStream" id=32]
+[ext_resource path="res://audio/Pain3.mp3" type="AudioStream" id=33]
 
 [sub_resource type="Animation" id=92]
 length = 0.001
@@ -6523,6 +6526,20 @@ volume_db = 5.0
 [node name="Clip3" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Ramp"]
 stream = ExtResource( 21 )
 volume_db = 5.0
+
+[node name="Pain" type="Node2D" parent="Player/SoundEffects"]
+
+[node name="Clip1" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Pain"]
+stream = ExtResource( 31 )
+volume_db = 15.0
+
+[node name="Clip2" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Pain"]
+stream = ExtResource( 32 )
+volume_db = 15.0
+
+[node name="Clip3" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Pain"]
+stream = ExtResource( 33 )
+volume_db = 15.0
 
 [node name="Shadow" type="Node2D" parent="Player"]
 modulate = Color( 1, 1, 1, 0 )

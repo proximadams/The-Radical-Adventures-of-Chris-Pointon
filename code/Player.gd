@@ -51,7 +51,8 @@ onready var sound := {
 	'grinding': $SoundEffects/Grinding,
 	'landing': [$SoundEffects/Landing/Clip1, $SoundEffects/Landing/Clip2, $SoundEffects/Landing/Clip3, $SoundEffects/Landing/Clip4, $SoundEffects/Landing/Clip5],
 	'jumping': [$SoundEffects/Jumping/Clip1, $SoundEffects/Jumping/Clip2, $SoundEffects/Jumping/Clip3],
-	'ramp': [$SoundEffects/Ramp/Clip1, $SoundEffects/Ramp/Clip2, $SoundEffects/Ramp/Clip3]
+	'ramp': [$SoundEffects/Ramp/Clip1, $SoundEffects/Ramp/Clip2, $SoundEffects/Ramp/Clip3],
+	'pain': [$SoundEffects/Pain/Clip1, $SoundEffects/Pain/Clip2, $SoundEffects/Pain/Clip3]
 }
 
 func _ready() -> void:
@@ -289,6 +290,13 @@ func hurt_me() -> void:
 		animHurt.play('hurt')
 		animHurt.queue('normal')
 		emit_signal('environment_slow_down')
+		match health:
+			2:
+				sound.pain[0].play()
+			1:
+				sound.pain[1].play()
+			0:
+				sound.pain[2].play()
 
 func slow_down() -> void:
 	emit_signal('environment_slow_down')
