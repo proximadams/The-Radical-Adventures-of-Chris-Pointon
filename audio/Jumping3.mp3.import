@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Jumping3.mp3-88a86e1a57e550c5330e18a5d7b0d8b9.mp3str"
+
+[deps]
+
+source_file="res://audio/Jumping3.mp3"
+dest_files=[ "res://.import/Jumping3.mp3-88a86e1a57e550c5330e18a5d7b0d8b9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

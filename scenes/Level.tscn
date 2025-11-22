@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=2]
+[gd_scene load_steps=104 format=2]
 
 [ext_resource path="res://audio/SkateboardWheelsLoop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -9,10 +9,13 @@
 [ext_resource path="res://audio/Landing3.mp3" type="AudioStream" id=7]
 [ext_resource path="res://audio/Landing4.mp3" type="AudioStream" id=8]
 [ext_resource path="res://audio/Landing5.mp3" type="AudioStream" id=9]
+[ext_resource path="res://audio/Jumping1.mp3" type="AudioStream" id=10]
 [ext_resource path="res://images/chris/SkateboardSheet.png" type="Texture" id=11]
 [ext_resource path="res://code/PlayerHurtableArea.gd" type="Script" id=12]
+[ext_resource path="res://audio/Jumping2.mp3" type="AudioStream" id=13]
 [ext_resource path="res://images/chris/LegsSheet.png" type="Texture" id=14]
 [ext_resource path="res://images/chris/UpperSheet.png" type="Texture" id=15]
+[ext_resource path="res://audio/Jumping3.mp3" type="AudioStream" id=16]
 [ext_resource path="res://code/PlayerGrindArea.gd" type="Script" id=17]
 [ext_resource path="res://styles/fonts/CooperBlack-Std.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://code/TrickAnimationPlayer.gd" type="Script" id=19]
@@ -6479,6 +6482,17 @@ stream = ExtResource( 8 )
 
 [node name="Clip5" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Landing"]
 stream = ExtResource( 9 )
+
+[node name="Jumping" type="Node2D" parent="Player/SoundEffects"]
+
+[node name="Clip1" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Jumping"]
+stream = ExtResource( 10 )
+
+[node name="Clip2" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Jumping"]
+stream = ExtResource( 13 )
+
+[node name="Clip3" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Jumping"]
+stream = ExtResource( 16 )
 
 [node name="Shadow" type="Node2D" parent="Player"]
 modulate = Color( 1, 1, 1, 0 )

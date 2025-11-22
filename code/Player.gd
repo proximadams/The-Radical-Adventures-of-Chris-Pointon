@@ -48,7 +48,8 @@ onready var animHurt      : AnimationPlayer = $HurtAnimationPlayer
 onready var hurtCollision : CollisionShape2D = $PlayerHurtableArea/CollisionShape2D
 onready var sound := {
 	'rolling': $SoundEffects/Rolling,
-	'landing': [$SoundEffects/Landing/Clip1, $SoundEffects/Landing/Clip2, $SoundEffects/Landing/Clip3, $SoundEffects/Landing/Clip4, $SoundEffects/Landing/Clip5]
+	'landing': [$SoundEffects/Landing/Clip1, $SoundEffects/Landing/Clip2, $SoundEffects/Landing/Clip3, $SoundEffects/Landing/Clip4, $SoundEffects/Landing/Clip5],
+	'jumping': [$SoundEffects/Jumping/Clip1, $SoundEffects/Jumping/Clip2, $SoundEffects/Jumping/Clip3]
 }
 
 func _ready() -> void:
@@ -97,12 +98,14 @@ func _process(delta: float) -> void:
 						anim.play('grind_end_jump_high')
 					elif not anim.current_animation.begins_with('grind_end'):
 						anim.play('jump_high')
+						_play_sound_jumping()
 				else:
 					if _check_is_grinding():
 						isTryingToEndGrind = false
 						anim.play('grind_end_jump_low')
 					elif not anim.current_animation.begins_with('grind_end'):
 						anim.play('jump_low')
+						_play_sound_jumping()
 				anim.queue('idle')
 			elif Input.is_action_pressed('shift_crouch'):
 				if crounchWindowTimer < CROUNCH_WINDOW_TIME * 0.9:
@@ -170,11 +173,17 @@ func _refresh_rolling_sound_volume():
 		sound.rolling.pitch_scale = 2.0
 
 func _play_sound_landing() -> void:
-	var soundIndex = Global.rng.randi_range(0, sound.landing.size() -2)
-	var soundClip = sound.landing[soundIndex]
+	_play_random_sound(sound.landing)
+
+func _play_sound_jumping() -> void:
+	_play_random_sound(sound.jumping)
+
+func _play_random_sound(soundArr: Array) -> void:
+	var soundIndex = Global.rng.randi_range(0, soundArr.size() -2)
+	var soundClip = soundArr[soundIndex]
 	soundClip.play()
-	sound.landing.remove(soundIndex)
-	sound.landing.append(soundClip)
+	soundArr.remove(soundIndex)
+	soundArr.append(soundClip)
 
 func refresh_player_speed(environmentSpeed: float) -> void:
 	speed = clamp(MIN_SPEED * (0.5 + environmentSpeed * 0.25), MIN_SPEED, MAX_SPEED)
