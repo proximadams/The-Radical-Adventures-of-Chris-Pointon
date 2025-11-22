@@ -77,6 +77,8 @@ func _instantiate_res(offsetX: int) -> void:
 				skipIncoming += 3
 			else:
 				resIndex = resArr.size() -1
+		elif resIndex == 1:
+			skipIncoming += 1
 		if (offsetX == 0 or resIndex != 0) and (500 <= totalPoints or resIndex != 1):
 			var inst = resArr[resIndex].instance()
 			subgroupArr[subgroupIndex].add_child(inst)
