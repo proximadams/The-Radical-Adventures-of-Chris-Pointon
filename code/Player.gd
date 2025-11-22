@@ -149,6 +149,7 @@ func _process(delta: float) -> void:
 
 	_refresh_rolling_sound_volume()
 	_refresh_sound_grinding()
+	_refresh_effect_grinding()
 	
 	# tricks
 	_listen_for_trick_inputs(delta)
@@ -182,6 +183,13 @@ func _refresh_rolling_sound_volume() -> void:
 		sound.rolling.pitch_scale = 2.0
 	elif sound.rolling.volume_db == 15.0:
 		sound.rolling.volume_db = 6.0
+
+func _refresh_effect_grinding() -> void:
+	var isGrinding : bool = (anim.current_animation == 'grind_turn_180_ftb' or anim.current_animation == 'grind_back' or anim.current_animation == 'grind_forward' or anim.current_animation == 'grind_forward_hold' or anim.current_animation == 'grind_crouch' or anim.current_animation == 'grind_uncrouch')
+	if animTrick.current_animation != 'grind' and isGrinding:
+		animTrick.play('grind')
+	elif animTrick.current_animation == 'grind' and not isGrinding:
+		animTrick.play('none')
 
 func _refresh_sound_grinding() -> void:
 	if anim.current_animation == 'grind_turn_180_ftb':

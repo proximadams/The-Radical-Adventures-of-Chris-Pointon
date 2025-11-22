@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Land.png-657f0f29ad4baf4bb1346a0a254c724e.stex"
+path="res://.import/Land.png-4dfbec41ac05cfa2cdf4d36205793539.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/tricks/Land.png"
-dest_files=[ "res://.import/Land.png-657f0f29ad4baf4bb1346a0a254c724e.stex" ]
+source_file="res://images/effects/Land.png"
+dest_files=[ "res://.import/Land.png-4dfbec41ac05cfa2cdf4d36205793539.stex" ]
 
 [params]
 

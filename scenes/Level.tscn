@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=2]
+[gd_scene load_steps=118 format=2]
 
 [ext_resource path="res://audio/SkateboardWheelsLoop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -33,7 +33,8 @@
 [ext_resource path="res://audio/Pain1.mp3" type="AudioStream" id=31]
 [ext_resource path="res://audio/Pain2.mp3" type="AudioStream" id=32]
 [ext_resource path="res://audio/Pain3.mp3" type="AudioStream" id=33]
-[ext_resource path="res://images/tricks/Land.png" type="Texture" id=34]
+[ext_resource path="res://images/effects/Land.png" type="Texture" id=34]
+[ext_resource path="res://images/effects/Grind.png" type="Texture" id=35]
 
 [sub_resource type="Animation" id=92]
 length = 0.001
@@ -72,6 +73,30 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Count/Number:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "9" ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Count:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ) ]
 }
 
 [sub_resource type="Animation" id=91]
@@ -165,6 +190,30 @@ tracks/6/keys = {
 "method": "play_again"
 } ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Count/Number:text")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "10", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1" ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Count:rect_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 1.3, 1.8, 2, 2.1, 2.3, 2.8, 3, 3.1, 3.3, 3.8, 4, 4.1, 4.3, 4.8, 5, 5.1, 5.3, 5.8, 6, 6.1, 6.3, 6.8, 7, 7.1, 7.3, 7.8, 8, 8.1, 8.3, 8.8, 9, 9.1, 9.3, 9.8, 10, 10.1, 10.3, 10.8, 11 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ) ]
+}
 
 [sub_resource type="Animation" id=93]
 resource_name = "hidden"
@@ -227,6 +276,18 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Count:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.36422e-12, 1.36422e-12 ) ]
 }
 
 [sub_resource type="DynamicFont" id=78]
@@ -812,7 +873,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id=100]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Land:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -824,7 +885,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:visible")
+tracks/1/path = NodePath("Land:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -836,7 +897,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:position")
+tracks/2/path = NodePath("Land:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -847,12 +908,78 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( -32, -272 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Grind:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Grind:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=103]
+resource_name = "grind"
+length = 0.15
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Grind:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.13, 0.14 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Grind:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Land:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=99]
 resource_name = "land"
 step = 0.02
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Land:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -864,7 +991,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:visible")
+tracks/1/path = NodePath("Land:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -876,7 +1003,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:position")
+tracks/2/path = NodePath("Land:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -892,7 +1019,7 @@ tracks/2/keys = {
 resource_name = "land_grind"
 step = 0.02
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Land:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -904,7 +1031,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:visible")
+tracks/1/path = NodePath("Land:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -916,7 +1043,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:position")
+tracks/2/path = NodePath("Land:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -931,7 +1058,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=101]
 resource_name = "none"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:visible")
+tracks/0/path = NodePath("Land:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -943,7 +1070,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
+tracks/1/path = NodePath("Land:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -953,6 +1080,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( -32, -272 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Grind:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=90]
@@ -6320,6 +6459,29 @@ anims/RESET = SubResource( 92 )
 anims/animate = SubResource( 91 )
 anims/hidden = SubResource( 93 )
 
+[node name="Count" type="Control" parent="CanvasLayer/GameOverScreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = 224.0
+margin_bottom = 224.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="Number" type="Label" parent="CanvasLayer/GameOverScreen/Count"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -81.0
+margin_top = 14.0
+margin_right = 81.0
+margin_bottom = 143.0
+grow_horizontal = 2
+theme = ExtResource( 26 )
+text = "9"
+align = 1
+
 [node name="Score" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -6698,15 +6860,23 @@ texture = ExtResource( 3 )
 
 [node name="TrickEffects" type="Node2D" parent="Player"]
 
-[node name="Sprite" type="Sprite" parent="Player/TrickEffects"]
+[node name="Land" type="Sprite" parent="Player/TrickEffects"]
 position = Vector2( -32, -272 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 34 )
 hframes = 7
 
+[node name="Grind" type="Sprite" parent="Player/TrickEffects"]
+visible = false
+position = Vector2( 48, -560 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 35 )
+hframes = 15
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player/TrickEffects"]
 autoplay = "none"
 anims/RESET = SubResource( 100 )
+anims/grind = SubResource( 103 )
 anims/land = SubResource( 99 )
 anims/land_grind = SubResource( 102 )
 anims/none = SubResource( 101 )
