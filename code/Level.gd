@@ -47,7 +47,8 @@ func _process(_delta):
 
 func _increase_points(points: int) -> void:
 	environment.increase_max_speed(points)
-	score.show_new_points(points)
+	if (instructionsState == GRIND or instructionsState == FINISHED):
+		score.show_new_points(points)
 
 func game_over() -> void:
 	var isNewRecord : bool = (Records.recordsArr.size() != 0 and Records.recordsArr.max() < score.totalPoints)

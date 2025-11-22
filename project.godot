@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Records="*res://code/Records.gd"
+MusicPlayer="*res://scenes/MusicPlayer.tscn"
 
 [display]
 
