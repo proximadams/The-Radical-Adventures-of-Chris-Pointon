@@ -174,6 +174,11 @@ func _refresh_rolling_sound_volume() -> void:
 		sound.rolling.pitch_scale = 1.0
 	else:
 		sound.rolling.pitch_scale = 2.0
+	if anim.current_animation == 'turn_180_ftb' and 0.1 <= anim.current_animation_position:
+		sound.rolling.volume_db = 15.0
+		sound.rolling.pitch_scale = 2.0
+	elif sound.rolling.volume_db == 15.0:
+		sound.rolling.volume_db = 6.0
 
 func _refresh_sound_grinding() -> void:
 	if anim.current_animation == 'grind_turn_180_ftb':
@@ -184,7 +189,7 @@ func _refresh_sound_grinding() -> void:
 	if anim.current_animation == 'grind_back' or anim.current_animation == 'grind_forward' or anim.current_animation == 'grind_forward_hold' or anim.current_animation == 'grind_crouch' or anim.current_animation == 'grind_uncrouch':
 		sound.grinding.volume_db = 0.0
 	elif anim.current_animation == 'grind_turn_180_ftb':
-		sound.grinding.volume_db = 10.0
+		sound.grinding.volume_db = 15.0
 	else:
 		sound.grinding.volume_db = -80.0
 
