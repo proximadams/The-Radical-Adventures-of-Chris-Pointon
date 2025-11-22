@@ -166,7 +166,7 @@ func _refresh_rolling_sound_volume() -> void:
 	if hurtCollision.disabled:
 		sound.rolling.volume_db = -80.0
 	elif sound.rolling.volume_db == -80.0:
-		sound.rolling.volume_db = 0.0
+		sound.rolling.volume_db = 6.0
 		if anim.current_animation.find('jump') != -1 or anim.current_animation.find('grind_end') != -1:
 			_play_sound_landing()
 	if _get_movement_input_direction() == Vector2(0.0, 0.0):
