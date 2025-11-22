@@ -6,6 +6,8 @@ const RATE_INCREASE_MAX_SPEED    := 0.003
 const MIN_SPEED                  := 1.5
 const REDUCE_SPEED_MULT          := 0.5
 
+signal player_slow_down
+
 var barricadeRes       : Resource = load('res://scenes/Barricade.tscn')
 var concreteBarrierRes : Resource = load('res://scenes/ConcreteBarrier.tscn')
 var potholeRes         : Resource = load('res://scenes/Pothole.tscn')
@@ -41,6 +43,7 @@ func _process(delta: float) -> void:
 
 func slow_down() -> void:
 	anim.playback_speed = max(MIN_SPEED, anim.playback_speed * REDUCE_SPEED_MULT)
+	emit_signal('player_slow_down')
 
 func increase_max_speed(points: int) -> void:
 	maxSpeed += points * RATE_INCREASE_MAX_SPEED

@@ -3,7 +3,8 @@ extends Node2D
 const CROUNCH_WINDOW_TIME    := 0.3
 const GROUND_180_WINDOW_TIME := 0.3
 const MIN_GRIND_TIME         := 0.3
-const SPEED                  := 300.0
+const MIN_SPEED              := 300.0
+const MAX_SPEED              := 500.0
 
 const SCORE_TABLE := {
 	'manual': 1,
@@ -24,6 +25,7 @@ var crounchWindowTimer         := CROUNCH_WINDOW_TIME
 var health                     := 3
 var isInTube                   := false
 var isTryingToEndGrind         := false
+var speed                      := MIN_SPEED
 var timeSinceInputShiftBack    := 1000.0
 var timeSinceInputShiftCrouch  := 1000.0
 var timeSinceInputShiftForward := 1000.0
@@ -132,7 +134,7 @@ func _process(delta: float) -> void:
 		if _check_is_grinding() or isInTube:
 			movementDirection.y = 0.0
 		movementDirection = movementDirection.normalized()
-		position += movementDirection * delta * SPEED
+		position += movementDirection * delta * speed
 	global_position.y = clamp(global_position.y, 180, 990)
 	global_position.x = clamp(global_position.x, 60, 1850)
 	
@@ -150,6 +152,9 @@ func _process(delta: float) -> void:
 		isTryingToEndGrind = false
 		anim.play('grind_end')
 		anim.queue('idle')
+
+func refresh_player_speed(environmentSpeed: float) -> void:
+	speed = clamp(MIN_SPEED * (0.5 + environmentSpeed * 0.25), MIN_SPEED, MAX_SPEED)
 
 func _listen_for_trick_inputs(delta: float) -> void:
 	timeSinceInputShiftBack += delta

@@ -20,6 +20,7 @@ var instructionsState := MOVE
 func _ready():
 	var _res = $Player.connect('environment_slow_down', $Environment, 'slow_down')
 	_res = $Player.connect('show_new_points', self, '_increase_points')
+	_res = $Environment.connect('player_slow_down', self, 'player_slow_down')
 
 func _process(_delta):
 	if player.rampState == player.NOT_ON:
@@ -49,6 +50,10 @@ func _increase_points(points: int) -> void:
 	environment.increase_max_speed(points)
 	if (instructionsState == GRIND or instructionsState == FINISHED):
 		score.show_new_points(points)
+		player.refresh_player_speed(environment.anim.playback_speed)
+
+func player_slow_down() -> void:
+	player.refresh_player_speed(environment.anim.playback_speed)
 
 func game_over() -> void:
 	var isNewRecord : bool = (Records.recordsArr.size() != 0 and Records.recordsArr.max() < score.totalPoints)
