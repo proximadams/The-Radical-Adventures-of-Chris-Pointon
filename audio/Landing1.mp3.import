@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Landing1.mp3-0f0fc8de88f8706fbb9a155aa1ae7e61.mp3str"
+
+[deps]
+
+source_file="res://audio/Landing1.mp3"
+dest_files=[ "res://.import/Landing1.mp3-0f0fc8de88f8706fbb9a155aa1ae7e61.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

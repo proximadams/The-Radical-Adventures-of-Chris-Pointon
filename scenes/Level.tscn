@@ -1,9 +1,14 @@
-[gd_scene load_steps=96 format=2]
+[gd_scene load_steps=101 format=2]
 
 [ext_resource path="res://audio/SkateboardWheelsLoop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
 [ext_resource path="res://images/chris/Shadow.png" type="Texture" id=3]
 [ext_resource path="res://images/environment/Background_Mock.png" type="Texture" id=4]
+[ext_resource path="res://audio/Landing1.mp3" type="AudioStream" id=5]
+[ext_resource path="res://audio/Landing2.mp3" type="AudioStream" id=6]
+[ext_resource path="res://audio/Landing3.mp3" type="AudioStream" id=7]
+[ext_resource path="res://audio/Landing4.mp3" type="AudioStream" id=8]
+[ext_resource path="res://audio/Landing5.mp3" type="AudioStream" id=9]
 [ext_resource path="res://images/chris/SkateboardSheet.png" type="Texture" id=11]
 [ext_resource path="res://code/PlayerHurtableArea.gd" type="Script" id=12]
 [ext_resource path="res://images/chris/LegsSheet.png" type="Texture" id=14]
@@ -6457,6 +6462,23 @@ scale = Vector2( 2, 2 )
 stream = ExtResource( 1 )
 volume_db = 10.0
 autoplay = true
+
+[node name="Landing" type="Node2D" parent="Player/SoundEffects"]
+
+[node name="Clip1" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Landing"]
+stream = ExtResource( 5 )
+
+[node name="Clip2" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Landing"]
+stream = ExtResource( 6 )
+
+[node name="Clip3" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Landing"]
+stream = ExtResource( 7 )
+
+[node name="Clip4" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Landing"]
+stream = ExtResource( 8 )
+
+[node name="Clip5" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Landing"]
+stream = ExtResource( 9 )
 
 [node name="Shadow" type="Node2D" parent="Player"]
 modulate = Color( 1, 1, 1, 0 )

@@ -19,7 +19,6 @@ var tubeRes            : Resource = load('res://scenes/Tube.tscn')
 var isSpawning    : bool  = false
 var maxSpeed      : float = 2.0
 var resArr        : Array = [tubeRes, potholeGroupRes, barricadeRes, barricadeRes, barricadeRes, concreteBarrierRes, speedDecreaseRes, potholeRes, potholeRes, rampRes]
-var rng
 var skipIncoming  : int = 0
 var subgroupIndex : int = 2
 var totalPoints   : int = 0
@@ -33,10 +32,6 @@ onready var subgroupArr : Array = [
 	$Group2/SubGroup5,
 	$Group2/SubGroup6,
 ]
-
-func _ready() -> void:
-	rng = RandomNumberGenerator.new()
-	rng.randomize()
 
 func _process(delta: float) -> void:
 	anim.playback_speed = min(maxSpeed, anim.playback_speed + delta * RATE_INCREASE_PLAYER_SPEED)
@@ -66,12 +61,12 @@ func _free_children() -> void:
 
 func _instantiate_res(offsetX: int) -> void:
 	if skipIncoming == 0:
-		var resIndex: int = rng.randi_range(0, resArr.size() -1)
+		var resIndex: int = Global.rng.randi_range(0, resArr.size() -1)
 		if totalPoints < 150:
 			resIndex = 2
 			skipIncoming += 1
 		if resIndex == 6:
-			if 1500 < totalPoints and rng.randf() < 0.2:
+			if 1500 < totalPoints and Global.rng.randf() < 0.2:
 				skipIncoming += 1
 			else:
 				resIndex = resArr.size() -1
@@ -87,7 +82,7 @@ func _instantiate_res(offsetX: int) -> void:
 			subgroupArr[subgroupIndex].add_child(inst)
 			inst.owner = subgroupArr[subgroupIndex]
 			inst.position.x += offsetX
-			inst.position.y += rng.randi_range(-300, 300)
+			inst.position.y += Global.rng.randi_range(-300, 300)
 			if resIndex == 0:
 				skipIncoming += 1
 	else:

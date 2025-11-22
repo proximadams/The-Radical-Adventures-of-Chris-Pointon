@@ -6,12 +6,7 @@ var rampRes      : Resource = load('res://scenes/Ramp.tscn')
 var tubeRes      : Resource = load('res://scenes/Tube.tscn')
 
 var resArr : Array = [barricadeRes, potholeRes, rampRes, tubeRes]
-var rng
 var skipIncoming: int = 0
-
-func _ready() -> void:
-	rng = RandomNumberGenerator.new()
-	rng.randomize()
 
 func try_respawn() -> void:
 	print('try_respawn')
@@ -27,7 +22,7 @@ func _free_children() -> void:
 func _instantiate_res(offsetX: int) -> void:
 	print('_instantiate_res')
 	if skipIncoming == 0:
-		var resIndex: int = rng.randi_range(0, resArr.size() -1)
+		var resIndex: int = Global.rng.randi_range(0, resArr.size() -1)
 		var inst = resArr[resIndex].instance()
 		add_child(inst)
 		inst.owner = self

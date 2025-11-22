@@ -47,7 +47,8 @@ onready var animHealth    : AnimationPlayer = $Health/AnimationPlayer
 onready var animHurt      : AnimationPlayer = $HurtAnimationPlayer
 onready var hurtCollision : CollisionShape2D = $PlayerHurtableArea/CollisionShape2D
 onready var sound := {
-	'rolling': $SoundEffects/Rolling
+	'rolling': $SoundEffects/Rolling,
+	'landing': [$SoundEffects/Landing/Clip1, $SoundEffects/Landing/Clip2, $SoundEffects/Landing/Clip3, $SoundEffects/Landing/Clip4, $SoundEffects/Landing/Clip5]
 }
 
 func _ready() -> void:
@@ -156,18 +157,27 @@ func _process(delta: float) -> void:
 		anim.play('grind_end')
 		anim.queue('idle')
 
-func refresh_player_speed(environmentSpeed: float) -> void:
-	speed = clamp(MIN_SPEED * (0.5 + environmentSpeed * 0.25), MIN_SPEED, MAX_SPEED)
-
 func _refresh_rolling_sound_volume():
 	if hurtCollision.disabled:
 		sound.rolling.volume_db = -80.0
-	else:
+	elif sound.rolling.volume_db == -80.0:
 		sound.rolling.volume_db = 0.0
+		if anim.current_animation.find('jump') != -1 or anim.current_animation.find('grind_end') != -1:
+			_play_sound_landing()
 	if _get_movement_input_direction() == Vector2(0.0, 0.0):
 		sound.rolling.pitch_scale = 1.0
 	else:
 		sound.rolling.pitch_scale = 2.0
+
+func _play_sound_landing() -> void:
+	var soundIndex = Global.rng.randi_range(0, sound.landing.size() -2)
+	var soundClip = sound.landing[soundIndex]
+	soundClip.play()
+	sound.landing.remove(soundIndex)
+	sound.landing.append(soundClip)
+
+func refresh_player_speed(environmentSpeed: float) -> void:
+	speed = clamp(MIN_SPEED * (0.5 + environmentSpeed * 0.25), MIN_SPEED, MAX_SPEED)
 
 func _get_movement_input_direction() -> Vector2:
 	return Vector2(
@@ -269,10 +279,12 @@ func try_start_grind(positionY: float) -> void:
 		timeSinceStartedGrind = 0.0
 		global_position.y = positionY
 		anim.play('grind_forward')
+		_play_sound_landing()
 	elif anim.current_animation == 'jump_low' or anim.current_animation == 'grind_end_jump_low':
 		timeSinceStartedGrind = 0.0
 		global_position.y = positionY
 		anim.play('grind_back')
+		_play_sound_landing()
 
 func try_end_grind() -> void:
 	if not anim.current_animation.begins_with('grind_end'):
