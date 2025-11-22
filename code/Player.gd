@@ -42,9 +42,10 @@ enum {
 
 var rampState = NOT_ON
 
-onready var anim          : AnimationPlayer = $VisualAnimationPlayer
-onready var animHealth    : AnimationPlayer = $Health/AnimationPlayer
-onready var animHurt      : AnimationPlayer = $HurtAnimationPlayer
+onready var anim          : AnimationPlayer  = $VisualAnimationPlayer
+onready var animHealth    : AnimationPlayer  = $Health/AnimationPlayer
+onready var animHurt      : AnimationPlayer  = $HurtAnimationPlayer
+onready var animTrick     : AnimationPlayer  = $TrickEffects/AnimationPlayer
 onready var hurtCollision : CollisionShape2D = $PlayerHurtableArea/CollisionShape2D
 onready var sound := {
 	'rolling': $SoundEffects/Rolling,
@@ -171,6 +172,7 @@ func _refresh_rolling_sound_volume() -> void:
 		sound.rolling.volume_db = 6.0
 		if anim.current_animation.find('jump') != -1 or anim.current_animation.find('grind_end') != -1:
 			_play_sound_landing()
+			animTrick.play('land')
 	if _get_movement_input_direction() == Vector2(0.0, 0.0):
 		sound.rolling.pitch_scale = 1.0
 	else:
@@ -338,11 +340,13 @@ func try_start_grind(positionY: float) -> void:
 		global_position.y = positionY
 		anim.play('grind_forward')
 		_play_sound_landing()
+		animTrick.play('land_grind')
 	elif anim.current_animation == 'jump_low' or anim.current_animation == 'grind_end_jump_low':
 		timeSinceStartedGrind = 0.0
 		global_position.y = positionY
 		anim.play('grind_back')
 		_play_sound_landing()
+		animTrick.play('land_grind')
 
 func try_end_grind() -> void:
 	if not anim.current_animation.begins_with('grind_end'):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=2]
+[gd_scene load_steps=116 format=2]
 
 [ext_resource path="res://audio/SkateboardWheelsLoop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://audio/Pain1.mp3" type="AudioStream" id=31]
 [ext_resource path="res://audio/Pain2.mp3" type="AudioStream" id=32]
 [ext_resource path="res://audio/Pain3.mp3" type="AudioStream" id=33]
+[ext_resource path="res://images/tricks/Land.png" type="Texture" id=34]
 
 [sub_resource type="Animation" id=92]
 length = 0.001
@@ -806,6 +807,152 @@ tracks/4/keys = {
 "args": [  ],
 "method": "try_respawn"
 } ]
+}
+
+[sub_resource type="Animation" id=100]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -32, -272 ) ]
+}
+
+[sub_resource type="Animation" id=99]
+resource_name = "land"
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.12 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.14 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -22, -272 ) ]
+}
+
+[sub_resource type="Animation" id=102]
+resource_name = "land_grind"
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.12 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.14 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -22, -544 ) ]
+}
+
+[sub_resource type="Animation" id=101]
+resource_name = "none"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -32, -272 ) ]
 }
 
 [sub_resource type="Animation" id=90]
@@ -5710,10 +5857,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.298774 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ), Vector2( 1.5, 1.5 ) ]
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ), Vector2( 1.5, 1.5 ), Vector2( 2, 2 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("KickflipX2:visible")
@@ -6086,7 +6233,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ), Vector2( 1.5, 1.5 ) ]
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 3, 3 ), Vector2( 2, 2 ), Vector2( 3, 3 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Spin720:visible")
@@ -6549,6 +6696,21 @@ scale = Vector2( 0.3, 0.3 )
 [node name="Sprite" type="Sprite" parent="Player/Shadow"]
 texture = ExtResource( 3 )
 
+[node name="TrickEffects" type="Node2D" parent="Player"]
+
+[node name="Sprite" type="Sprite" parent="Player/TrickEffects"]
+position = Vector2( -32, -272 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 34 )
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/TrickEffects"]
+autoplay = "none"
+anims/RESET = SubResource( 100 )
+anims/land = SubResource( 99 )
+anims/land_grind = SubResource( 102 )
+anims/none = SubResource( 101 )
+
 [node name="Health" type="Node2D" parent="Player"]
 visible = false
 position = Vector2( 0, -416 )
@@ -6654,6 +6816,7 @@ shape = SubResource( 34 )
 disabled = true
 
 [node name="TrickLabels" type="Node2D" parent="Player"]
+modulate = Color( 1, 1, 0, 0 )
 scale = Vector2( 1.5, 1.5 )
 z_index = 10
 
