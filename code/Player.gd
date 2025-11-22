@@ -52,7 +52,7 @@ onready var sound := {
 	'landing': [$SoundEffects/Landing/Clip1, $SoundEffects/Landing/Clip2, $SoundEffects/Landing/Clip3, $SoundEffects/Landing/Clip4, $SoundEffects/Landing/Clip5],
 	'jumping': [$SoundEffects/Jumping/Clip1, $SoundEffects/Jumping/Clip2, $SoundEffects/Jumping/Clip3],
 	'ramp': [$SoundEffects/Ramp/Clip1, $SoundEffects/Ramp/Clip2, $SoundEffects/Ramp/Clip3],
-	'pain': [$SoundEffects/Pain/Clip1, $SoundEffects/Pain/Clip2, $SoundEffects/Pain/Clip3]
+	'pain': [$SoundEffects/Pain/Clip1, $SoundEffects/Pain/Clip2, $SoundEffects/Pain/Clip3],
 }
 
 func _ready() -> void:
@@ -242,42 +242,54 @@ func try_to_trick_jump(isLate := false) -> void:
 	if timeSinceInputShiftCrouch < timeSpentJumping and (timeSinceInputShiftBack < timeSpentJumping or timeSinceInputShiftForward < timeSpentJumping):
 		if anim.current_animation == 'jump_high':
 			anim.play('jump_high_360')
+			_play_sound_jumping()
 		elif anim.current_animation == 'grind_end_jump_high':
 			if isLate:
 				anim.play('grind_end_jump_high_360_late')
+				_play_sound_jumping()
 			else:
 				anim.play('grind_end_jump_high_360')
+				_play_sound_jumping()
 				timeSinceInputShiftBack = 1000.0
 				timeSinceInputShiftForward = 1000.0
 				timeSinceInputShiftCrouch = 1000.0
 		elif anim.current_animation == 'grind_end_jump_high_360':
 			anim.play('grind_end_jump_high_720')
+			_play_sound_jumping()
 		elif anim.current_animation == 'grind_end_jump_high_kickflip':
 			anim.play('grind_end_jump_high_kickflip_360')
+			_play_sound_jumping()
 
 		anim.seek(timeSpentJumping)
 
 		if anim.current_animation == 'grind_end' or anim.current_animation == 'grind_end_jump_low':
 			anim.play('grind_end_jump_low_360')
+			_play_sound_jumping()
 	elif timeSinceInputShiftCrouch < timeSpentJumping and timeSinceInputShiftJump < timeSpentJumping:
 		if anim.current_animation == 'jump_high':
 			anim.play('jump_high_kickflip')
+			_play_sound_jumping()
 		elif anim.current_animation == 'grind_end_jump_high':
 			if isLate:
 				anim.play('grind_end_jump_high_kickflip_late')
+				_play_sound_jumping()
 			else:
 				anim.play('grind_end_jump_high_kickflip')
+				_play_sound_jumping()
 				timeSinceInputShiftCrouch = 1000.0
 				timeSinceInputShiftJump = 1000.0
 		elif anim.current_animation == 'grind_end_jump_high_kickflip':
 			anim.play('grind_end_jump_high_kickflip_kickflip')
+			_play_sound_jumping()
 		elif anim.current_animation == 'grind_end_jump_high_360':
 			anim.play('grind_end_jump_high_360_kickflip')
+			_play_sound_jumping()
 
 		anim.seek(timeSpentJumping)
 
 		if anim.current_animation == 'grind_end' or anim.current_animation == 'grind_end_jump_low':
 			anim.play('grind_end_jump_low_kickflip')
+			_play_sound_jumping()
 
 func _check_release_shift() -> bool:
 	var hasReleased     : bool = (Input.is_action_just_released('shift_forward') or Input.is_action_just_released('shift_back') or Input.is_action_just_released('shift_crouch'))
