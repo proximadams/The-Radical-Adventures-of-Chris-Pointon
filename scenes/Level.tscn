@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://audio/SkateboardWheelsLoop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://styles/fonts/CooperBlack-Std.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://code/TrickAnimationPlayer.gd" type="Script" id=19]
 [ext_resource path="res://audio/GrindingLoop.mp3" type="AudioStream" id=20]
+[ext_resource path="res://audio/ramp3.mp3" type="AudioStream" id=21]
 [ext_resource path="res://code/Environment.gd" type="Script" id=22]
 [ext_resource path="res://code/Level.gd" type="Script" id=23]
 [ext_resource path="res://code/Score.gd" type="Script" id=24]
@@ -27,6 +28,8 @@
 [ext_resource path="res://styles/Header1.tres" type="Theme" id=26]
 [ext_resource path="res://styles/GeneralButton.tres" type="Theme" id=27]
 [ext_resource path="res://styles/Header2.tres" type="Theme" id=28]
+[ext_resource path="res://audio/ramp1.mp3" type="AudioStream" id=29]
+[ext_resource path="res://audio/ramp2.mp3" type="AudioStream" id=30]
 
 [sub_resource type="Animation" id=92]
 length = 0.001
@@ -6505,6 +6508,20 @@ volume_db = 5.0
 
 [node name="Clip3" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Jumping"]
 stream = ExtResource( 16 )
+volume_db = 5.0
+
+[node name="Ramp" type="Node2D" parent="Player/SoundEffects"]
+
+[node name="Clip1" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Ramp"]
+stream = ExtResource( 29 )
+volume_db = 5.0
+
+[node name="Clip2" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Ramp"]
+stream = ExtResource( 30 )
+volume_db = 5.0
+
+[node name="Clip3" type="AudioStreamPlayer2D" parent="Player/SoundEffects/Ramp"]
+stream = ExtResource( 21 )
 volume_db = 5.0
 
 [node name="Shadow" type="Node2D" parent="Player"]

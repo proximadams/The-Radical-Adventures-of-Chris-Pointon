@@ -50,7 +50,8 @@ onready var sound := {
 	'rolling': $SoundEffects/Rolling,
 	'grinding': $SoundEffects/Grinding,
 	'landing': [$SoundEffects/Landing/Clip1, $SoundEffects/Landing/Clip2, $SoundEffects/Landing/Clip3, $SoundEffects/Landing/Clip4, $SoundEffects/Landing/Clip5],
-	'jumping': [$SoundEffects/Jumping/Clip1, $SoundEffects/Jumping/Clip2, $SoundEffects/Jumping/Clip3]
+	'jumping': [$SoundEffects/Jumping/Clip1, $SoundEffects/Jumping/Clip2, $SoundEffects/Jumping/Clip3],
+	'ramp': [$SoundEffects/Ramp/Clip1, $SoundEffects/Ramp/Clip2, $SoundEffects/Ramp/Clip3]
 }
 
 func _ready() -> void:
@@ -187,11 +188,17 @@ func _refresh_sound_grinding() -> void:
 	else:
 		sound.grinding.volume_db = -80.0
 
+func refresh_player_speed(environmentSpeed: float) -> void:
+	speed = clamp(MIN_SPEED * (0.5 + environmentSpeed * 0.25), MIN_SPEED, MAX_SPEED)
+
 func _play_sound_landing() -> void:
 	_play_random_sound(sound.landing)
 
 func _play_sound_jumping() -> void:
 	_play_random_sound(sound.jumping)
+
+func _play_sound_ramp() -> void:
+	_play_random_sound(sound.ramp)
 
 func _play_random_sound(soundArr: Array) -> void:
 	var soundIndex = Global.rng.randi_range(0, soundArr.size() -2)
@@ -200,8 +207,9 @@ func _play_random_sound(soundArr: Array) -> void:
 	soundArr.remove(soundIndex)
 	soundArr.append(soundClip)
 
-func refresh_player_speed(environmentSpeed: float) -> void:
-	speed = clamp(MIN_SPEED * (0.5 + environmentSpeed * 0.25), MIN_SPEED, MAX_SPEED)
+func set_ramp_pitch_scale() -> void:
+	for currRampSound in sound.ramp:
+		currRampSound.pitch_scale = anim.playback_speed
 
 func _get_movement_input_direction() -> Vector2:
 	return Vector2(
@@ -287,6 +295,7 @@ func go_on_ramp() -> void:
 		anim.play('ramp_idle')
 	anim.queue('grind_end')
 	rampState = ON
+	_play_sound_ramp()
 
 func go_off_ramp() -> void:
 	if rampState == WAIT_JUMP_HIGH:

@@ -27,6 +27,7 @@ func _process(_delta):
 		player.anim.playback_speed = 1.0
 	else:
 		player.anim.playback_speed = 0.75 + environment.anim.playback_speed * 0.25
+		player.set_ramp_pitch_scale()
 	match instructionsState:
 		MOVE:
 			if Input.is_action_just_pressed('move_down') or Input.is_action_just_pressed('move_up') or Input.is_action_just_pressed('move_left') or Input.is_action_just_pressed('move_right'):
