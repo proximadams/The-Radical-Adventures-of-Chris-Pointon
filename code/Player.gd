@@ -42,9 +42,13 @@ enum {
 
 var rampState = NOT_ON
 
-onready var anim       : AnimationPlayer = $VisualAnimationPlayer
-onready var animHealth : AnimationPlayer = $Health/AnimationPlayer
-onready var animHurt   : AnimationPlayer = $HurtAnimationPlayer
+onready var anim          : AnimationPlayer = $VisualAnimationPlayer
+onready var animHealth    : AnimationPlayer = $Health/AnimationPlayer
+onready var animHurt      : AnimationPlayer = $HurtAnimationPlayer
+onready var hurtCollision : CollisionShape2D = $PlayerHurtableArea/CollisionShape2D
+onready var sound := {
+	'rolling': $SoundEffects/Rolling
+}
 
 func _ready() -> void:
 	var _res = $PlayerHurtableArea.connect('player_is_hurt', self, 'hurt_me')
@@ -127,16 +131,15 @@ func _process(delta: float) -> void:
 
 	# movement
 	if not _check_is_on_ramp():
-		var movementDirection = Vector2(
-			Input.get_action_strength('move_right') - Input.get_action_strength('move_left'),
-			Input.get_action_strength('move_down') - Input.get_action_strength('move_up')
-		)
+		var movementDirection = _get_movement_input_direction()
 		if _check_is_grinding() or isInTube:
 			movementDirection.y = 0.0
 		movementDirection = movementDirection.normalized()
 		position += movementDirection * delta * speed
 	global_position.y = clamp(global_position.y, 180, 990)
 	global_position.x = clamp(global_position.x, 60, 1850)
+
+	_refresh_rolling_sound_volume()
 	
 	# tricks
 	_listen_for_trick_inputs(delta)
@@ -155,6 +158,22 @@ func _process(delta: float) -> void:
 
 func refresh_player_speed(environmentSpeed: float) -> void:
 	speed = clamp(MIN_SPEED * (0.5 + environmentSpeed * 0.25), MIN_SPEED, MAX_SPEED)
+
+func _refresh_rolling_sound_volume():
+	if hurtCollision.disabled:
+		sound.rolling.volume_db = -80.0
+	else:
+		sound.rolling.volume_db = 0.0
+	if _get_movement_input_direction() == Vector2(0.0, 0.0):
+		sound.rolling.pitch_scale = 1.0
+	else:
+		sound.rolling.pitch_scale = 2.0
+
+func _get_movement_input_direction() -> Vector2:
+	return Vector2(
+		Input.get_action_strength('move_right') - Input.get_action_strength('move_left'),
+		Input.get_action_strength('move_down') - Input.get_action_strength('move_up')
+	)
 
 func _listen_for_trick_inputs(delta: float) -> void:
 	timeSinceInputShiftBack += delta

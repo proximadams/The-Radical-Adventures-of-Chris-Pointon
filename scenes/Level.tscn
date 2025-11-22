@@ -1,5 +1,6 @@
-[gd_scene load_steps=95 format=2]
+[gd_scene load_steps=96 format=2]
 
+[ext_resource path="res://audio/SkateboardWheelsLoop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
 [ext_resource path="res://images/chris/Shadow.png" type="Texture" id=3]
 [ext_resource path="res://images/environment/Background_Mock.png" type="Texture" id=4]
@@ -6447,6 +6448,15 @@ anims/move = SubResource( 9 )
 position = Vector2( 367, 686 )
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
+
+[node name="SoundEffects" type="Node2D" parent="Player"]
+position = Vector2( -734, -1372 )
+scale = Vector2( 2, 2 )
+
+[node name="Rolling" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource( 1 )
+volume_db = 10.0
+autoplay = true
 
 [node name="Shadow" type="Node2D" parent="Player"]
 modulate = Color( 1, 1, 1, 0 )

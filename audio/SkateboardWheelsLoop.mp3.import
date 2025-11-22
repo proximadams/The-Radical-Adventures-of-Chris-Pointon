@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SkateboardWheelsLoop.mp3-1fa8fcbd039f1dac729c1a216fb7b990.mp3str"
+
+[deps]
+
+source_file="res://audio/SkateboardWheelsLoop.mp3"
+dest_files=[ "res://.import/SkateboardWheelsLoop.mp3-1fa8fcbd039f1dac729c1a216fb7b990.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
