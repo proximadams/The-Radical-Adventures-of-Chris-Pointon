@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=2]
+[gd_scene load_steps=119 format=2]
 
 [ext_resource path="res://audio/SkateboardWheelsLoop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -6188,6 +6188,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [ Vector2( 0.5, 0.5 ) ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("ThreadNeedle:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=63]
 resource_name = "noseManual"
@@ -6376,6 +6388,46 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Spin720:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=104]
+resource_name = "threadNeedle"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.298774 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ), Vector2( 1.5, 1.5 ), Vector2( 2, 2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ThreadNeedle:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -6986,7 +7038,7 @@ shape = SubResource( 34 )
 disabled = true
 
 [node name="TrickLabels" type="Node2D" parent="Player"]
-modulate = Color( 1, 1, 0, 0 )
+modulate = Color( 0, 0, 0, 0 )
 scale = Vector2( 1.5, 1.5 )
 z_index = 10
 
@@ -7274,6 +7326,37 @@ theme = SubResource( 53 )
 text = "Spin 720"
 align = 1
 
+[node name="ThreadNeedle" type="Node2D" parent="Player/TrickLabels"]
+
+[node name="TextBackground" type="Label" parent="Player/TrickLabels/ThreadNeedle"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 41.5
+margin_right = 148.0
+margin_bottom = 106.5
+grow_horizontal = 2
+theme = SubResource( 53 )
+text = "Thread the Needle"
+align = 1
+
+[node name="TextMain" type="Label" parent="Player/TrickLabels/ThreadNeedle"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 31.5
+margin_right = 144.0
+margin_bottom = 96.5
+grow_horizontal = 2
+theme = SubResource( 53 )
+text = "Thread the Needle"
+align = 1
+
 [node name="TrickAnimationPlayer" type="AnimationPlayer" parent="Player/TrickLabels"]
 autoplay = "none"
 anims/RESET = SubResource( 67 )
@@ -7287,6 +7370,7 @@ anims/ollie = SubResource( 58 )
 anims/spin180 = SubResource( 64 )
 anims/spin360 = SubResource( 65 )
 anims/spin720 = SubResource( 66 )
+anims/threadNeedle = SubResource( 104 )
 script = ExtResource( 19 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

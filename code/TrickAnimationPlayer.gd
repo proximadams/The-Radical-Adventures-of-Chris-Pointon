@@ -20,6 +20,8 @@ func spin_360() -> void:
 	_show_trick_text('spin360')
 func spin_720() -> void:
 	_show_trick_text('spin720')
+func thread_needle() -> void:
+	_show_trick_text('threadNeedle')
 
 func _show_trick_text(animName: String) -> void:
 	play('none')
