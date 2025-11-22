@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GrindingLoop.mp3-b42dbe89a00adab8105e6bd1d5eb7627.mp3str"
+
+[deps]
+
+source_file="res://audio/GrindingLoop.mp3"
+dest_files=[ "res://.import/GrindingLoop.mp3-b42dbe89a00adab8105e6bd1d5eb7627.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

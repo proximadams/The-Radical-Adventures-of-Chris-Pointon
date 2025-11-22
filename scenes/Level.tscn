@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=2]
+[gd_scene load_steps=105 format=2]
 
 [ext_resource path="res://audio/SkateboardWheelsLoop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://code/PlayerGrindArea.gd" type="Script" id=17]
 [ext_resource path="res://styles/fonts/CooperBlack-Std.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://code/TrickAnimationPlayer.gd" type="Script" id=19]
+[ext_resource path="res://audio/GrindingLoop.mp3" type="AudioStream" id=20]
 [ext_resource path="res://code/Environment.gd" type="Script" id=22]
 [ext_resource path="res://code/Level.gd" type="Script" id=23]
 [ext_resource path="res://code/Score.gd" type="Script" id=24]
@@ -6463,7 +6464,11 @@ scale = Vector2( 2, 2 )
 
 [node name="Rolling" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
 stream = ExtResource( 1 )
-volume_db = 10.0
+autoplay = true
+
+[node name="Grinding" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource( 20 )
+volume_db = -80.0
 autoplay = true
 
 [node name="Landing" type="Node2D" parent="Player/SoundEffects"]

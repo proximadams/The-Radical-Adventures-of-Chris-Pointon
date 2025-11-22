@@ -48,6 +48,7 @@ onready var animHurt      : AnimationPlayer = $HurtAnimationPlayer
 onready var hurtCollision : CollisionShape2D = $PlayerHurtableArea/CollisionShape2D
 onready var sound := {
 	'rolling': $SoundEffects/Rolling,
+	'grinding': $SoundEffects/Grinding,
 	'landing': [$SoundEffects/Landing/Clip1, $SoundEffects/Landing/Clip2, $SoundEffects/Landing/Clip3, $SoundEffects/Landing/Clip4, $SoundEffects/Landing/Clip5],
 	'jumping': [$SoundEffects/Jumping/Clip1, $SoundEffects/Jumping/Clip2, $SoundEffects/Jumping/Clip3]
 }
@@ -144,6 +145,7 @@ func _process(delta: float) -> void:
 	global_position.x = clamp(global_position.x, 60, 1850)
 
 	_refresh_rolling_sound_volume()
+	_refresh_sound_grinding()
 	
 	# tricks
 	_listen_for_trick_inputs(delta)
@@ -160,7 +162,7 @@ func _process(delta: float) -> void:
 		anim.play('grind_end')
 		anim.queue('idle')
 
-func _refresh_rolling_sound_volume():
+func _refresh_rolling_sound_volume() -> void:
 	if hurtCollision.disabled:
 		sound.rolling.volume_db = -80.0
 	elif sound.rolling.volume_db == -80.0:
@@ -171,6 +173,19 @@ func _refresh_rolling_sound_volume():
 		sound.rolling.pitch_scale = 1.0
 	else:
 		sound.rolling.pitch_scale = 2.0
+
+func _refresh_sound_grinding() -> void:
+	if anim.current_animation == 'grind_turn_180_ftb':
+		sound.grinding.pitch_scale = 2.0
+	else:
+		sound.grinding.pitch_scale = 1.0
+
+	if anim.current_animation == 'grind_back' or anim.current_animation == 'grind_forward' or anim.current_animation == 'grind_forward_hold' or anim.current_animation == 'grind_crouch' or anim.current_animation == 'grind_uncrouch':
+		sound.grinding.volume_db = 0.0
+	elif anim.current_animation == 'grind_turn_180_ftb':
+		sound.grinding.volume_db = 10.0
+	else:
+		sound.grinding.volume_db = -80.0
 
 func _play_sound_landing() -> void:
 	_play_random_sound(sound.landing)
