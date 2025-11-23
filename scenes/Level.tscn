@@ -5996,7 +5996,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.298774 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ), Vector2( 1.5, 1.5 ), Vector2( 2, 2 ) ]
@@ -7039,7 +7039,6 @@ shape = SubResource( 34 )
 disabled = true
 
 [node name="TrickLabels" type="Node2D" parent="Player"]
-modulate = Color( 0, 0, 0, 0 )
 scale = Vector2( 1.5, 1.5 )
 z_index = 10
 
@@ -7075,6 +7074,33 @@ theme = SubResource( 53 )
 text = "Kickflip"
 align = 1
 
+[node name="PointsBackground" type="Label" parent="Player/TrickLabels/Kickflip"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 137.5
+margin_right = 148.0
+margin_bottom = 230.5
+theme = SubResource( 53 )
+text = "+30"
+align = 1
+
+[node name="PointsMain" type="Label" parent="Player/TrickLabels/Kickflip"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 127.5
+margin_right = 144.0
+margin_bottom = 220.5
+theme = SubResource( 53 )
+text = "+30"
+align = 1
+
 [node name="KickflipX2" type="Node2D" parent="Player/TrickLabels"]
 visible = false
 
@@ -7107,6 +7133,35 @@ theme = SubResource( 53 )
 text = "Double Kickflip"
 align = 1
 
+[node name="PointsBackground" type="Label" parent="Player/TrickLabels/KickflipX2"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -76.0
+margin_top = 137.5
+margin_right = 212.0
+margin_bottom = 230.5
+rect_scale = Vector2( 0.5, 0.5 )
+theme = SubResource( 53 )
+text = "+100"
+align = 1
+
+[node name="PointsMain" type="Label" parent="Player/TrickLabels/KickflipX2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = 127.5
+margin_right = 208.0
+margin_bottom = 220.5
+rect_scale = Vector2( 0.5, 0.5 )
+theme = SubResource( 53 )
+text = "+100"
+align = 1
+
 [node name="Ollie" type="Node2D" parent="Player/TrickLabels"]
 visible = false
 
@@ -7137,6 +7192,33 @@ theme = SubResource( 53 )
 text = "Ollie"
 align = 1
 
+[node name="PointsBackground" type="Label" parent="Player/TrickLabels/Ollie"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 137.5
+margin_right = 148.0
+margin_bottom = 230.5
+theme = SubResource( 53 )
+text = "+2"
+align = 1
+
+[node name="PointsMain" type="Label" parent="Player/TrickLabels/Ollie"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 127.5
+margin_right = 144.0
+margin_bottom = 220.5
+theme = SubResource( 53 )
+text = "+2"
+align = 1
+
 [node name="Grind" type="Node2D" parent="Player/TrickLabels"]
 visible = false
 
@@ -7165,6 +7247,33 @@ margin_right = 144.0
 margin_bottom = 96.5
 theme = SubResource( 53 )
 text = "Grind"
+align = 1
+
+[node name="PointsBackground" type="Label" parent="Player/TrickLabels/Grind"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 137.5
+margin_right = 148.0
+margin_bottom = 230.5
+theme = SubResource( 53 )
+text = "+10"
+align = 1
+
+[node name="PointsMain" type="Label" parent="Player/TrickLabels/Grind"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 127.5
+margin_right = 144.0
+margin_bottom = 220.5
+theme = SubResource( 53 )
+text = "+10"
 align = 1
 
 [node name="Manual" type="Node2D" parent="Player/TrickLabels"]
@@ -7199,6 +7308,33 @@ theme = SubResource( 53 )
 text = "Manual"
 align = 1
 
+[node name="PointsBackground" type="Label" parent="Player/TrickLabels/Manual"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 137.5
+margin_right = 148.0
+margin_bottom = 230.5
+theme = SubResource( 53 )
+text = "+1"
+align = 1
+
+[node name="PointsMain" type="Label" parent="Player/TrickLabels/Manual"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 127.5
+margin_right = 144.0
+margin_bottom = 220.5
+theme = SubResource( 53 )
+text = "+1"
+align = 1
+
 [node name="NoseManual" type="Node2D" parent="Player/TrickLabels"]
 visible = false
 
@@ -7229,6 +7365,33 @@ margin_bottom = 96.5
 grow_horizontal = 2
 theme = SubResource( 53 )
 text = "Nose Manual"
+align = 1
+
+[node name="PointsBackground" type="Label" parent="Player/TrickLabels/NoseManual"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 137.5
+margin_right = 148.0
+margin_bottom = 230.5
+theme = SubResource( 53 )
+text = "+1"
+align = 1
+
+[node name="PointsMain" type="Label" parent="Player/TrickLabels/NoseManual"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 127.5
+margin_right = 144.0
+margin_bottom = 220.5
+theme = SubResource( 53 )
+text = "+1"
 align = 1
 
 [node name="Spin180" type="Node2D" parent="Player/TrickLabels"]
@@ -7263,6 +7426,33 @@ theme = SubResource( 53 )
 text = "Spin 180"
 align = 1
 
+[node name="PointsBackground" type="Label" parent="Player/TrickLabels/Spin180"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 137.5
+margin_right = 148.0
+margin_bottom = 230.5
+theme = SubResource( 53 )
+text = "+5"
+align = 1
+
+[node name="PointsMain" type="Label" parent="Player/TrickLabels/Spin180"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 127.5
+margin_right = 144.0
+margin_bottom = 220.5
+theme = SubResource( 53 )
+text = "+5"
+align = 1
+
 [node name="Spin360" type="Node2D" parent="Player/TrickLabels"]
 visible = false
 
@@ -7293,6 +7483,33 @@ margin_bottom = 96.5
 grow_horizontal = 2
 theme = SubResource( 53 )
 text = "Spin 360"
+align = 1
+
+[node name="PointsBackground" type="Label" parent="Player/TrickLabels/Spin360"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 137.5
+margin_right = 148.0
+margin_bottom = 230.5
+theme = SubResource( 53 )
+text = "+30"
+align = 1
+
+[node name="PointsMain" type="Label" parent="Player/TrickLabels/Spin360"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = 127.5
+margin_right = 144.0
+margin_bottom = 220.5
+theme = SubResource( 53 )
+text = "+30"
 align = 1
 
 [node name="Spin720" type="Node2D" parent="Player/TrickLabels"]
@@ -7327,7 +7544,37 @@ theme = SubResource( 53 )
 text = "Spin 720"
 align = 1
 
+[node name="PointsBackground" type="Label" parent="Player/TrickLabels/Spin720"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -49.3334
+margin_top = 137.5
+margin_right = 238.667
+margin_bottom = 230.5
+rect_scale = Vector2( 0.333, 0.333 )
+theme = SubResource( 53 )
+text = "+100"
+align = 1
+
+[node name="PointsMain" type="Label" parent="Player/TrickLabels/Spin720"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -53.3334
+margin_top = 127.5
+margin_right = 234.667
+margin_bottom = 220.5
+rect_scale = Vector2( 0.333, 0.333 )
+theme = SubResource( 53 )
+text = "+100"
+align = 1
+
 [node name="ThreadNeedle" type="Node2D" parent="Player/TrickLabels"]
+visible = false
 
 [node name="TextBackground" type="Label" parent="Player/TrickLabels/ThreadNeedle"]
 modulate = Color( 0, 0, 0, 1 )
@@ -7356,6 +7603,35 @@ margin_bottom = 96.5
 grow_horizontal = 2
 theme = SubResource( 53 )
 text = "Thread the Needle"
+align = 1
+
+[node name="PointsBackground" type="Label" parent="Player/TrickLabels/ThreadNeedle"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -76.0
+margin_top = 137.5
+margin_right = 212.0
+margin_bottom = 230.5
+rect_scale = Vector2( 0.5, 0.5 )
+theme = SubResource( 53 )
+text = "+100"
+align = 1
+
+[node name="PointsMain" type="Label" parent="Player/TrickLabels/ThreadNeedle"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = 127.5
+margin_right = 208.0
+margin_bottom = 220.5
+rect_scale = Vector2( 0.5, 0.5 )
+theme = SubResource( 53 )
+text = "+100"
 align = 1
 
 [node name="TrickAnimationPlayer" type="AnimationPlayer" parent="Player/TrickLabels"]
