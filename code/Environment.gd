@@ -82,7 +82,7 @@ func _instantiate_res(offsetX: int) -> void:
 			subgroupArr[subgroupIndex].add_child(inst)
 			inst.owner = subgroupArr[subgroupIndex]
 			inst.position.x += offsetX
-			inst.position.y += Global.rng.randi_range(-300, 300)
+			inst.position.y += Global.rng.randi_range(-300, 400)
 			if resIndex == 0:
 				skipIncoming += 1
 	else:
