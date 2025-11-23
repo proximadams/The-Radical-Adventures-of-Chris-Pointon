@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=2]
+[gd_scene load_steps=120 format=2]
 
 [ext_resource path="res://audio/SkateboardWheelsLoop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://audio/Pain3.mp3" type="AudioStream" id=33]
 [ext_resource path="res://images/effects/Land.png" type="Texture" id=34]
 [ext_resource path="res://images/effects/Grind.png" type="Texture" id=35]
+[ext_resource path="res://code/LeaderBoard.gd" type="Script" id=38]
 
 [sub_resource type="Animation" id=92]
 length = 0.001
@@ -97,6 +98,30 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 2, 2 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("LeaderBoard:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("LeaderBoard:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=91]
@@ -214,6 +239,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [ Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( 2, 2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.36422e-12, 1.36422e-12 ) ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("LeaderBoard:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("LeaderBoard:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=93]
 resource_name = "hidden"
@@ -288,6 +337,18 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1.36422e-12, 1.36422e-12 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("LeaderBoard:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="DynamicFont" id=78]
@@ -6465,30 +6526,28 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -377.0
-margin_top = -264.5
+margin_top = -328.5
 margin_right = 377.0
-margin_bottom = -135.5
+margin_bottom = -199.5
 grow_horizontal = 2
 theme = ExtResource( 26 )
 text = "Game Over"
 align = 1
 
 [node name="FocusDefaultButton" type="Button" parent="CanvasLayer/GameOverScreen"]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 12.0
 margin_bottom = 20.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverScreen"]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -185.5
+margin_left = 270.5
 margin_top = 7.0
-margin_right = 185.5
+margin_right = 641.5
 margin_bottom = 169.0
 theme = ExtResource( 27 )
 
@@ -6533,6 +6592,17 @@ grow_horizontal = 2
 theme = ExtResource( 26 )
 text = "9"
 align = 1
+
+[node name="LeaderBoard" type="ScrollContainer" parent="CanvasLayer/GameOverScreen"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 216.0
+margin_top = 376.0
+margin_right = 916.0
+margin_bottom = 876.0
+script = ExtResource( 38 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverScreen/LeaderBoard"]
 
 [node name="Score" type="Control" parent="CanvasLayer"]
 pause_mode = 2

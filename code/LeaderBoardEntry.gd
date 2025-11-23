@@ -1,0 +1,27 @@
+extends Control
+
+func set_info(name: String, points: int) -> void:
+	var pointsStr       : String = str(points)
+	var numBufferSpaces : int = 0
+	var bufferSpaces    : String = ''
+	numBufferSpaces = 10 - pointsStr.length()
+	if numBufferSpaces < 1:
+		numBufferSpaces = 1
+	while 0 < numBufferSpaces:
+		numBufferSpaces -= 1
+		bufferSpaces += ' '
+	$Label.text = pointsStr + bufferSpaces + name
+
+func set_place(place: int) -> void:
+	var suffix = 'th'
+	if place % 10 == 1:
+		suffix = 'st'
+	elif place % 10 == 1:
+		suffix = 'st'
+	elif place % 10 == 2:
+		suffix = 'nd'
+	elif place % 10 == 3:
+		suffix = 'rd'
+	if 10 < place % 100 and place % 100 < 20:
+		suffix = 'th'
+	$Label.text = str(place) + suffix + ':  ' + $Label.text
