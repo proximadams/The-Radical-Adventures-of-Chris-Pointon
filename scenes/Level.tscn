@@ -6796,7 +6796,8 @@ margin_top = -385.0
 margin_right = 8.0
 margin_bottom = 8.0
 theme = ExtResource( 28 )
-text = "Jump on barricades to grind."
+text = "Ollie on barricades to grind.
+Move the right stick down then up."
 valign = 2
 autowrap = true
 
@@ -6806,7 +6807,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -393.0
 theme = ExtResource( 28 )
-text = "Jump on barricades to grind."
+text = "Ollie on barricades to grind.
+Move the right stick down then up."
 valign = 2
 autowrap = true
 

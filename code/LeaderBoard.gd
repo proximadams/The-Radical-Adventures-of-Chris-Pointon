@@ -7,7 +7,7 @@ onready var container = $VBoxContainer
 const data : Array = [
 	{
 		'name': 'Lucky',
-		'points': 12035,
+		'points': 14134,
 	},
 	{
 		'name': 'Braden',
