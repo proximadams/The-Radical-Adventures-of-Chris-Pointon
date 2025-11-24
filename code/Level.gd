@@ -13,6 +13,7 @@ enum {
 	KICKFLIP,
 	SPIN,
 	GRIND,
+	SCORE,
 	FINISHED
 }
 
@@ -45,6 +46,10 @@ func _process(_delta):
 				environment.begin_spawning()
 		GRIND:
 			if player.anim.current_animation.begins_with('grind'):
+				instructionsState = SCORE
+				animInstructions.play('score')
+		SCORE:
+			if player.anim.current_animation == 'grind_end_jump_high_kickflip_kickflip' or player.anim.current_animation == 'grind_end_jump_high_720':
 				instructionsState = FINISHED
 				animInstructions.play('begin')
 
