@@ -23,8 +23,15 @@ func _ready():
 	var _res = $Player.connect('environment_slow_down', $Environment, 'slow_down')
 	_res = $Player.connect('show_new_points', self, '_increase_points')
 	_res = $Environment.connect('player_slow_down', self, 'player_slow_down')
+	if not Global.showTutorial:
+		instructionsState = FINISHED
+		animInstructions.play('hide')
+		environment.begin_spawning()
 
-func _process(_delta):
+func _process(_delta: float) -> void:
+	if Global.showTutorial and instructionsState == FINISHED and 500 <= environment.totalPoints:
+		Global.showTutorial = false
+
 	if player.rampState == player.NOT_ON:
 		player.anim.playback_speed = 1.0
 	else:
@@ -54,7 +61,7 @@ func _process(_delta):
 				animInstructions.play('begin')
 
 func _increase_points(points: int) -> void:
-	if (instructionsState == GRIND or instructionsState == FINISHED):
+	if (instructionsState == GRIND or instructionsState == SCORE or instructionsState == FINISHED):
 		environment.increase_max_speed(points)
 		score.show_new_points(points)
 		player.refresh_player_speed(environment.anim.playback_speed)
