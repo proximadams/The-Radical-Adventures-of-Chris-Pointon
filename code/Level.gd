@@ -49,8 +49,8 @@ func _process(_delta):
 				animInstructions.play('begin')
 
 func _increase_points(points: int) -> void:
-	environment.increase_max_speed(points)
 	if (instructionsState == GRIND or instructionsState == FINISHED):
+		environment.increase_max_speed(points)
 		score.show_new_points(points)
 		player.refresh_player_speed(environment.anim.playback_speed)
 

@@ -38,6 +38,7 @@ func _ready() -> void:
 		container.add_child(entryInst)
 		entryInst.set_info(currObj.name, currObj.points)
 		entryInst.set_place(currPlace)
+		entryInst.set_is_new(false)
 		currPlace += 1
 
 func _get_player_data():
@@ -65,11 +66,15 @@ func _get_player_points_data() -> int:
 	return result
 
 func _update_player_in_leaderboard(totalPoints: int) -> void:
-	if _get_player_points_data() < totalPoints:
-		var playerObjIndex = _get_player_data_index()
+	var playerObjIndex = _get_player_data_index()
+	var playerEntry = container.get_child(playerObjIndex)
+	var hasBeatOldHighScore : bool = (_get_player_points_data() < totalPoints)
+
+	playerEntry.set_is_new(hasBeatOldHighScore)
+
+	if hasBeatOldHighScore:
 		var playerObj = data[playerObjIndex]
 		if playerObjIndex != -1:
-			var playerEntry = container.get_child(playerObjIndex)
 			var newIndex = playerObjIndex -1
 			playerObj.points = totalPoints
 			playerEntry.set_info('YOU', totalPoints)

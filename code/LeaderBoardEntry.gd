@@ -27,3 +27,6 @@ func set_place(place: int) -> void:
 	if 10 < place % 100 and place % 100 < 20:
 		suffix = 'th'
 	$Label.text = str(place) + suffix + ':  ' + $Label.text
+
+func set_is_new(value: bool) -> void:
+	$New.visible = value
