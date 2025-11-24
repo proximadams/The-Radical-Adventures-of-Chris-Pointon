@@ -2,6 +2,7 @@ extends Node2D
 
 onready var gameOverHeader   : Control = $CanvasLayer/GameOverScreen/Header
 onready var environment      : Node2D          = $Environment
+onready var leaderBoard      : Control = $CanvasLayer/GameOverScreen/LeaderBoard
 onready var player           : Node2D          = $Player
 onready var score            : Control         = $CanvasLayer/Score
 onready var tree             : SceneTree       = get_tree()
@@ -59,6 +60,7 @@ func player_slow_down() -> void:
 func game_over() -> void:
 	var isNewRecord : bool = (Records.recordsArr.size() != 0 and Records.recordsArr.max() < score.totalPoints)
 	animGameOver.play('animate')
+	leaderBoard._update_player_in_leaderboard(environment.totalPoints)
 	tree.paused = true
 	Records.recordsArr.append(score.totalPoints)
 	if isNewRecord:

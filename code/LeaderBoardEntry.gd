@@ -11,6 +11,8 @@ func set_info(name: String, points: int) -> void:
 		numBufferSpaces -= 1
 		bufferSpaces += ' '
 	$Label.text = pointsStr + bufferSpaces + name
+	if name == 'YOU':
+		modulate.b = 0.0# makes text yellow
 
 func set_place(place: int) -> void:
 	var suffix = 'th'
