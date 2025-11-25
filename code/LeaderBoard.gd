@@ -75,7 +75,7 @@ func _update_player_in_leaderboard(totalPoints: int) -> void:
 	if hasBeatOldHighScore:
 		var playerObj = data[playerObjIndex]
 		if playerObjIndex != -1:
-			var newIndex = playerObjIndex -1
+			var newIndex = playerObjIndex
 			playerObj.points = totalPoints
 			playerEntry.set_info('YOU', totalPoints)
 
