@@ -20,9 +20,9 @@ custom_fonts/font = SubResource( 1 )
 text = "#1:  12,035 points     Lucky"
 
 [node name="New" type="Label" parent="."]
-margin_left = 584.0
+margin_left = 712.0
 margin_top = 16.0
-margin_right = 675.0
+margin_right = 803.0
 margin_bottom = 49.0
 theme = ExtResource( 2 )
 text = "New!"

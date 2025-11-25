@@ -6748,7 +6748,7 @@ visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 216.0
 margin_top = 376.0
-margin_right = 916.0
+margin_right = 1098.0
 margin_bottom = 876.0
 script = ExtResource( 38 )
 
