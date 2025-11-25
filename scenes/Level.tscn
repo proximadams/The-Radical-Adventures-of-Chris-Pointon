@@ -7107,6 +7107,7 @@ anchor_bottom = 0.5
 margin_top = 224.0
 margin_bottom = 224.0
 rect_scale = Vector2( 2, 2 )
+mouse_filter = 2
 
 [node name="Number" type="Label" parent="CanvasLayer/GameOverScreen/Count"]
 anchor_left = 0.5
@@ -7249,6 +7250,7 @@ anims/spin360 = SubResource( 110 )
 [node name="Move" type="Control" parent="CanvasLayer/Tutorial"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="MoveBackground" type="Label" parent="CanvasLayer/Tutorial/Move"]
 modulate = Color( 0, 0, 0, 1 )
@@ -7278,6 +7280,7 @@ autowrap = true
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="KickglipBackground" type="Label" parent="CanvasLayer/Tutorial/Kickflip"]
 modulate = Color( 0, 0, 0, 1 )
@@ -7309,6 +7312,7 @@ autowrap = true
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="TextBackground" type="Label" parent="CanvasLayer/Tutorial/Spin"]
 modulate = Color( 0, 0, 0, 1 )
@@ -7340,6 +7344,7 @@ autowrap = true
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="TextBackground" type="Label" parent="CanvasLayer/Tutorial/Grind"]
 modulate = Color( 0, 0, 0, 1 )
@@ -7371,6 +7376,7 @@ autowrap = true
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="TextBackground" type="Label" parent="CanvasLayer/Tutorial/Score"]
 modulate = Color( 0, 0, 0, 1 )
