@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://styles/Header1.tres" type="Theme" id=1]
 [ext_resource path="res://styles/GeneralButton.tres" type="Theme" id=2]
 [ext_resource path="res://code/TitleScreen.gd" type="Script" id=3]
+[ext_resource path="res://code/FocusDefaultButton.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -311,7 +312,7 @@ tracks/10/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 tracks/11/type = "method"
-tracks/11/path = NodePath("FocusDefaultButton")
+tracks/11/path = NodePath(".")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -321,7 +322,7 @@ tracks/11/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "grab_focus"
+"method": "_go_back"
 } ]
 }
 
@@ -412,8 +413,8 @@ tracks/6/keys = {
 "update": 1,
 "values": [ false, true ]
 }
-tracks/7/type = "method"
-tracks/7/path = NodePath("FocusDefaultButton")
+tracks/7/type = "value"
+tracks/7/path = NodePath("VBoxContainer:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -421,13 +422,11 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "grab_focus"
-} ]
+"update": 1,
+"values": [ true ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("VBoxContainer:visible")
+tracks/8/path = NodePath("LetsHitIt:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -435,28 +434,16 @@ tracks/8/enabled = true
 tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("LetsHitIt:modulate")
+tracks/9/path = NodePath("StartButton:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ) ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("StartButton:visible")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
@@ -689,17 +676,17 @@ tracks/8/keys = {
 "values": [ true, false ]
 }
 tracks/9/type = "method"
-tracks/9/path = NodePath("FocusDefaultButton")
+tracks/9/path = NodePath(".")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 4.4 ),
+"times": PoolRealArray( 4.9 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "grab_focus"
+"method": "_not_for_you"
 } ]
 }
 
@@ -716,7 +703,7 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "grab_focus"
+"method": "focus_on_default"
 } ]
 }
 tracks/1/type = "value"
@@ -838,6 +825,8 @@ you, kid."
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 12.0
 margin_bottom = 20.0
+script = ExtResource( 4 )
+nextFocusControlNP = NodePath("../StartButton")
 
 [node name="StartButton" type="Button" parent="."]
 modulate = Color( 1, 1, 1, 0 )
@@ -908,7 +897,7 @@ grow_horizontal = 2
 disabled = true
 text = "No"
 
-[connection signal="pressed" from="StartButton" to="AnimationPlayer" method="play" binds= [ "hip_options" ]]
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="BackButton" to="AnimationPlayer" method="play" binds= [ "go_back" ]]
 [connection signal="pressed" from="VBoxContainer/ButtonYes" to="AnimationPlayer" method="play" binds= [ "lets_hit_it" ]]
 [connection signal="pressed" from="VBoxContainer/ButtonNo" to="AnimationPlayer" method="play" binds= [ "not_for_you_options" ]]
