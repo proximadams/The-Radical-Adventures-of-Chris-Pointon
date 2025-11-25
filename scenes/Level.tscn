@@ -822,6 +822,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("LeftStick:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
 
 [sub_resource type="Animation" id=95]
 length = 0.001
@@ -7209,8 +7221,10 @@ margin_bottom = -32.0
 mouse_filter = 2
 
 [node name="InputSticks" type="Control" parent="CanvasLayer/Tutorial"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="LeftStick" type="Sprite" parent="CanvasLayer/Tutorial/InputSticks"]
 position = Vector2( 810, 850 )

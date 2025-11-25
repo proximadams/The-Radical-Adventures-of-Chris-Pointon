@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://styles/Header1.tres" type="Theme" id=1]
 [ext_resource path="res://styles/GeneralButton.tres" type="Theme" id=2]
 [ext_resource path="res://code/TitleScreen.gd" type="Script" id=3]
 [ext_resource path="res://code/FocusDefaultButton.gd" type="Script" id=4]
+[ext_resource path="res://images/ui/Controller.PNG" type="Texture" id=5]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -175,6 +176,180 @@ tracks/13/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/14/type = "value"
+tracks/14/path = NodePath("Controller:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("ContinueButton:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("ContinueButton:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "controller_lets_hit_it"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer/ButtonYes:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer/ButtonNo:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HipQuestion:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Title:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("StartButton:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("LetsHitIt:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "change_scene"
+} ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("VBoxContainer:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Controller:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ContinueButton:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("ContinueButton:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "go_back"
@@ -326,6 +501,120 @@ tracks/11/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "hip_lets_hit_it"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer/ButtonYes:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VBoxContainer/ButtonNo:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HipQuestion:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Title:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("StartButton:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("LetsHitIt:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 1.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "change_scene"
+} ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("VBoxContainer:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
 [sub_resource type="Animation" id=5]
 resource_name = "hip_options"
 length = 2.0
@@ -444,120 +733,6 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "lets_hit_it"
-length = 1.8
-tracks/0/type = "value"
-tracks/0/path = NodePath("VBoxContainer:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("VBoxContainer/ButtonYes:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("VBoxContainer/ButtonNo:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("HipQuestion:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Title:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("StartButton:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("LetsHitIt:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 0.3, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/7/type = "method"
-tracks/7/path = NodePath(".")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 1.8 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "change_scene"
-} ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("VBoxContainer:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
@@ -690,6 +865,142 @@ tracks/9/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=9]
+resource_name = "recommend_controller"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer/ButtonYes:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VBoxContainer/ButtonNo:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HipQuestion:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Title:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("StartButton:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("LetsHitIt:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("VBoxContainer:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Controller:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ContinueButton:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("ContinueButton:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [sub_resource type="Animation" id=3]
 resource_name = "start_option"
 tracks/0/type = "method"
@@ -809,6 +1120,29 @@ margin_bottom = -61.5
 theme = ExtResource( 1 )
 text = "Let's hit it"
 
+[node name="Controller" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 32.0
+margin_top = -410.5
+margin_right = 1684.0
+margin_bottom = -149.5
+theme = ExtResource( 1 )
+text = "The best way to play is with a controller."
+autowrap = true
+
+[node name="TextureRect" type="TextureRect" parent="Controller"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -345.0
+margin_top = 60.5
+margin_right = 549.0
+margin_bottom = 675.5
+texture = ExtResource( 5 )
+
 [node name="NotForYou" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 anchor_top = 0.5
@@ -843,6 +1177,20 @@ grow_vertical = 2
 theme = ExtResource( 2 )
 text = "Start"
 
+[node name="ContinueButton" type="Button" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -171.0
+margin_top = -231.0
+margin_right = 171.0
+margin_bottom = -152.0
+theme = ExtResource( 2 )
+text = "Continue"
+
 [node name="BackButton" type="Button" parent="."]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
@@ -863,10 +1211,12 @@ text = "Go Back"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "start_option"
 anims/RESET = SubResource( 4 )
+anims/controller_lets_hit_it = SubResource( 10 )
 anims/go_back = SubResource( 8 )
+anims/hip_lets_hit_it = SubResource( 6 )
 anims/hip_options = SubResource( 5 )
-anims/lets_hit_it = SubResource( 6 )
 anims/not_for_you_options = SubResource( 7 )
+anims/recommend_controller = SubResource( 9 )
 anims/start_option = SubResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -898,6 +1248,7 @@ disabled = true
 text = "No"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="ContinueButton" to="AnimationPlayer" method="play" binds= [ "controller_lets_hit_it" ]]
 [connection signal="pressed" from="BackButton" to="AnimationPlayer" method="play" binds= [ "go_back" ]]
-[connection signal="pressed" from="VBoxContainer/ButtonYes" to="AnimationPlayer" method="play" binds= [ "lets_hit_it" ]]
+[connection signal="pressed" from="VBoxContainer/ButtonYes" to="." method="_yes_hip"]
 [connection signal="pressed" from="VBoxContainer/ButtonNo" to="AnimationPlayer" method="play" binds= [ "not_for_you_options" ]]
