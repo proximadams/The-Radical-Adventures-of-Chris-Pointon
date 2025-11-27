@@ -7,19 +7,39 @@ onready var container = $VBoxContainer
 const data : Array = [
 	{
 		'name': 'Lucky',
-		'points': 14134,
+		'points': 15680,
 	},
 	{
 		'name': 'Braden',
 		'points': 3761,
 	},
 	{
+		'name': 'Jeremy',
+		'points': 2670,
+	},
+	{
+		'name': 'Marshal',
+		'points': 2252,
+	},
+	{
+		'name': 'Patrick',
+		'points': 2172,
+	},
+	{
+		'name': 'Nathan',
+		'points': 1362,
+	},
+	{
 		'name': 'Pig',
 		'points': 1312,
 	},
 	{
-		'name': 'Poo',
-		'points': 810,
+		'name': 'Peyton',
+		'points': 1094,
+	},
+	{
+		'name': 'Aiyana',
+		'points': 600,
 	},
 	{
 		'name': 'Dude',
@@ -36,6 +56,7 @@ func _ready() -> void:
 	for currObj in data:
 		var entryInst : Control = entryRes.instance()
 		container.add_child(entryInst)
+		entryInst.owner = container
 		entryInst.set_info(currObj.name, currObj.points)
 		entryInst.set_place(currPlace)
 		entryInst.set_is_new(false)
@@ -96,3 +117,7 @@ func _update_player_in_leaderboard(totalPoints: int) -> void:
 						var entryInst : Control = container.get_child(i)
 						entryInst.set_info(data[i].name, data[i].points)
 						entryInst.set_place(i +1)
+	if 9 < playerEntry.place:
+		scroll_vertical = 1000
+	else:
+		scroll_vertical = 0
