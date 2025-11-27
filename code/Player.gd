@@ -2,6 +2,7 @@ extends Node2D
 
 const CROUNCH_WINDOW_TIME    := 0.3
 const GROUND_180_WINDOW_TIME := 0.3
+const JUMP_EARLY_WINDOW      := 0.5
 const MIN_GRIND_TIME         := 0.3
 const MIN_SPEED              := 300.0
 const MAX_SPEED              := 500.0
@@ -97,7 +98,7 @@ func _process(delta: float) -> void:
 					anim.play('ramp_crouch')
 					anim.seek(currentTime)
 		elif not anim.current_animation.begins_with('grind_end') and not isInTube:
-			if Input.is_action_just_pressed('shift_jump'):
+			if Input.is_action_just_pressed('shift_jump') or (timeSinceInputShiftJump < JUMP_EARLY_WINDOW and not hurtCollision.disabled):
 				if 0.0 < crounchWindowTimer:
 					if _check_is_grinding():
 						isTryingToEndGrind = false
