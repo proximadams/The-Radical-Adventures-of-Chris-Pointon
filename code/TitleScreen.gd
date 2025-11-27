@@ -25,10 +25,7 @@ func _not_for_you() -> void:
 	focusDefaultButton.focus_on_default()
 
 func _yes_hip():
-	if Global.check_is_controller_connected():
-		anim.play('hip_lets_hit_it')
-	else:
-		anim.play('recommend_controller')
+	anim.play('hip_lets_hit_it')
 
 func _on_joy_connection_changed(_device, connected) -> void:
 	if connected and (anim.current_animation == 'recommend_controller' or continueButton.visible):
