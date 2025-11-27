@@ -3,6 +3,7 @@ extends Node2D
 const CROUNCH_WINDOW_TIME    := 0.3
 const GROUND_180_WINDOW_TIME := 0.3
 const JUMP_EARLY_WINDOW      := 0.5
+const JUMP_LATE_GRIND_WINDOW := 0.15
 const MIN_GRIND_TIME         := 0.3
 const MIN_SPEED              := 300.0
 const MAX_SPEED              := 500.0
@@ -33,6 +34,7 @@ var timeSinceInputShiftCrouch  := 1000.0
 var timeSinceInputShiftForward := 1000.0
 var timeSinceInputShiftJump    := 1000.0
 var timeSinceStartedGrind      := 1000.0
+var timeSinceEndedGrind        := 1000.0
 
 # rampState
 enum {
@@ -97,31 +99,31 @@ func _process(delta: float) -> void:
 					var currentTime = anim.current_animation_position
 					anim.play('ramp_crouch')
 					anim.seek(currentTime)
-		elif not anim.current_animation.begins_with('grind_end') and not isInTube:
-			if Input.is_action_just_pressed('shift_jump') or (timeSinceInputShiftJump < JUMP_EARLY_WINDOW and not hurtCollision.disabled):
+		elif not isInTube:
+			if (not anim.current_animation.begins_with('grind_end') or timeSinceEndedGrind < JUMP_LATE_GRIND_WINDOW) and (Input.is_action_just_pressed('shift_jump') or (timeSinceInputShiftJump < JUMP_EARLY_WINDOW and not hurtCollision.disabled)):
 				if 0.0 < crounchWindowTimer:
-					if _check_is_grinding():
+					if _check_is_grinding() or timeSinceEndedGrind < JUMP_LATE_GRIND_WINDOW:
 						isTryingToEndGrind = false
 						anim.play('grind_end_jump_high')
 					elif not anim.current_animation.begins_with('grind_end'):
 						anim.play('jump_high')
 						_play_sound_jumping()
 				else:
-					if _check_is_grinding():
+					if _check_is_grinding() or timeSinceEndedGrind < JUMP_LATE_GRIND_WINDOW:
 						isTryingToEndGrind = false
 						anim.play('grind_end_jump_low')
 					elif not anim.current_animation.begins_with('grind_end'):
 						anim.play('jump_low')
 						_play_sound_jumping()
 				anim.queue('idle')
-			elif Input.is_action_pressed('shift_crouch'):
+			elif Input.is_action_pressed('shift_crouch') and not anim.current_animation.begins_with('grind_end'):
 				if crounchWindowTimer < CROUNCH_WINDOW_TIME * 0.9:
 					if _check_is_grinding():
 						anim.play('grind_crouch')
 					else:
 						anim.play('shift_crouch')
 				crounchWindowTimer = CROUNCH_WINDOW_TIME
-			elif Input.is_action_pressed('shift_forward'):
+			elif Input.is_action_pressed('shift_forward') and not anim.current_animation.begins_with('grind_end'):
 				if anim.current_animation != 'shift_forward' and anim.current_animation != 'grind_forward' and anim.current_animation != 'hold_forward' and anim.current_animation != 'grind_forward_hold' and not anim.current_animation.begins_with('turn') and anim.current_animation != 'grind_turn_180_ftb':
 					if _check_is_grinding():
 						anim.play('grind_forward')
@@ -129,7 +131,7 @@ func _process(delta: float) -> void:
 					else:
 						anim.play('shift_forward')
 						anim.queue('hold_forward')
-			elif Input.is_action_pressed('shift_back'):
+			elif Input.is_action_pressed('shift_back') and not anim.current_animation.begins_with('grind_end'):
 				if anim.current_animation != 'shift_back' and anim.current_animation != 'grind_back' and anim.current_animation != 'hold_back' and anim.current_animation != 'grind_back_hold' and not anim.current_animation.begins_with('turn') and anim.current_animation != 'grind_turn_180_ftb':
 					if _check_is_grinding():
 						anim.play('grind_back')
@@ -164,6 +166,12 @@ func _process(delta: float) -> void:
 			anim.play('turn_180_ftb')
 			anim.queue('idle')
 	timeSinceStartedGrind += delta
+	if anim.current_animation.begins_with('grind_end'):
+		timeSinceEndedGrind += delta
+	elif anim.current_animation.find('grind') != -1 or anim.current_animation.find('ramp') != -1:
+		timeSinceEndedGrind = 0.0
+	else:
+		timeSinceEndedGrind = JUMP_LATE_GRIND_WINDOW
 	if isTryingToEndGrind and MIN_GRIND_TIME < timeSinceStartedGrind and not _check_is_on_ramp() and not isInTube:
 		isTryingToEndGrind = false
 		anim.play('grind_end')
