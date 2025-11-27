@@ -25,6 +25,7 @@ signal environment_slow_down
 signal show_new_points(points)
 
 var crounchWindowTimer         := CROUNCH_WINDOW_TIME
+var framesSinceRamp            := 10
 var health                     := 3
 var isInTube                   := false
 var isTryingToEndGrind         := false
@@ -70,6 +71,11 @@ func _ready() -> void:
 	_res = $TrickLabels/TrickAnimationPlayer.connect('trick_complete', self, 'trick_complete')
 
 func _process(delta: float) -> void:
+	if _check_is_on_ramp():
+		framesSinceRamp = 0
+	else:
+		framesSinceRamp += 1
+
 	# shifting weight and jumping
 	if not anim.current_animation.begins_with('jump'):
 		if _check_release_shift() and not anim.current_animation.begins_with('grind_end') and not isInTube and not _check_is_on_ramp():
@@ -318,18 +324,25 @@ func _check_release_shift() -> bool:
 	return hasReleased and pressingNothing and not anim.current_animation.begins_with('turn')
 
 func hurt_me() -> void:
-	if not isInTube and not animHurt.current_animation == 'hurt':
-		health -= 1
-		animHurt.play('hurt')
-		animHurt.queue('normal')
-		emit_signal('environment_slow_down')
-		match health:
-			2:
-				sound.pain[0].play()
-			1:
-				sound.pain[1].play()
-			0:
-				sound.pain[2].play()
+	yield(get_tree(), 'idle_frame')
+	yield(get_tree(), 'idle_frame')
+	yield(get_tree(), 'idle_frame')
+	hurt_me_if_not_on_ramp()
+
+func hurt_me_if_not_on_ramp() -> void:
+	if 10 < framesSinceRamp:
+		if not isInTube and not animHurt.current_animation == 'hurt':
+			health -= 1
+			animHurt.play('hurt')
+			animHurt.queue('normal')
+			emit_signal('environment_slow_down')
+			match health:
+				2:
+					sound.pain[0].play()
+				1:
+					sound.pain[1].play()
+				0:
+					sound.pain[2].play()
 
 func slow_down() -> void:
 	emit_signal('environment_slow_down')
