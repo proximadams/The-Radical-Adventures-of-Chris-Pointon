@@ -1,13 +1,26 @@
 extends Node2D
 
-onready var gameOverHeader   : Control = $CanvasLayer/GameOverScreen/Header
-onready var environment      : Node2D          = $Environment
-onready var leaderBoard      : Control = $CanvasLayer/GameOverScreen/LeaderBoard
-onready var player           : Node2D          = $Player
-onready var score            : Control         = $CanvasLayer/Score
-onready var tree             : SceneTree       = get_tree()
-onready var animGameOver     : AnimationPlayer = $CanvasLayer/GameOverScreen/AnimationPlayer
-onready var animInstructions : AnimationPlayer = $CanvasLayer/Tutorial/AnimationPlayer
+onready var animGameOver       : AnimationPlayer = $CanvasLayer/GameOverScreen/AnimationPlayer
+onready var animInstructions   : AnimationPlayer = $CanvasLayer/Tutorial/AnimationPlayer
+onready var environment        : Node2D          = $Environment
+onready var gameOverHeader     : Control         = $CanvasLayer/GameOverScreen/Header
+onready var inputSticks        : Control         = $CanvasLayer/Tutorial/InputSticks
+onready var leaderBoard        : Control         = $CanvasLayer/GameOverScreen/LeaderBoard
+onready var player             : Node2D          = $Player
+onready var score              : Control         = $CanvasLayer/Score
+onready var tree               : SceneTree       = get_tree()
+onready var tutorialController : Array           = [
+	$CanvasLayer/Tutorial/Move/Controller,
+	$CanvasLayer/Tutorial/Kickflip/Controller,
+	$CanvasLayer/Tutorial/Spin/Controller,
+	$CanvasLayer/Tutorial/Grind/Controller,
+]
+onready var tutorialKeyboard  : Array           = [
+	$CanvasLayer/Tutorial/Move/Keyboard,
+	$CanvasLayer/Tutorial/Kickflip/Keyboard,
+	$CanvasLayer/Tutorial/Spin/Keyboard,
+	$CanvasLayer/Tutorial/Grind/Keyboard,
+]
 enum {
 	MOVE,
 	KICKFLIP,
@@ -28,9 +41,29 @@ func _ready():
 		animInstructions.play('hide')
 		environment.begin_spawning()
 
+func _show_controller_tutorial() -> void:
+	inputSticks.modulate.a = 1.0
+	_refresh_tutorial_input_visibility(true)
+
+func _show_keyboard_tutorial() -> void:
+	inputSticks.modulate.a = 0.0
+	_refresh_tutorial_input_visibility(false)
+
+func _refresh_tutorial_input_visibility(usesController: bool) -> void:
+	for currNode in tutorialController:
+		currNode.visible = usesController
+	for currNode in tutorialKeyboard:
+		currNode.visible = not usesController
+
 func _process(_delta: float) -> void:
 	if Global.showTutorial and instructionsState == FINISHED and 500 <= environment.totalPoints:
 		Global.showTutorial = false
+
+	if Global.showTutorial and instructionsState != FINISHED:
+		if Global.check_is_controller_connected():
+			_show_controller_tutorial()
+		else:
+			inputSticks.modulate.a = 0.0
 
 	if player.rampState == player.NOT_ON:
 		player.anim.playback_speed = 1.0

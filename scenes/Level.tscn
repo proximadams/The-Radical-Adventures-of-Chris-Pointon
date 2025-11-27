@@ -7386,7 +7386,6 @@ margin_bottom = -32.0
 mouse_filter = 2
 
 [node name="InputSticks" type="Control" parent="CanvasLayer/Tutorial"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -7416,7 +7415,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="MoveBackground" type="Label" parent="CanvasLayer/Tutorial/Move"]
+[node name="Controller" type="Control" parent="CanvasLayer/Tutorial/Move"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="MoveBackground" type="Label" parent="CanvasLayer/Tutorial/Move/Controller"]
 modulate = Color( 0, 0, 0, 1 )
 anchor_top = 1.0
 anchor_right = 1.0
@@ -7430,7 +7435,7 @@ text = "Move with the left stick."
 valign = 2
 autowrap = true
 
-[node name="MoveMain" type="Label" parent="CanvasLayer/Tutorial/Move"]
+[node name="MoveMain" type="Label" parent="CanvasLayer/Tutorial/Move/Controller"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -7440,13 +7445,48 @@ text = "Move with the left stick."
 valign = 2
 autowrap = true
 
+[node name="Keyboard" type="Control" parent="CanvasLayer/Tutorial/Move"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="MoveBackground" type="Label" parent="CanvasLayer/Tutorial/Move/Keyboard"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -121.0
+margin_right = 8.0
+margin_bottom = 8.0
+theme = ExtResource( 28 )
+text = "Move with the WASD keys."
+valign = 2
+autowrap = true
+
+[node name="MoveMain" type="Label" parent="CanvasLayer/Tutorial/Move/Keyboard"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -129.0
+theme = ExtResource( 28 )
+text = "Move with the WASD keys."
+valign = 2
+autowrap = true
+
 [node name="Kickflip" type="Control" parent="CanvasLayer/Tutorial"]
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="KickglipBackground" type="Label" parent="CanvasLayer/Tutorial/Kickflip"]
+[node name="Controller" type="Control" parent="CanvasLayer/Tutorial/Kickflip"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="KickglipBackground" type="Label" parent="CanvasLayer/Tutorial/Kickflip/Controller"]
 modulate = Color( 0, 0, 0, 1 )
 anchor_top = 1.0
 anchor_right = 1.0
@@ -7461,7 +7501,7 @@ Down, up, down."
 valign = 2
 autowrap = true
 
-[node name="KickglipMain" type="Label" parent="CanvasLayer/Tutorial/Kickflip"]
+[node name="KickglipMain" type="Label" parent="CanvasLayer/Tutorial/Kickflip/Controller"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -7469,6 +7509,37 @@ margin_top = -393.0
 theme = ExtResource( 28 )
 text = "Kickflip by moving the right stick:
 Down, up, down."
+valign = 2
+autowrap = true
+
+[node name="Keyboard" type="Control" parent="CanvasLayer/Tutorial/Kickflip"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="KickglipBackground" type="Label" parent="CanvasLayer/Tutorial/Kickflip/Keyboard"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -385.0
+margin_right = 8.0
+margin_bottom = 8.0
+theme = ExtResource( 28 )
+text = "Kickflip with the arrow keys, press:
+Down, up, down, up."
+valign = 2
+autowrap = true
+
+[node name="KickglipMain" type="Label" parent="CanvasLayer/Tutorial/Kickflip/Keyboard"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -393.0
+theme = ExtResource( 28 )
+text = "Kickflip with the arrow keys, press:
+Down, up, down, up."
 valign = 2
 autowrap = true
 
@@ -7478,7 +7549,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="TextBackground" type="Label" parent="CanvasLayer/Tutorial/Spin"]
+[node name="Controller" type="Control" parent="CanvasLayer/Tutorial/Spin"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="TextBackground" type="Label" parent="CanvasLayer/Tutorial/Spin/Controller"]
 modulate = Color( 0, 0, 0, 1 )
 anchor_top = 1.0
 anchor_right = 1.0
@@ -7493,7 +7570,7 @@ Down, then in a circle."
 valign = 2
 autowrap = true
 
-[node name="TextMain" type="Label" parent="CanvasLayer/Tutorial/Spin"]
+[node name="TextMain" type="Label" parent="CanvasLayer/Tutorial/Spin/Controller"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -7501,6 +7578,37 @@ margin_top = -393.0
 theme = ExtResource( 28 )
 text = "Spin 360 by moving the right stick:
 Down, then in a circle."
+valign = 2
+autowrap = true
+
+[node name="Keyboard" type="Control" parent="CanvasLayer/Tutorial/Spin"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="TextBackground" type="Label" parent="CanvasLayer/Tutorial/Spin/Keyboard"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -385.0
+margin_right = 8.0
+margin_bottom = 8.0
+theme = ExtResource( 28 )
+text = "Spin 360 with the arrow keys, press:
+Down, up, right, down, left"
+valign = 2
+autowrap = true
+
+[node name="TextMain" type="Label" parent="CanvasLayer/Tutorial/Spin/Keyboard"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -393.0
+theme = ExtResource( 28 )
+text = "Spin 360 with the arrow keys, press:
+Down, up, right, down, left"
 valign = 2
 autowrap = true
 
@@ -7510,7 +7618,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="TextBackground" type="Label" parent="CanvasLayer/Tutorial/Grind"]
+[node name="Controller" type="Control" parent="CanvasLayer/Tutorial/Grind"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="TextBackground" type="Label" parent="CanvasLayer/Tutorial/Grind/Controller"]
 modulate = Color( 0, 0, 0, 1 )
 anchor_top = 1.0
 anchor_right = 1.0
@@ -7525,7 +7639,7 @@ Move the right stick down then up."
 valign = 2
 autowrap = true
 
-[node name="TextMain" type="Label" parent="CanvasLayer/Tutorial/Grind"]
+[node name="TextMain" type="Label" parent="CanvasLayer/Tutorial/Grind/Controller"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -7533,6 +7647,37 @@ margin_top = -393.0
 theme = ExtResource( 28 )
 text = "Ollie on barricades to grind.
 Move the right stick down then up."
+valign = 2
+autowrap = true
+
+[node name="Keyboard" type="Control" parent="CanvasLayer/Tutorial/Grind"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="TextBackground" type="Label" parent="CanvasLayer/Tutorial/Grind/Keyboard"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -385.0
+margin_right = 8.0
+margin_bottom = 8.0
+theme = ExtResource( 28 )
+text = "Ollie on barricades to grind.
+Press down, then up to ollie."
+valign = 2
+autowrap = true
+
+[node name="TextMain" type="Label" parent="CanvasLayer/Tutorial/Grind/Keyboard"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -393.0
+theme = ExtResource( 28 )
+text = "Ollie on barricades to grind.
+Press down, then up to ollie."
 valign = 2
 autowrap = true
 
