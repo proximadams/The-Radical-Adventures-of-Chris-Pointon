@@ -29,6 +29,7 @@ var framesSinceRamp            := 10
 var health                     := 3
 var isInTube                   := false
 var isTryingToEndGrind         := false
+var prevAnimation              := 'idle'
 var speed                      := MIN_SPEED
 var timeSinceInputShiftBack    := 1000.0
 var timeSinceInputShiftCrouch  := 1000.0
@@ -141,6 +142,7 @@ func _process(delta: float) -> void:
 				if anim.current_animation != 'shift_back' and anim.current_animation != 'grind_back' and anim.current_animation != 'hold_back' and anim.current_animation != 'grind_back_hold' and not anim.current_animation.begins_with('turn') and anim.current_animation != 'grind_turn_180_ftb':
 					if _check_is_grinding():
 						anim.play('grind_back')
+						anim.queue('grind_back_hold')
 					else:
 						anim.play('shift_back')
 						anim.queue('hold_back')
@@ -183,6 +185,9 @@ func _process(delta: float) -> void:
 		anim.play('grind_end')
 		anim.queue('idle')
 
+	if anim.current_animation:
+		prevAnimation = anim.current_animation
+
 func _refresh_rolling_sound_volume() -> void:
 	if hurtCollision.disabled:
 		sound.rolling.volume_db = -80.0
@@ -202,7 +207,7 @@ func _refresh_rolling_sound_volume() -> void:
 		sound.rolling.volume_db = 6.0
 
 func _refresh_effect_grinding() -> void:
-	var isGrinding : bool = (anim.current_animation == 'grind_turn_180_ftb' or anim.current_animation == 'grind_back' or anim.current_animation == 'grind_forward' or anim.current_animation == 'grind_forward_hold' or anim.current_animation == 'grind_crouch' or anim.current_animation == 'grind_uncrouch')
+	var isGrinding : bool = _check_is_grinding()
 	if animTrickEffect.current_animation != 'grind' and isGrinding:
 		animTrickEffect.play('grind')
 	elif animTrickEffect.current_animation == 'grind' and not isGrinding:
@@ -214,7 +219,7 @@ func _refresh_sound_grinding() -> void:
 	else:
 		sound.grinding.pitch_scale = 1.0
 
-	if anim.current_animation == 'grind_back' or anim.current_animation == 'grind_forward' or anim.current_animation == 'grind_forward_hold' or anim.current_animation == 'grind_crouch' or anim.current_animation == 'grind_uncrouch':
+	if _check_is_grinding():
 		sound.grinding.volume_db = 0.0
 	elif anim.current_animation == 'grind_turn_180_ftb':
 		sound.grinding.volume_db = 15.0
@@ -377,6 +382,7 @@ func try_start_grind(positionY: float) -> void:
 		timeSinceStartedGrind = 0.0
 		global_position.y = positionY
 		anim.play('grind_back')
+		anim.queue('grind_back_hold')
 		_play_sound_landing()
 		animTrickEffect.play('land_grind')
 
@@ -396,8 +402,11 @@ func exit_tube() -> void:
 			anim.play('shift_uncrouch')
 			anim.queue('idle')
 
+func _check_is_grinding_animation(name: String) -> bool:
+	return (name == 'grind_back' or name == 'grind_forward' or name == 'grind_crouch' or name == 'grind_uncrouch' or name == 'grind_turn_180_ftb' or name == 'grind_forward_hold' or name == 'grind_back_hold')
+
 func _check_is_grinding() -> bool:
-	return (anim.current_animation == 'grind_back' or anim.current_animation == 'grind_forward' or anim.current_animation == 'grind_crouch' or anim.current_animation == 'grind_uncrouch' or anim.current_animation == 'grind_turn_180_ftb' or anim.current_animation == 'grind_forward_hold')
+	return _check_is_grinding_animation(prevAnimation) or _check_is_grinding_animation(anim.current_animation)
 
 func _check_is_on_ramp() -> bool:
 	return rampState != NOT_ON
