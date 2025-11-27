@@ -99,19 +99,28 @@ func try_respawn() -> void:
 			NORMAL:
 				_instantiate_random_object(0)
 				_instantiate_random_object(512)
+				_instantiate_random_object(1024)
+				_instantiate_random_object(1536)
 			POTHOLE:
 				_instantiate_pothole_phase(0)
 				_instantiate_pothole_phase(256)
 				_instantiate_pothole_phase(512)
 				_instantiate_pothole_phase(768)
+				_instantiate_pothole_phase(1024)
+				_instantiate_pothole_phase(1536)
 			BARRICADE:
 				_instantiate_barricade_phase(0)
 				_instantiate_barricade_phase(512)
+				_instantiate_barricade_phase(1024)
+				_instantiate_barricade_phase(1536)
 			RAMP:
 				_instantiate_ramp_phase(0)
 				_instantiate_ramp_phase(512)
+				_instantiate_ramp_phase(1024)
+				_instantiate_ramp_phase(1536)
 			CONCRETE:
-				_instantiate_concrete_phase()
+				_instantiate_concrete_phase(0)
+				_instantiate_concrete_phase(1024)
 	subgroupIndex = (subgroupIndex + 1) % subgroupArr.size()
 
 func _free_children() -> void:
@@ -144,14 +153,14 @@ func _instantiate_ramp_phase(offsetX: int) -> void:
 	else:
 		_instantiate_res(resIndex, offsetX, Global.rng.randi_range(-300, 400))
 
-func _instantiate_concrete_phase() -> void:
+func _instantiate_concrete_phase(offsetX: int) -> void:
 	if skipIncoming == 0:
 		var doubleSpawn = Global.rng.randf() < 0.5
 		if doubleSpawn:
-			_instantiate_res(5, 0, Global.rng.randi_range(-300, -50))
-			_instantiate_res(5, 0, Global.rng.randi_range(150, 400))
+			_instantiate_res(5, offsetX, Global.rng.randi_range(-300, -50))
+			_instantiate_res(5, offsetX, Global.rng.randi_range(150, 400))
 		else:
-			_instantiate_res(5, 0, Global.rng.randi_range(-300, 400))
+			_instantiate_res(5, offsetX, Global.rng.randi_range(-300, 400))
 		skipIncoming += 1
 	else:
 		skipIncoming -= 1

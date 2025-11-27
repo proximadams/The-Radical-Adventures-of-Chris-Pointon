@@ -3,7 +3,7 @@
 [ext_resource path="res://audio/SkateboardWheelsLoop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
 [ext_resource path="res://images/chris/Shadow.png" type="Texture" id=3]
-[ext_resource path="res://images/environment/Background_Mock.png" type="Texture" id=4]
+[ext_resource path="res://images/environment/Background1.png" type="Texture" id=4]
 [ext_resource path="res://audio/Landing1.mp3" type="AudioStream" id=5]
 [ext_resource path="res://audio/Landing2.mp3" type="AudioStream" id=6]
 [ext_resource path="res://audio/Landing3.mp3" type="AudioStream" id=7]
@@ -1377,9 +1377,9 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=9]
 resource_name = "move"
-length = 30.0
+length = 60.0
 loop = true
-step = 1.0
+step = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Group1:position")
 tracks/0/interp = 1
@@ -1387,10 +1387,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 19, 19.4, 19.6, 19.8, 20 ),
+"times": PoolRealArray( 0, 28, 28.4, 28.6, 28.8, 29 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -3891, 1.36422e-12 ), Vector2( -3891, 1.36422e-12 ), Vector2( -3891, 2000 ), Vector2( 2048, 2000 ), Vector2( 2048, 1.36422e-12 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -5734, 1.36422e-12 ), Vector2( -5734, 1.36422e-12 ), Vector2( -3891, 2000 ), Vector2( 2048, 2000 ), Vector2( 6348, 1.36422e-12 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Group2:position")
@@ -1399,10 +1399,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 15, 30 ),
+"times": PoolRealArray( 0, 30, 60 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 3072, 1.36422e-12 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( -3072, 1.36422e-12 ) ]
+"values": [ Vector2( 6144, 1.36422e-12 ), Vector2( 1.36422e-12, 1.36422e-12 ), Vector2( -6144, 1.36422e-12 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Group1:visible")
@@ -1411,7 +1411,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 19.4, 19.6 ),
+"times": PoolRealArray( 0, 28.8, 29.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
@@ -1435,7 +1435,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 5, 10, 15, 20, 25 ),
+"times": PoolRealArray( 5, 15, 25, 35, 45, 55 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -7414,7 +7414,7 @@ anims/score = SubResource( 105 )
 anims/spin = SubResource( 96 )
 
 [node name="Environment" type="Node2D" parent="."]
-position = Vector2( 12, 200 )
+position = Vector2( -1000, 200 )
 z_index = -2
 script = ExtResource( 22 )
 
@@ -7422,20 +7422,17 @@ script = ExtResource( 22 )
 
 [node name="BackgroundSprite1" type="Sprite" parent="Environment/Group1"]
 position = Vector2( 500, 308 )
-scale = Vector2( 0.5, 1 )
 z_index = -1
 texture = ExtResource( 4 )
 
 [node name="BackgroundSprite2" type="Sprite" parent="Environment/Group1"]
-position = Vector2( 1524, 308 )
-scale = Vector2( 0.5, 1 )
+position = Vector2( 2548, 308 )
 z_index = -1
 texture = ExtResource( 4 )
 flip_h = true
 
 [node name="BackgroundSprite3" type="Sprite" parent="Environment/Group1"]
-position = Vector2( 2548, 308 )
-scale = Vector2( 0.5, 1 )
+position = Vector2( 4596, 308 )
 z_index = -1
 texture = ExtResource( 4 )
 
@@ -7443,30 +7440,27 @@ texture = ExtResource( 4 )
 position = Vector2( 0, 300 )
 
 [node name="SubGroup2" type="Node2D" parent="Environment/Group1"]
-position = Vector2( 1024, 300 )
+position = Vector2( 2048, 300 )
 
 [node name="SubGroup3" type="Node2D" parent="Environment/Group1"]
-position = Vector2( 2048, 300 )
+position = Vector2( 4096, 300 )
 
 [node name="Group2" type="Node2D" parent="Environment"]
 position = Vector2( 3072, 1.36422e-12 )
 
 [node name="BackgroundSprite1" type="Sprite" parent="Environment/Group2"]
 position = Vector2( 500, 308 )
-scale = Vector2( 0.5, 1 )
 z_index = -1
 texture = ExtResource( 4 )
 flip_h = true
 
 [node name="BackgroundSprite2" type="Sprite" parent="Environment/Group2"]
-position = Vector2( 1524, 308 )
-scale = Vector2( 0.5, 1 )
+position = Vector2( 2548, 308 )
 z_index = -1
 texture = ExtResource( 4 )
 
 [node name="BackgroundSprite3" type="Sprite" parent="Environment/Group2"]
-position = Vector2( 2548, 308 )
-scale = Vector2( 0.5, 1 )
+position = Vector2( 4596, 308 )
 z_index = -1
 texture = ExtResource( 4 )
 flip_h = true
@@ -7475,10 +7469,10 @@ flip_h = true
 position = Vector2( 0, 300 )
 
 [node name="SubGroup5" type="Node2D" parent="Environment/Group2"]
-position = Vector2( 1024, 300 )
+position = Vector2( 2048, 300 )
 
 [node name="SubGroup6" type="Node2D" parent="Environment/Group2"]
-position = Vector2( 2048, 300 )
+position = Vector2( 4096, 300 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Environment"]
 autoplay = "move"
