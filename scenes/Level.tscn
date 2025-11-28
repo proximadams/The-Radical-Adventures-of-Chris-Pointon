@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=2]
+[gd_scene load_steps=139 format=2]
 
 [ext_resource path="res://audio/SkateboardWheelsLoop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://code/FocusDefaultButton.gd" type="Script" id=36]
 [ext_resource path="res://images/ui/InputStick.png" type="Texture" id=37]
 [ext_resource path="res://code/LeaderBoard.gd" type="Script" id=38]
+[ext_resource path="res://audio/Threshold.mp3" type="AudioStream" id=39]
 
 [sub_resource type="Animation" id=92]
 length = 0.001
@@ -582,6 +583,76 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=120]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextMain:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=119]
+resource_name = "animate"
+length = 4.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextMain:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0.890196, 0, 1 ), Color( 1, 0.890196, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=108]
@@ -7418,6 +7489,39 @@ anims/delay_increase = SubResource( 86 )
 anims/increase = SubResource( 85 )
 anims/none = SubResource( 83 )
 
+[node name="Milestones" type="Control" parent="CanvasLayer/Score"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 2
+
+[node name="TextBackground" type="Label" parent="CanvasLayer/Score/Milestones"]
+modulate = Color( 0, 0, 0, 0 )
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 1144.0
+margin_bottom = 153.0
+theme = ExtResource( 26 )
+text = "Over 100 points!"
+
+[node name="TextMain" type="Label" parent="CanvasLayer/Score/Milestones"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 1136.0
+margin_bottom = 137.0
+theme = ExtResource( 26 )
+text = "Over 100 points!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Score/Milestones"]
+autoplay = "RESET"
+anims/RESET = SubResource( 120 )
+anims/animate = SubResource( 119 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Score/Milestones"]
+stream = ExtResource( 39 )
+volume_db = -15.0
+
 [node name="Tutorial" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -7428,6 +7532,7 @@ margin_bottom = -32.0
 mouse_filter = 2
 
 [node name="InputSticks" type="Control" parent="CanvasLayer/Tutorial"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2

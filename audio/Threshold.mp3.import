@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Threshold.mp3-c97cd8a3df46a687fd13005e7d099b7b.mp3str"
+
+[deps]
+
+source_file="res://audio/Threshold.mp3"
+dest_files=[ "res://.import/Threshold.mp3-c97cd8a3df46a687fd13005e7d099b7b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
