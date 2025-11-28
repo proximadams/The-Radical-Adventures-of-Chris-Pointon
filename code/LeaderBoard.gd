@@ -26,6 +26,10 @@ const data : Array = [
 		'points': 2172,
 	},
 	{
+		'name': 'Peyton',
+		'points': 1594,
+	},
+	{
 		'name': 'Nathan',
 		'points': 1362,
 	},
@@ -34,16 +38,24 @@ const data : Array = [
 		'points': 1312,
 	},
 	{
-		'name': 'Peyton',
-		'points': 1094,
+		'name': 'Dustin F.',
+		'points': 1282,
+	},
+	{
+		'name': 'Hailey',
+		'points': 930,
+	},
+	{
+		'name': 'Rylaan G.',
+		'points': 728,
 	},
 	{
 		'name': 'Aiyana',
 		'points': 600,
 	},
 	{
-		'name': 'Dude',
-		'points': 237,
+		'name': 'Justin',
+		'points': 503,
 	},
 	{
 		'name': 'YOU',
