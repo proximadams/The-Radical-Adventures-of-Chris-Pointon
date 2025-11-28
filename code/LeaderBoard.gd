@@ -129,7 +129,9 @@ func _update_player_in_leaderboard(totalPoints: int) -> void:
 						var entryInst : Control = container.get_child(i)
 						entryInst.set_info(data[i].name, data[i].points)
 						entryInst.set_place(i +1)
+	yield(get_tree(), 'idle_frame')
+	yield(get_tree(), 'idle_frame')
 	if 9 < playerEntry.place:
-		scroll_vertical = 1000
+		scroll_vertical = 10000
 	else:
 		scroll_vertical = 0
