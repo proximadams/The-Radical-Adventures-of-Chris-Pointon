@@ -7722,6 +7722,19 @@ anims/RESET = SubResource( 92 )
 anims/animate = SubResource( 91 )
 anims/hidden = SubResource( 93 )
 
+[node name="LeaderBoard" type="ScrollContainer" parent="CanvasLayer/GameOverScreen"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 216.0
+margin_top = 376.0
+margin_right = 1098.0
+margin_bottom = 876.0
+theme = SubResource( 115 )
+scroll_horizontal_enabled = false
+script = ExtResource( 38 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverScreen/LeaderBoard"]
+
 [node name="Count" type="Control" parent="CanvasLayer/GameOverScreen"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -7745,19 +7758,6 @@ grow_horizontal = 2
 theme = ExtResource( 26 )
 text = "9"
 align = 1
-
-[node name="LeaderBoard" type="ScrollContainer" parent="CanvasLayer/GameOverScreen"]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 216.0
-margin_top = 376.0
-margin_right = 1098.0
-margin_bottom = 876.0
-theme = SubResource( 115 )
-scroll_horizontal_enabled = false
-script = ExtResource( 38 )
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverScreen/LeaderBoard"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/GameOverScreen"]
 stream = ExtResource( 40 )
