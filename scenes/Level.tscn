@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=2]
+[gd_scene load_steps=140 format=2]
 
 [ext_resource path="res://audio/SkateboardWheelsLoop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -39,6 +39,7 @@
 [ext_resource path="res://images/ui/InputStick.png" type="Texture" id=37]
 [ext_resource path="res://code/LeaderBoard.gd" type="Script" id=38]
 [ext_resource path="res://audio/Threshold.mp3" type="AudioStream" id=39]
+[ext_resource path="res://audio/NewRecord.mp3" type="AudioStream" id=40]
 
 [sub_resource type="Animation" id=108]
 length = 0.001
@@ -7757,6 +7758,10 @@ scroll_horizontal_enabled = false
 script = ExtResource( 38 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverScreen/LeaderBoard"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/GameOverScreen"]
+stream = ExtResource( 40 )
+volume_db = 10.0
 
 [node name="Score" type="Control" parent="CanvasLayer"]
 pause_mode = 2

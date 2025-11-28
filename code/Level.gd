@@ -1,21 +1,22 @@
 extends Node2D
 
-onready var animGameOver       : AnimationPlayer = $CanvasLayer/GameOverScreen/AnimationPlayer
-onready var animInstructions   : AnimationPlayer = $CanvasLayer/Tutorial/AnimationPlayer
-onready var environment        : Node2D          = $Environment
-onready var gameOverHeader     : Control         = $CanvasLayer/GameOverScreen/Header
-onready var inputSticks        : Control         = $CanvasLayer/Tutorial/InputSticks
-onready var leaderBoard        : Control         = $CanvasLayer/GameOverScreen/LeaderBoard
-onready var player             : Node2D          = $Player
-onready var score              : Control         = $CanvasLayer/Score
-onready var tree               : SceneTree       = get_tree()
-onready var tutorialController : Array           = [
+onready var animGameOver       : AnimationPlayer   = $CanvasLayer/GameOverScreen/AnimationPlayer
+onready var animInstructions   : AnimationPlayer   = $CanvasLayer/Tutorial/AnimationPlayer
+onready var environment        : Node2D            = $Environment
+onready var gameOverHeader     : Control           = $CanvasLayer/GameOverScreen/Header
+onready var inputSticks        : Control           = $CanvasLayer/Tutorial/InputSticks
+onready var leaderBoard        : Control           = $CanvasLayer/GameOverScreen/LeaderBoard
+onready var newRecordSound     : AudioStreamPlayer = $CanvasLayer/GameOverScreen/AudioStreamPlayer
+onready var player             : Node2D            = $Player
+onready var score              : Control           = $CanvasLayer/Score
+onready var tree               : SceneTree         = get_tree()
+onready var tutorialController : Array             = [
 	$CanvasLayer/Tutorial/Move/Controller,
 	$CanvasLayer/Tutorial/Kickflip/Controller,
 	$CanvasLayer/Tutorial/Spin/Controller,
 	$CanvasLayer/Tutorial/Grind/Controller,
 ]
-onready var tutorialKeyboard  : Array           = [
+onready var tutorialKeyboard  : Array             = [
 	$CanvasLayer/Tutorial/Move/Keyboard,
 	$CanvasLayer/Tutorial/Kickflip/Keyboard,
 	$CanvasLayer/Tutorial/Spin/Keyboard,
@@ -110,6 +111,7 @@ func game_over() -> void:
 	Records.recordsArr.append(score.totalPoints)
 	if isNewRecord:
 		gameOverHeader.text = 'New Record!'
+		newRecordSound.play()
 	else:
 		gameOverHeader.text = 'Try Again.'
 
