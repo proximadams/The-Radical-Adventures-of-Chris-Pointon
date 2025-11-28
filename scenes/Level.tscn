@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=2]
+[gd_scene load_steps=136 format=2]
 
 [ext_resource path="res://audio/SkateboardWheelsLoop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://code/Player.gd" type="Script" id=2]
@@ -352,6 +352,46 @@ tracks/6/keys = {
 "update": 1,
 "values": [ false ]
 }
+
+[sub_resource type="StyleBoxFlat" id=116]
+bg_color = Color( 0.564706, 0.564706, 0.419608, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.564706, 0.564706, 0.419608, 1 )
+
+[sub_resource type="StyleBoxFlat" id=117]
+bg_color = Color( 0.670588, 0.670588, 0.521569, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.670588, 0.670588, 0.521569, 1 )
+
+[sub_resource type="StyleBoxFlat" id=118]
+bg_color = Color( 0.529412, 0.529412, 0.388235, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.529412, 0.529412, 0.388235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=114]
+bg_color = Color( 0.847059, 0.85098, 0.678431, 1 )
+border_width_left = 8
+border_width_right = 8
+border_color = Color( 0.847059, 0.85098, 0.678431, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="Theme" id=115]
+VScrollBar/styles/grabber = SubResource( 116 )
+VScrollBar/styles/grabber_highlight = SubResource( 117 )
+VScrollBar/styles/grabber_pressed = SubResource( 118 )
+VScrollBar/styles/scroll = SubResource( 114 )
 
 [sub_resource type="DynamicFont" id=78]
 size = 80
@@ -7294,6 +7334,7 @@ margin_left = 216.0
 margin_top = 376.0
 margin_right = 1098.0
 margin_bottom = 876.0
+theme = SubResource( 115 )
 scroll_horizontal_enabled = false
 script = ExtResource( 38 )
 
