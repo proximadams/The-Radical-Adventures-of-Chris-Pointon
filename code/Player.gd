@@ -366,7 +366,7 @@ func go_off_ramp() -> void:
 		anim.play('grind_end_jump_high')
 	elif rampState == WAIT_JUMP_LOW:
 		anim.play('grind_end_jump_low')
-	elif anim.current_animation == 'ramp_crouch':
+	elif anim.current_animation == 'ramp_crouch' or anim.current_animation == '':
 		anim.play('grind_end')
 	rampState = NOT_ON
 
